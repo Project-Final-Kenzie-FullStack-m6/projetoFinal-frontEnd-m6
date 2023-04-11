@@ -576,6 +576,27 @@ const Button = styled.button`
                         filter: brightness(0.9);
                     }
             `
+
+            //COLOR - TYPE - ID
+            //BOTÃO DETALHES
+
+            case 'detail':
+                return css`
+                    width: 55px;
+                    height: 32px;
+                    padding: 0px;
+                    border-radius: 150px;
+                    background-color: ${({theme}) => theme.colors.brand.b4};
+                    transition: 0.8s;
+                    margin-top: 1rem;
+                    color: ${({theme}) => theme.colors.brand.b1};
+                    font-size: ${({theme}) => theme.typography.fontSize.size14px};
+                    font-weight: ${({theme}) => theme.typography.fontWeight.weight500};
+
+                    &:hover {
+                        filter: brightness(0.9);
+                    }
+            `
         }
     }}
 `
