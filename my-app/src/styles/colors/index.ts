@@ -4,6 +4,7 @@ const colors = {
         b2:         "#5126EA",
         b3:         "#B0A6F0",
         b4:         "#EDEAFD",
+        b5:         "#41268E",
     },
 
     grey: {
@@ -25,9 +26,9 @@ const colors = {
         alert1:     "#CD2B31",
         alert2:     "#FDD8D8",
         alert3:     "#FFE5E5",
-        sucess1:    "#18794E",
-        sucess2:    "#CCEBD7",
-        sucess3:    "#DDF3E4",
+        success1:    "#18794E",
+        success2:    "#CCEBD7",
+        success3:    "#DDF3E4",
     },
 
 
