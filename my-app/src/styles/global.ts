@@ -1,4 +1,4 @@
-import {createGlobalStyle} from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
 
@@ -58,12 +58,14 @@ table {
 
 select:focus {
     box-shadow: 0 0 0 0;
+    /* border: 1px solid "#5126EA"; */
     border: 1px solid var(--color-grey-0);
     outline: 0;
 } 
 
 input:focus {
 	box-shadow: 0 0 0 0;
+	/* border: 1px solid "#5126EA"; */
 	border: 1px solid var(--color-grey-0);
 	outline: 0;
 }
@@ -77,4 +79,4 @@ textarea:focus{
 button{
 	cursor: pointer;
 }
-`
+`;
