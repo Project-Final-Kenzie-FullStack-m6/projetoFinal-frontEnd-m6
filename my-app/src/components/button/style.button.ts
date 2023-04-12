@@ -11,11 +11,9 @@ const Button = styled.button`
                 return css`
                     width: 146px;
                     height: 48px;
-                    padding: 12px 28px 12px 28px;
                     border-radius: 4px;
                     background-color: ${({theme}) => theme.colors.grey.g0};
                     transition: 0.8s;
-                    margin-top: 1rem;
                     color: ${({theme}) => theme.colors.whiteFixed};
                     font-size: ${({theme}) => theme.typography.fontSize.size16px};
                     font-weight: ${({theme}) => theme.typography.fontWeight.weight600};
@@ -28,11 +26,9 @@ const Button = styled.button`
                 return css`
                     width: 146px;
                     height: 48px;
-                    padding: 12px 28px 12px 28px;
                     border-radius: 4px;
                     background-color: ${({theme}) => theme.colors.grey.g1};
                     transition: 0.8s;
-                    margin-top: 1rem;
                     color: ${({theme}) => theme.colors.grey.whiteFixed};
                     font-size: ${({theme}) => theme.typography.fontSize.size16px};
                     font-weight: ${({theme}) => theme.typography.fontWeight.weight600};
@@ -45,11 +41,9 @@ const Button = styled.button`
                 return css`
                     width: 146px;
                     height: 48px;
-                    padding: 12px 28px 12px 28px;
                     border-radius: 4px;
                     border: solid 2px solid ${({theme}) => theme.colors.grey.g1};
                     transition: 0.8s;
-                    margin-top: 1rem;
                     color: ${({theme}) => theme.colors.grey.g0};
                     font-size: ${({theme}) => theme.typography.fontSize.size16px};
                     font-weight: ${({theme}) => theme.typography.fontWeight.weight600};
@@ -65,11 +59,9 @@ const Button = styled.button`
                 return css`
                     width: 146px;
                     height: 48px;
-                    padding: 12px 28px 12px 28px;
                     border-radius: 4px;
                     border: solid 2px solid ${({theme}) => theme.colors.grey.g5};
                     transition: 0.8s;
-                    margin-top: 1rem;
                     color: ${({theme}) => theme.colors.grey.g0};
                     font-size: ${({theme}) => theme.typography.fontSize.size16px};
                     font-weight: ${({theme}) => theme.typography.fontWeight.weight600};
@@ -85,11 +77,9 @@ const Button = styled.button`
                 return css`
                     width: 119px;
                     height: 38px;
-                    padding: 12px 20px 12px 20px;
                     border-radius: 4px;
                     background-color: ${({theme}) => theme.colors.grey.g0};
                     transition: 0.8s;
-                    margin-top: 1rem;
                     color: ${({theme}) => theme.colors.grey.whiteFixed};
                     font-size: ${({theme}) => theme.typography.fontSize.size14px};
                     font-weight: ${({theme}) => theme.typography.fontWeight.weight600};
@@ -103,11 +93,9 @@ const Button = styled.button`
                 return css`
                     width: 119px;
                     height: 38px;
-                    padding: 12px 20px 12px 20px;
                     border-radius: 4px;
                     border: solid 2px solid ${({theme}) => theme.colors.grey.g1};
                     transition: 0.8s;
-                    margin-top: 1rem;
                     color: ${({theme}) => theme.colors.grey.g0};
                     font-size: ${({theme}) => theme.typography.fontSize.size14px};
                     font-weight: ${({theme}) => theme.typography.fontWeight.weight600};
@@ -123,11 +111,9 @@ const Button = styled.button`
                 return css`
                     width: 119px;
                     height: 38px;
-                    padding: 12px 20px 12px 20px;
                     border-radius: 4px;
                     border: solid 2px solid ${({theme}) => theme.colors.grey.g5};
                     transition: 0.8s;
-                    margin-top: 1rem;
                     color: ${({theme}) => theme.colors.grey.g0};
                     font-size: ${({theme}) => theme.typography.fontSize.size14px};
                     font-weight: ${({theme}) => theme.typography.fontWeight.weight600};
@@ -143,11 +129,9 @@ const Button = styled.button`
                 return css`
                     width: 119px;
                     height: 38px;
-                    padding: 12px 20px 12px 20px;
                     border-radius: 4px;
                     background-color: ${({theme}) => theme.colors.grey.g1};
                     transition: 0.8s;
-                    margin-top: 1rem;
                     color: ${({theme}) => theme.colors.grey.whiteFixed};
                     font-size: ${({theme}) => theme.typography.fontSize.size14px};
                     font-weight: ${({theme}) => theme.typography.fontWeight.weight600};
@@ -162,11 +146,9 @@ const Button = styled.button`
                 return css`
                     width: 146px;
                     height: 48px;
-                    padding: 12px 28px 12px 28px;
                     border-radius: 4px;
                     background-color: ${({theme}) => theme.colors.grey.g6};
                     transition: 0.8s;
-                    margin-top: 1rem;
                     color: ${({theme}) => theme.colors.grey.g2};
                     font-size: ${({theme}) => theme.typography.fontSize.size16px};
                     font-weight: ${({theme}) => theme.typography.fontWeight.weight600};
@@ -179,11 +161,9 @@ const Button = styled.button`
                 return css`
                     width: 146px;
                     height: 48px;
-                    padding: 12px 28px 12px 28px;
                     border-radius: 4px;
                     background-color: ${({theme}) => theme.colors.grey.g5};
                     transition: 0.8s;
-                    margin-top: 1rem;
                     color: ${({theme}) => theme.colors.grey.g2};
                     font-size: ${({theme}) => theme.typography.fontSize.size16px};
                     font-weight: ${({theme}) => theme.typography.fontWeight.weight600};
@@ -196,11 +176,9 @@ const Button = styled.button`
                 return css`
                     width: 146px;
                     height: 48px;
-                    padding: 12px 28px 12px 28px;
                     border-radius: 4px;
                     background-color: ${({theme}) => theme.colors.grey.g5};
                     transition: 0.8s;
-                    margin-top: 1rem;
                     color: ${({theme}) => theme.colors.grey.whiteFixed};
                     font-size: ${({theme}) => theme.typography.fontSize.size16px};
                     font-weight: ${({theme}) => theme.typography.fontWeight.weight600};
@@ -213,11 +191,9 @@ const Button = styled.button`
                 return css`
                     width: 146px;
                     height: 48px;
-                    padding: 12px 28px 12px 28px;
                     border-radius: 4px;
                     background-color: ${({theme}) => theme.colors.grey.g10};
                     transition: 0.8s;
-                    margin-top: 1rem;
                     color: ${({theme}) => theme.colors.grey.g1};
                     font-size: ${({theme}) => theme.typography.fontSize.size16px};
                     font-weight: ${({theme}) => theme.typography.fontWeight.weight600};
@@ -230,11 +206,9 @@ const Button = styled.button`
                 return css`
                     width: 119px;
                     height: 38px;
-                    padding: 12px 20px 12px 20px;
                     border-radius: 4px;
                     background-color: ${({theme}) => theme.colors.grey.g6};
                     transition: 0.8s;
-                    margin-top: 1rem;
                     color: ${({theme}) => theme.colors.grey.g2};
                     font-size: ${({theme}) => theme.typography.fontSize.size14px};
                     font-weight: ${({theme}) => theme.typography.fontWeight.weight600};
@@ -247,11 +221,9 @@ const Button = styled.button`
                 return css`
                     width: 119px;
                     height: 38px;
-                    padding: 12px 20px 12px 20px;
                     border-radius: 4px;
                     background-color: ${({theme}) => theme.colors.grey.g5};
                     transition: 0.8s;
-                    margin-top: 1rem;
                     color: ${({theme}) => theme.colors.grey.g2};
                     font-size: ${({theme}) => theme.typography.fontSize.size14px};
                     font-weight: ${({theme}) => theme.typography.fontWeight.weight600};
@@ -264,11 +236,9 @@ const Button = styled.button`
                 return css`
                     width: 119px;
                     height: 38px;
-                    padding: 12px 20px 12px 20px;
                     border-radius: 4px;
                     background-color: ${({theme}) => theme.colors.grey.g5};
                     transition: 0.8s;
-                    margin-top: 1rem;
                     color: ${({theme}) => theme.colors.grey.whiteFixed};
                     font-size: ${({theme}) => theme.typography.fontSize.size14px};
                     font-weight: ${({theme}) => theme.typography.fontWeight.weight600};
@@ -281,11 +251,9 @@ const Button = styled.button`
                 return css`
                     width: 119px;
                     height: 38px;
-                    padding: 12px 20px 12px 20px;
                     border-radius: 4px;
                     background-color: ${({theme}) => theme.colors.grey.g10};
                     transition: 0.8s;
-                    margin-top: 1rem;
                     color: ${({theme}) => theme.colors.grey.g1};
                     font-size: ${({theme}) => theme.typography.fontSize.size14px};
                     font-weight: ${({theme}) => theme.typography.fontWeight.weight600};
@@ -300,11 +268,9 @@ const Button = styled.button`
                 return css`
                     width: 146px;
                     height: 48px;
-                    padding: 12px 28px 12px 28px;
                     border-radius: 4px;
                     background-color: ${({theme}) => theme.colors.brand.b1};
                     transition: 0.8s;
-                    margin-top: 1rem;
                     color: ${({theme}) => theme.colors.grey.whiteFixed};
                     font-size: ${({theme}) => theme.typography.fontSize.size16px};
                     font-weight: ${({theme}) => theme.typography.fontWeight.weight600};
@@ -317,11 +283,9 @@ const Button = styled.button`
                 return css`
                     width: 146px;
                     height: 48px;
-                    padding: 12px 28px 12px 28px;
                     border-radius: 4px;
                     background-color: ${({theme}) => theme.colors.brand.b2};
                     transition: 0.8s;
-                    margin-top: 1rem;
                     color: ${({theme}) => theme.colors.whiteFixed};
                     font-size: ${({theme}) => theme.typography.fontSize.size16px};
                     font-weight: ${({theme}) => theme.typography.fontWeight.weight600};
@@ -334,11 +298,9 @@ const Button = styled.button`
                 return css`
                     width: 146px;
                     height: 48px;
-                    padding: 12px 28px 12px 28px;
                     border-radius: 4px;
                     background-color: ${({theme}) => theme.colors.brand.b4};
                     transition: 0.8s;
-                    margin-top: 1rem;
                     color: ${({theme}) => theme.colors.brand.b1};
                     font-size: ${({theme}) => theme.typography.fontSize.size16px};
                     font-weight: ${({theme}) => theme.typography.fontWeight.weight600};
@@ -352,11 +314,9 @@ const Button = styled.button`
                 return css`
                     width: 146px;
                     height: 48px;
-                    padding: 12px 28px 12px 28px;
                     border-radius: 4px;
                     border: solid 2px solid ${({theme}) => theme.colors.brand.b1};
                     transition: 0.8s;
-                    margin-top: 1rem;
                     color: ${({theme}) => theme.colors.brand.b1};
                     font-size: ${({theme}) => theme.typography.fontSize.size16px};
                     font-weight: ${({theme}) => theme.typography.fontWeight.weight600};
@@ -371,11 +331,9 @@ const Button = styled.button`
                 return css`
                     width: 119px;
                     height: 38px;
-                    padding: 12px 20px 12px 20px;
                     border-radius: 4px;
                     border: solid 2px solid ${({theme}) => theme.colors.brand.b1};
                     transition: 0.8s;
-                    margin-top: 1rem;
                     color: ${({theme}) => theme.colors.brand.b1};
                     font-size: ${({theme}) => theme.typography.fontSize.size14px};
                     font-weight: ${({theme}) => theme.typography.fontWeight.weight600};
@@ -389,11 +347,9 @@ const Button = styled.button`
                 return css`
                     width: 119px;
                     height: 38px;
-                    padding: 12px 20px 12px 20px;
                     border-radius: 4px;
                     background-color: ${({theme}) => theme.colors.brand.b1};
                     transition: 0.8s;
-                    margin-top: 1rem;
                     color: ${({theme}) => theme.colors.grey.whiteFixed};
                     font-size: ${({theme}) => theme.typography.fontSize.size14px};
                     font-weight: ${({theme}) => theme.typography.fontWeight.weight600};
@@ -406,11 +362,9 @@ const Button = styled.button`
                 return css`
                     width: 119px;
                     height: 38px;
-                    padding: 12px 20px 12px 20px;
                     border-radius: 4px;
                     background-color: ${({theme}) => theme.colors.brand.b2};
                     transition: 0.8s;
-                    margin-top: 1rem;
                     color: ${({theme}) => theme.colors.whiteFixed};
                     font-size: ${({theme}) => theme.typography.fontSize.size14px};
                     font-weight: ${({theme}) => theme.typography.fontWeight.weight600};
@@ -423,11 +377,9 @@ const Button = styled.button`
                 return css`
                     width: 119px;
                     height: 38px;
-                    padding: 12px 20px 12px 20px;
                     border-radius: 4px;
                     background-color: ${({theme}) => theme.colors.brand.b4};
                     transition: 0.8s;
-                    margin-top: 1rem;
                     color: ${({theme}) => theme.colors.brand.b1};
                     font-size: ${({theme}) => theme.typography.fontSize.size14px};
                     font-weight: ${({theme}) => theme.typography.fontWeight.weight600};
@@ -443,11 +395,9 @@ const Button = styled.button`
                 return css`
                     width: 146px;
                     height: 48px;
-                    padding: 12px 28px 12px 28px;
                     border-radius: 4px;
                     background-color: ${({theme}) => theme.colors.feedBack.alert3};
                     transition: 0.8s;
-                    margin-top: 1rem;
                     color: ${({theme}) => theme.colors.feedBack.alert1};
                     font-size: ${({theme}) => theme.typography.fontSize.size16px};
                     font-weight: ${({theme}) => theme.typography.fontWeight.weight600};
@@ -462,11 +412,9 @@ const Button = styled.button`
                 return css`
                     width: 119px;
                     height: 38px;
-                    padding: 12px 20px 12px 20px;
                     border-radius: 4px;
                     background-color: ${({theme}) => theme.colors.feedBack.alert3};
                     transition: 0.8s;
-                    margin-top: 1rem;
                     color: ${({theme}) => theme.colors.feedBack.alert1};
                     font-size: ${({theme}) => theme.typography.fontSize.size14px};
                     font-weight: ${({theme}) => theme.typography.fontWeight.weight600};
@@ -482,11 +430,9 @@ const Button = styled.button`
                 return css`
                     width: 146px;
                     height: 48px;
-                    padding: 12px 28px 12px 28px;
                     border-radius: 4px;
                     background-color: ${({theme}) => theme.colors.feedBack.success3};
                     transition: 0.8s;
-                    margin-top: 1rem;
                     color: ${({theme}) => theme.colors.feedBack.success1};
                     font-size: ${({theme}) => theme.typography.fontSize.size16px};
                     font-weight: ${({theme}) => theme.typography.fontWeight.weight600};
@@ -501,11 +447,9 @@ const Button = styled.button`
                 return css`
                     width: 119px;
                     height: 38px;
-                    padding: 12px 20px 12px 20px;
                     border-radius: 4px;
                     background-color: ${({theme}) => theme.colors.feedBack.success3};
                     transition: 0.8s;
-                    margin-top: 1rem;
                     color: ${({theme}) => theme.colors.feedBack.success1};
                     font-size: ${({theme}) => theme.typography.fontSize.size14px};
                     font-weight: ${({theme}) => theme.typography.fontWeight.weight600};
@@ -523,11 +467,9 @@ const Button = styled.button`
                 return css`
                     width: 146px;
                     height: 48px;
-                    padding: 12px 28px 12px 28px;
                     border-radius: 4px;
                     background-color: ${({theme}) => theme.colors.brand.b3};
                     transition: 0.8s;
-                    margin-top: 1rem;
                     color: ${({theme}) => theme.colors.brand.b4};
                     font-size: ${({theme}) => theme.typography.fontSize.size16px};
                     font-weight: ${({theme}) => theme.typography.fontWeight.weight600};
@@ -549,7 +491,6 @@ const Button = styled.button`
                     border-radius: 150px;
                     background-color: ${({theme}) => theme.colors.brand.b2};
                     transition: 0.8s;
-                    margin-top: 1rem;
                     color: ${({theme}) => theme.colors.grey.whiteFixed};
                     font-size: ${({theme}) => theme.typography.fontSize.size14px};
                     font-weight: ${({theme}) => theme.typography.fontWeight.weight500};
@@ -567,7 +508,6 @@ const Button = styled.button`
                     border-radius: 150px;
                     background-color: ${({theme}) => theme.colors.brand.b5};
                     transition: 0.8s;
-                    margin-top: 1rem;
                     color: ${({theme}) => theme.colors.grey.whiteFixed};
                     font-size: ${({theme}) => theme.typography.fontSize.size14px};
                     font-weight: ${({theme}) => theme.typography.fontWeight.weight500};
@@ -588,7 +528,6 @@ const Button = styled.button`
                     border-radius: 150px;
                     background-color: ${({theme}) => theme.colors.brand.b4};
                     transition: 0.8s;
-                    margin-top: 1rem;
                     color: ${({theme}) => theme.colors.brand.b1};
                     font-size: ${({theme}) => theme.typography.fontSize.size14px};
                     font-weight: ${({theme}) => theme.typography.fontWeight.weight500};
