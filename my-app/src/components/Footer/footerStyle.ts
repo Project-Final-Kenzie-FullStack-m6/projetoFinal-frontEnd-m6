@@ -1,10 +1,7 @@
 import styled from "styled-components";
-import typography from "../../styles/typography";
-import colors from "../../styles/colors";
-
 const FooterStyle = styled.footer`
 
-background: #0B0D0D;
+background:  ${({theme}) => theme.colors.g0};
 flex-direction: row;
 justify-content: space-between;
 align-items: center;
@@ -13,26 +10,26 @@ gap: 10px;
 display: flex;
 
 
+
 div>img{
     width:153.02px;
     height:26.34px
 }
 
 p{
-    font-family: 'Inter';
+    font-family: ${({theme}) => theme.typography.fontFamily};;
     font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
+    font-weight: ${({theme}) => theme.typography.fontWeight.weight400};
+    font-size: ${({theme}) => theme.typography.fontSize.size14px};
     line-height: 24px;
-    color: #FFFFFF;
+    color:  ${({theme}) => theme.colors.whiteFixed};
 }
 
 div{
-    color:white;
     display:flex
 }
 a{
-    background: #212529;
+    background:  ${({theme}) => theme.colors.g1};
     border-radius: 4px;
     width: 53px;
     height: 50px;

@@ -12,9 +12,7 @@ function Footer() {
        <img src={logo} alt=""/>
         </div>
         <p>© 2022 - Todos os direitos reservados</p>
-
         <div><a href="#top"><img src={angleUp} alt="" /></a></div>
-
       </FooterStyle>
     );
   }
