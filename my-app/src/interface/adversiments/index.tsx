@@ -13,6 +13,7 @@ interface iAdversimentDataResponse {
     mileAge: number;
     price: number;
     color: string;
+    description: string;
     images: iImageResponse;
     user: iUser
 }
