@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { iAdversimentContextProps, iAdversimentDataResponse, iAdversimentProviderProps } from "../../interface/adversiments";
 
 
-export const adversimentContext = createContext({} as iAdversimentContextProps);
+export const AdversimentContext = createContext({} as iAdversimentContextProps);
 
 const AdversimentProvider = ({children}: iAdversimentProviderProps) => {
     const [adversimentData, setAdversimentData] = useState([] as iAdversimentDataResponse[])
@@ -27,7 +27,7 @@ const AdversimentProvider = ({children}: iAdversimentProviderProps) => {
     }, [])
 
     return (
-        <adversimentContext.Provider value={{
+        <AdversimentContext.Provider value={{
 
                 setAdversimentData, 
                 setLoading, 
@@ -36,7 +36,7 @@ const AdversimentProvider = ({children}: iAdversimentProviderProps) => {
             
             }}>
                 {children}
-            </adversimentContext.Provider>
+            </AdversimentContext.Provider>
     )
 }
 
