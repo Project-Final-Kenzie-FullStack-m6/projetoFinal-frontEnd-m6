@@ -13,7 +13,7 @@ function Footer() {
         </div>
         <p>© 2022 - Todos os direitos reservados</p>
 
-        <div><button ><img src={angleUp} alt="" /></button></div>
+        <div><a href="#top"><img src={angleUp} alt="" /></a></div>
 
       </FooterStyle>
     );

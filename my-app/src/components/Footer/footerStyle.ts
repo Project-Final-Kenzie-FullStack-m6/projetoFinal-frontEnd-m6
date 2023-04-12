@@ -31,7 +31,7 @@ div{
     color:white;
     display:flex
 }
-button{
+a{
     background: #212529;
     border-radius: 4px;
     width: 53px;
