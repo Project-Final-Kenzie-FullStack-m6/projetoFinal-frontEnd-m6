@@ -507,7 +507,6 @@ const Button = styled.button`
           border-radius: 150px;
           background-color: ${({ theme }) => theme.colors.brand.b5};
           transition: 0.8s;
-          margin-top: 1rem;
           color: ${({ theme }) => theme.colors.grey.whiteFixed};
           font-size: ${({ theme }) => theme.typography.fontSize.size14px};
           font-weight: ${({ theme }) => theme.typography.fontWeight.weight500};
@@ -528,7 +527,6 @@ const Button = styled.button`
           border-radius: 150px;
           background-color: ${({ theme }) => theme.colors.brand.b4};
           transition: 0.8s;
-          margin-top: 1rem;
           color: ${({ theme }) => theme.colors.brand.b1};
           font-size: ${({ theme }) => theme.typography.fontSize.size14px};
           font-weight: ${({ theme }) => theme.typography.fontWeight.weight500};

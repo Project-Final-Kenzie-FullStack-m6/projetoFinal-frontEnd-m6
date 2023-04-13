@@ -6,8 +6,24 @@ export const StyledMain = styled.main`
   flex-direction: row;
   margin-top: 50px;
 
+  .cardList {
+    width: 75%;
+    /* max-width: 1300px; */
+    .ulAdversiment {
+      width: 100%;
+      display: flex;
+      gap: 0 50px;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .liAdversiment {
+      width: 300px;
+      height: 400px;
+    }
+  }
+
   .filters {
-    border: 1px solid red;
     width: 25%;
     .divButton {
       margin: 15px 0 20px 40px;

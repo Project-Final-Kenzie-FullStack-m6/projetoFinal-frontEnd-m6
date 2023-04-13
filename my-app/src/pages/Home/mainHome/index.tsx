@@ -1,4 +1,5 @@
 import { Button } from "../../../components/button/style.button";
+import { CardAdversiment } from "../../../components/cardAdverstiment";
 import { StyledMain } from "../style";
 
 export const MainHome = () => {
@@ -63,7 +64,7 @@ export const MainHome = () => {
         </div>
       </section>
       <section className="cardList">
-        <h1>olá</h1>
+        <CardAdversiment />
       </section>
     </StyledMain>
   );
