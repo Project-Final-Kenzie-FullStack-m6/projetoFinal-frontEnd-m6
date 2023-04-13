@@ -189,7 +189,7 @@ export const CardAdversiment = () => {
           </li>
         </ul>
       </S.Container>
-      {adversimentData?.map((data: iAdversimentDataResponse, index: number) => {
+      {/* {adversimentData?.map((data: iAdversimentDataResponse, index: number) => {
         return (
           <>
             <S.Container id={`${data.id}`} key={`${data.id}`}>
@@ -221,7 +221,7 @@ export const CardAdversiment = () => {
             </S.Container>
           </>
         );
-      })}
+      })} */}
     </>
   );
 };

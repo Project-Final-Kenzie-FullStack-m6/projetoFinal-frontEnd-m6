@@ -1,7 +1,7 @@
 import styled from "styled-components";
 const FooterStyle = styled.footer`
 
-background:  ${({theme}) => theme.colors.g0};
+background:  ${({theme}) => theme.colors.grey.g0};
 flex-direction: row;
 justify-content: space-between;
 align-items: center;
@@ -22,14 +22,17 @@ p{
     font-weight: ${({theme}) => theme.typography.fontWeight.weight400};
     font-size: ${({theme}) => theme.typography.fontSize.size14px};
     line-height: 24px;
-    color:  ${({theme}) => theme.colors.whiteFixed};
+    color:  ${({theme}) => theme.colors.grey.whiteFixed};
 }
 
 div{
     display:flex
 }
 a{
-    background:  ${({theme}) => theme.colors.g1};
+    background:  ${({theme}) => theme.colors.grey.g1};
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 4px;
     width: 53px;
     height: 50px;

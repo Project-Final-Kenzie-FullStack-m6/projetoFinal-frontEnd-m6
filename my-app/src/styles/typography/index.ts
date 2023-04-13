@@ -12,6 +12,7 @@ const typography = {
         size20px: "20px",
         size16px: "16px",
         size14px: "14px",
+        size12px: "12px",
 
     },
 

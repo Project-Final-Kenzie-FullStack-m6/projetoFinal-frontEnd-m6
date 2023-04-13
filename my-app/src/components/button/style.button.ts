@@ -516,6 +516,23 @@ const Button = styled.button`
           }
         `;
 
+      case "ball-0-3":
+        return css`
+          width: 104px;
+          height: 104px;
+          padding: 0px;
+          border-radius: 150px;
+          background-color: ${({ theme }) => theme.colors.brand.b5};
+          transition: 0.8s;
+          color: ${({ theme }) => theme.colors.grey.whiteFixed};
+          font-size: ${({ theme }) => theme.typography.fontSize.size14px};
+          font-weight: ${({ theme }) => theme.typography.fontWeight.weight500};
+
+          &:hover {
+            filter: brightness(0.9);
+          }
+        `;
+
       //COLOR - TYPE - ID
       //BOTÃO DETALHES
 
