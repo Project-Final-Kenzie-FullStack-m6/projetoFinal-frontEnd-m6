@@ -289,9 +289,8 @@ const StyledContainer = styled.main`
     }
 
     .divFooter{
-        margin-top: 650px;
+        margin-top: 1450px;
         width: 100%;
-
     }
 
 `
