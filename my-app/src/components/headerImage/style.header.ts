@@ -1,13 +1,13 @@
 import styled from "styled-components";
 import Photo from "../../assets/Photo.png";
 export const StyledImageHeader = styled.div`
-  width: 100vw;
+  /* width: 100vw; */
   height: 500px;
 
   background: no-repeat center/cover url(${Photo});
   background-size: contain;
   div {
-    width: 100vw;
+    /* width: 100vw; */
     height: 500px;
 
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.29) 0%, #000000 100%);

@@ -65,6 +65,12 @@ export const MainHome = () => {
       </section>
       <section className="cardList">
         <CardAdversiment />
+        <div className="pagination">
+          <h4>
+            <strong>1</strong> de 2
+          </h4>
+          <h3>{"Seguinte >"}</h3>
+        </div>
       </section>
     </StyledMain>
   );

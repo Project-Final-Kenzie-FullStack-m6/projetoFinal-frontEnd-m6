@@ -187,9 +187,138 @@ export const CardAdversiment = () => {
               <span>R$ 00.000,00</span>
             </div>
           </li>
+          <li className="liAdversiment">
+            <div className="divImg">
+              <img src={bmw} alt="cars" />
+            </div>
+
+            <div className="divModelDescription">
+              <h3>modelo 1</h3>
+              <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem...
+              </p>
+            </div>
+
+            <div className="divNameUser">
+              <Button font="ball-0-2">SL</Button>
+              <span>Samuel Leão</span>
+            </div>
+
+            <div className="divMileAgePrice">
+              <div>
+                <span>0 KM</span>
+                <span>2019</span>
+              </div>
+              <span>R$ 00.000,00</span>
+            </div>
+          </li>
+          <li className="liAdversiment">
+            <div className="divImg">
+              <img src={bmw} alt="cars" />
+            </div>
+
+            <div className="divModelDescription">
+              <h3>modelo 1</h3>
+              <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem...
+              </p>
+            </div>
+
+            <div className="divNameUser">
+              <Button font="ball-0-2">SL</Button>
+              <span>Samuel Leão</span>
+            </div>
+
+            <div className="divMileAgePrice">
+              <div>
+                <span>0 KM</span>
+                <span>2019</span>
+              </div>
+              <span>R$ 00.000,00</span>
+            </div>
+          </li>
+          <li className="liAdversiment">
+            <div className="divImg">
+              <img src={bmw} alt="cars" />
+            </div>
+
+            <div className="divModelDescription">
+              <h3>modelo 1</h3>
+              <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem...
+              </p>
+            </div>
+
+            <div className="divNameUser">
+              <Button font="ball-0-2">SL</Button>
+              <span>Samuel Leão</span>
+            </div>
+
+            <div className="divMileAgePrice">
+              <div>
+                <span>0 KM</span>
+                <span>2019</span>
+              </div>
+              <span>R$ 00.000,00</span>
+            </div>
+          </li>
+          <li className="liAdversiment">
+            <div className="divImg">
+              <img src={bmw} alt="cars" />
+            </div>
+
+            <div className="divModelDescription">
+              <h3>modelo 1</h3>
+              <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem...
+              </p>
+            </div>
+
+            <div className="divNameUser">
+              <Button font="ball-0-2">SL</Button>
+              <span>Samuel Leão</span>
+            </div>
+
+            <div className="divMileAgePrice">
+              <div>
+                <span>0 KM</span>
+                <span>2019</span>
+              </div>
+              <span>R$ 00.000,00</span>
+            </div>
+          </li>
+          <li className="liAdversiment">
+            <div className="divImg">
+              <img src={bmw} alt="cars" />
+            </div>
+
+            <div className="divModelDescription">
+              <h3>modelo 1</h3>
+              <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem...
+              </p>
+            </div>
+
+            <div className="divNameUser">
+              <Button font="ball-0-2">SL</Button>
+              <span>Samuel Leão</span>
+            </div>
+
+            <div className="divMileAgePrice">
+              <div>
+                <span>0 KM</span>
+                <span>2019</span>
+              </div>
+              <span>R$ 00.000,00</span>
+            </div>
+          </li>
         </ul>
       </S.Container>
       {adversimentData?.map((data: iAdversimentDataResponse, index: number) => {
+        const arrayName = data.user.name?.split(" ");
+        if (arrayName) {
+          const inicits = `${arrayName[0][0]}${arrayName[arrayName.length - 1][0]}`;
+        }
         return (
           <>
             <S.Container id={`${data.id}`} key={`${data.id}`}>
