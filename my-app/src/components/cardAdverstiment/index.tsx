@@ -316,8 +316,9 @@ export const CardAdversiment = () => {
       </S.Container>
       {adversimentData?.map((data: iAdversimentDataResponse, index: number) => {
         const arrayName = data.user.name?.split(" ");
+        let inicits = "";
         if (arrayName) {
-          const inicits = `${arrayName[0][0]}${arrayName[arrayName.length - 1][0]}`;
+          inicits = `${arrayName[0][0]}${arrayName[arrayName.length - 1][0]}`;
         }
         return (
           <>
@@ -334,7 +335,7 @@ export const CardAdversiment = () => {
                   </div>
 
                   <div className="divNameUser">
-                    <Button font="ball-0-2"></Button>
+                    <Button font="ball-0-2">{inicits.toUpperCase()}</Button>
                     <span>{data.user.name}</span>
                   </div>
 
