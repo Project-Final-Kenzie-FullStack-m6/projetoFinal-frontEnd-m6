@@ -10,7 +10,7 @@ export const CardAdversiment = () => {
 
   return (
     <>
-      <S.Container id={`1`} key={`1`}>
+      <S.Container className="mobileVersion" id={`1`} key={`1`}>
         <ul className="ulAdversiment">
           <li className="liAdversiment">
             <div className="divImg">

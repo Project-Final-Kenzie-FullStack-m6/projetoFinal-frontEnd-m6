@@ -1,11 +1,11 @@
 import styled from "styled-components";
-import Photo from "../../assets/Photo.png";
+import bmw from "../../assets/bmw.png";
 export const StyledImageHeader = styled.div`
   /* width: 100vw; */
   height: 500px;
 
-  background: no-repeat center/cover url(${Photo});
-  background-size: contain;
+  background: no-repeat center/cover url(${bmw});
+  background-size: 85%;
   div {
     /* width: 100vw; */
     height: 500px;

@@ -30,6 +30,7 @@ export const StyledMain = styled.main`
     .pagination {
       padding: 85px 0 65px;
       width: 100%;
+      max-width: 1100px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -81,6 +82,12 @@ export const StyledMain = styled.main`
       line-height: 25px;
       color: #868e96;
       margin-left: 40px;
+    }
+  }
+  @media (max-width: 1125px) {
+    .divButton {
+      display: flex;
+      flex-direction: column;
     }
   }
 `;
