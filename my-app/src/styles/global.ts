@@ -72,11 +72,12 @@ input:focus {
 
 textarea:focus{
     box-shadow: 0 0 0 0;
-    border: 0 none;
+    border: none;
     outline: 0;
 } 
 
 button{
 	cursor: pointer;
+	border: none;
 }
 `;
