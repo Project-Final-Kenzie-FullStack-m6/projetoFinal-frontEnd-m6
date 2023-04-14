@@ -65,6 +65,24 @@ export const MainHome = () => {
       </section>
       <section className="cardList">
         <CardAdversiment />
+        {window.innerWidth > 900 ? (
+          <div className="pagination">
+            <h4>
+              <strong>1</strong> de 2
+            </h4>
+            <h3>{"Seguinte >"}</h3>
+          </div>
+        ) : (
+          <div className="divMobileFilter">
+            <Button font="brand-1-2">Filtros</Button>
+            <div className="pagination">
+              <h4>
+                <strong>1</strong> de 2
+              </h4>
+              <h3>{"Seguinte >"}</h3>
+            </div>
+          </div>
+        )}
       </section>
     </StyledMain>
   );
