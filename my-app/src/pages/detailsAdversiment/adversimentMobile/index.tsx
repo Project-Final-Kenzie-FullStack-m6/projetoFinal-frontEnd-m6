@@ -114,9 +114,9 @@ const AdversimentMobile = () => {
             </div>
         </div>
 
-        {/* <div className="divFooter">
+        <div className="divFooter">
             <Footer/>
-        </div> */}
+        </div>
     </StyledContainer>
         
     )

@@ -312,11 +312,10 @@ const StyledContainer = styled.main`
 
         }
     }
-
+    
     .divFooter{
         margin-top: 650px;
         width: 100%;
-
     }
 
 `
