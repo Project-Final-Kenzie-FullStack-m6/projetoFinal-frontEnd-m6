@@ -2,8 +2,51 @@ import styled from "styled-components";
 import bmw from "../../../assets/bmw.png";
 
 export const StyledHomePageMobile = styled.main`
+  .sideBarOff {
+    display: none;
+  }
+
+  .sideBarOn {
+    background-color: ${({ theme }) => theme.colors.grey.whiteFixed};
+    position: absolute;
+    top: 70px;
+    padding-top: 25px;
+    width: 50%;
+    min-width: 320px;
+    z-index: 1;
+    height: 1650px;
+    box-shadow: 0px 0px 10px ${({ theme }) => theme.colors.grey.g3};
+    div {
+      flex-direction: row;
+    }
+    .divView {
+      display: flex;
+      justify-content: center;
+
+      button {
+        margin-top: 20px;
+        color: white;
+        width: 185px;
+        height: 45px;
+      }
+    }
+  }
+
+  .divClose {
+    width: 85%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 30px;
+    margin-bottom: 25px;
+    font-size: 25px;
+    h3 {
+      font-size: 20px;
+    }
+  }
+
   .mobileVersion {
-    max-height: 700px;
+    max-height: 1035px;
   }
   .headerMobile {
     height: 70px;
@@ -27,9 +70,6 @@ export const StyledHomePageMobile = styled.main`
   .divIcon {
     border: none;
     font-size: 25px;
-  }
-  .filters {
-    display: none;
   }
   .cardList {
     width: 100%;

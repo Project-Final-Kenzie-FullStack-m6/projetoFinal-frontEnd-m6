@@ -8,7 +8,6 @@ export const StyledMain = styled.main`
 
   .cardList {
     width: 75%;
-    /* max-width: 1300px; */
     .ulAdversiment {
       width: 100%;
       display: flex;
@@ -40,9 +39,9 @@ export const StyledMain = styled.main`
         font-weight: 600;
         font-size: 24px;
         line-height: 30px;
-        color: rgba(134, 142, 150, 0.5);
+        color: ${({ theme }) => theme.colors.grey.g4};
         strong {
-          color: rgba(134, 142, 150, 1);
+          color: ${({ theme }) => theme.colors.grey.g3};
         }
       }
       h3 {
@@ -65,7 +64,7 @@ export const StyledMain = styled.main`
       width: 100px;
       height: 27px;
       font-size: 14px;
-      color: #868e96;
+      color: ${({ theme }) => theme.colors.grey.g3};
     }
     h2 {
       font-weight: 600;
@@ -80,7 +79,7 @@ export const StyledMain = styled.main`
       font-weight: 500;
       font-size: 17px;
       line-height: 25px;
-      color: #868e96;
+      color: ${({ theme }) => theme.colors.grey.g3};
       margin-left: 40px;
     }
   }
