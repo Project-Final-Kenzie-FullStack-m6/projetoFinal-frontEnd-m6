@@ -265,7 +265,6 @@ const Button = styled.button`
       //Color BRAND
       case "brand-0-1":
         return css`
-          width: 146px;
           height: 48px;
           border-radius: 4px;
           background-color: ${({ theme }) => theme.colors.brand.b1};
