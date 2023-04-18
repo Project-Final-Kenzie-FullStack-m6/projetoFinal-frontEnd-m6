@@ -2,6 +2,23 @@ import { iUser } from "../users";
 
 interface iImageResponse {
     imageUrl: string;
+    imageUrl1: string;
+    imageUrl2: string;
+}
+
+interface iAdversimentDataRegister {
+    id: string;
+    brand: string;
+    model: string;
+    age: number;
+    fipe: string;
+    fuelType: string;
+    mileAge: number;
+    price: string;
+    color: string;
+    description: string;
+    images: iImageResponse;
+    user: iUser
 }
 
 interface iAdversimentDataResponse {
@@ -19,26 +36,31 @@ interface iAdversimentDataResponse {
 }
 
 
+
+
 interface iAdversimentProviderProps {
     children: React.ReactNode
 }
 
 interface iAdversimentContextProps {
 
+    //post adversiment
+    postNewAdversiment: (data: any) => Promise<void>
+    
+    //globals
 
-    //loading
     loading?: boolean
     setLoading: React.Dispatch<React.SetStateAction<boolean>>
 
-    //globals
     adversimentData: iAdversimentDataResponse[]
     setAdversimentData: React.Dispatch<React.SetStateAction<iAdversimentDataResponse[]>>
-    
 
+    ModalAddOpen?: boolean
+    setModalAddOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 
 
 
 
-export type {iAdversimentContextProps, iAdversimentProviderProps, iAdversimentDataResponse}
+export type {iAdversimentContextProps, iAdversimentProviderProps, iAdversimentDataResponse, iAdversimentDataRegister}

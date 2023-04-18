@@ -8,6 +8,7 @@ const RoutesMain = () => (
   <Routes>
     <Route path="/home" element={<Homepage />} />
     <Route path="/details" element={<DetailsAdversiment />} />
+    <Route path="/createAds" element={<CreateAdversimentModal />} />
   </Routes>
 );
 
