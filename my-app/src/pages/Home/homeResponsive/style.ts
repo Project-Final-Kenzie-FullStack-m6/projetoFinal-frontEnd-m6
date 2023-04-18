@@ -48,11 +48,11 @@ export const StyledHomePageMobile = styled.main`
   .mobileVersion {
     max-height: 1035px;
   }
-  .headerMobile {
+  /* .headerMobile {
     height: 70px;
-  }
+  } */
 
-  .headerImageMobile {
+  /* .headerImageMobile {
     max-height: 350px;
 
     div {
@@ -66,11 +66,11 @@ export const StyledHomePageMobile = styled.main`
         line-height: 56px;
       }
     }
-  }
-  .divIcon {
+  } */
+  /* .divIcon {
     border: none;
     font-size: 25px;
-  }
+  } */
   .cardList {
     width: 100%;
     .ulAdversiment {
@@ -98,14 +98,14 @@ export const StyledHomePageMobile = styled.main`
     .ulAdversiment {
       margin: 0 25px;
       display: flex;
-      height: 350px;
+      height: 390px;
       flex-direction: column;
       flex-wrap: nowrap;
       overflow-y: scroll;
     }
   }
 
-  @media (max-width: 570px) {
+  /* @media (max-width: 570px) {
     .headerImageMobile {
       background: url(${bmw}) center center / 98% no-repeat;
       div {
@@ -118,9 +118,9 @@ export const StyledHomePageMobile = styled.main`
         }
       }
     }
-  }
+  } */
 
-  .headerMobile {
+  /* .headerMobile {
     padding: 0 25px;
-  }
+  } */
 `;
