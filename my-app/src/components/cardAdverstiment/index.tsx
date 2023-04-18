@@ -17,24 +17,45 @@ export const CardAdversiment = () => {
               <img src={bmw} alt="cars" />
             </div>
 
-            <div className="divModelDescription">
-              <h3>modelo 1</h3>
-              <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem...
-              </p>
-            </div>
-
-            <div className="divNameUser">
-              <Button font="ball-0-2">SL</Button>
-              <span>Samuel Leão</span>
-            </div>
-
-            <div className="divMileAgePrice">
-              <div>
-                <span>0 KM</span>
-                <span>2019</span>
+            <div className="divInfos">
+              <div className="divModelDescription">
+                <h3>modelo 1</h3>
+                <p>
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                  Lorem...
+                </p>
               </div>
-              <span>R$ 00.000,00</span>
+
+              {window.location.pathname === "/advertiser" ? (
+                <>
+                  <div className="divMileAgePrice">
+                    <div>
+                      <span>0 KM</span>
+                      <span>2019</span>
+                    </div>
+                    <span>R$ 00.000,00</span>
+                  </div>
+                  <div className="divAdm">
+                    <Button font="grey-3-4">Editar</Button>
+                    <Button font="grey-3-4">Ver detalhes</Button>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="divNameUser">
+                    <Button font="ball-0-2">SL</Button>
+                    <span>Samuel Leão</span>
+                  </div>
+
+                  <div className="divMileAgePrice">
+                    <div>
+                      <span>0 KM</span>
+                      <span>2019</span>
+                    </div>
+                    <span>R$ 00.000,00</span>
+                  </div>
+                </>
+              )}
             </div>
           </li>
           <li className="liAdversiment">
@@ -42,24 +63,45 @@ export const CardAdversiment = () => {
               <img src={bmw} alt="cars" />
             </div>
 
-            <div className="divModelDescription">
-              <h3>modelo 1</h3>
-              <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem...
-              </p>
-            </div>
-
-            <div className="divNameUser">
-              <Button font="ball-0-2">SL</Button>
-              <span>Samuel Leão</span>
-            </div>
-
-            <div className="divMileAgePrice">
-              <div>
-                <span>0 KM</span>
-                <span>2019</span>
+            <div className="divInfos">
+              <div className="divModelDescription">
+                <h3>modelo 1</h3>
+                <p>
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                  Lorem...
+                </p>
               </div>
-              <span>R$ 00.000,00</span>
+
+              {window.location.pathname === "/advertiser" ? (
+                <>
+                  <div className="divMileAgePrice">
+                    <div>
+                      <span>0 KM</span>
+                      <span>2019</span>
+                    </div>
+                    <span>R$ 00.000,00</span>
+                  </div>
+                  <div className="divAdm">
+                    <Button font="grey-3-4">Editar</Button>
+                    <Button font="grey-3-4">Ver detalhes</Button>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="divNameUser">
+                    <Button font="ball-0-2">SL</Button>
+                    <span>Samuel Leão</span>
+                  </div>
+
+                  <div className="divMileAgePrice">
+                    <div>
+                      <span>0 KM</span>
+                      <span>2019</span>
+                    </div>
+                    <span>R$ 00.000,00</span>
+                  </div>
+                </>
+              )}
             </div>
           </li>
           <li className="liAdversiment">
@@ -67,24 +109,45 @@ export const CardAdversiment = () => {
               <img src={bmw} alt="cars" />
             </div>
 
-            <div className="divModelDescription">
-              <h3>modelo 1</h3>
-              <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem...
-              </p>
-            </div>
-
-            <div className="divNameUser">
-              <Button font="ball-0-2">SL</Button>
-              <span>Samuel Leão</span>
-            </div>
-
-            <div className="divMileAgePrice">
-              <div>
-                <span>0 KM</span>
-                <span>2019</span>
+            <div className="divInfos">
+              <div className="divModelDescription">
+                <h3>modelo 1</h3>
+                <p>
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                  Lorem...
+                </p>
               </div>
-              <span>R$ 00.000,00</span>
+
+              {window.location.pathname === "/advertiser" ? (
+                <>
+                  <div className="divMileAgePrice">
+                    <div>
+                      <span>0 KM</span>
+                      <span>2019</span>
+                    </div>
+                    <span>R$ 00.000,00</span>
+                  </div>
+                  <div className="divAdm">
+                    <Button font="grey-3-4">Editar</Button>
+                    <Button font="grey-3-4">Ver detalhes</Button>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="divNameUser">
+                    <Button font="ball-0-2">SL</Button>
+                    <span>Samuel Leão</span>
+                  </div>
+
+                  <div className="divMileAgePrice">
+                    <div>
+                      <span>0 KM</span>
+                      <span>2019</span>
+                    </div>
+                    <span>R$ 00.000,00</span>
+                  </div>
+                </>
+              )}
             </div>
           </li>
           <li className="liAdversiment">
@@ -92,24 +155,45 @@ export const CardAdversiment = () => {
               <img src={bmw} alt="cars" />
             </div>
 
-            <div className="divModelDescription">
-              <h3>modelo 1</h3>
-              <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem...
-              </p>
-            </div>
-
-            <div className="divNameUser">
-              <Button font="ball-0-2">SL</Button>
-              <span>Samuel Leão</span>
-            </div>
-
-            <div className="divMileAgePrice">
-              <div>
-                <span>0 KM</span>
-                <span>2019</span>
+            <div className="divInfos">
+              <div className="divModelDescription">
+                <h3>modelo 1</h3>
+                <p>
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                  Lorem...
+                </p>
               </div>
-              <span>R$ 00.000,00</span>
+
+              {window.location.pathname === "/advertiser" ? (
+                <>
+                  <div className="divMileAgePrice">
+                    <div>
+                      <span>0 KM</span>
+                      <span>2019</span>
+                    </div>
+                    <span>R$ 00.000,00</span>
+                  </div>
+                  <div className="divAdm">
+                    <Button font="grey-3-4">Editar</Button>
+                    <Button font="grey-3-4">Ver detalhes</Button>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="divNameUser">
+                    <Button font="ball-0-2">SL</Button>
+                    <span>Samuel Leão</span>
+                  </div>
+
+                  <div className="divMileAgePrice">
+                    <div>
+                      <span>0 KM</span>
+                      <span>2019</span>
+                    </div>
+                    <span>R$ 00.000,00</span>
+                  </div>
+                </>
+              )}
             </div>
           </li>
           <li className="liAdversiment">
@@ -117,24 +201,45 @@ export const CardAdversiment = () => {
               <img src={bmw} alt="cars" />
             </div>
 
-            <div className="divModelDescription">
-              <h3>modelo 1</h3>
-              <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem...
-              </p>
-            </div>
-
-            <div className="divNameUser">
-              <Button font="ball-0-2">SL</Button>
-              <span>Samuel Leão</span>
-            </div>
-
-            <div className="divMileAgePrice">
-              <div>
-                <span>0 KM</span>
-                <span>2019</span>
+            <div className="divInfos">
+              <div className="divModelDescription">
+                <h3>modelo 1</h3>
+                <p>
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                  Lorem...
+                </p>
               </div>
-              <span>R$ 00.000,00</span>
+
+              {window.location.pathname === "/advertiser" ? (
+                <>
+                  <div className="divMileAgePrice">
+                    <div>
+                      <span>0 KM</span>
+                      <span>2019</span>
+                    </div>
+                    <span>R$ 00.000,00</span>
+                  </div>
+                  <div className="divAdm">
+                    <Button font="grey-3-4">Editar</Button>
+                    <Button font="grey-3-4">Ver detalhes</Button>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="divNameUser">
+                    <Button font="ball-0-2">SL</Button>
+                    <span>Samuel Leão</span>
+                  </div>
+
+                  <div className="divMileAgePrice">
+                    <div>
+                      <span>0 KM</span>
+                      <span>2019</span>
+                    </div>
+                    <span>R$ 00.000,00</span>
+                  </div>
+                </>
+              )}
             </div>
           </li>
           <li className="liAdversiment">
@@ -142,24 +247,45 @@ export const CardAdversiment = () => {
               <img src={bmw} alt="cars" />
             </div>
 
-            <div className="divModelDescription">
-              <h3>modelo 1</h3>
-              <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem...
-              </p>
-            </div>
-
-            <div className="divNameUser">
-              <Button font="ball-0-2">SL</Button>
-              <span>Samuel Leão</span>
-            </div>
-
-            <div className="divMileAgePrice">
-              <div>
-                <span>0 KM</span>
-                <span>2019</span>
+            <div className="divInfos">
+              <div className="divModelDescription">
+                <h3>modelo 1</h3>
+                <p>
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                  Lorem...
+                </p>
               </div>
-              <span>R$ 00.000,00</span>
+
+              {window.location.pathname === "/advertiser" ? (
+                <>
+                  <div className="divMileAgePrice">
+                    <div>
+                      <span>0 KM</span>
+                      <span>2019</span>
+                    </div>
+                    <span>R$ 00.000,00</span>
+                  </div>
+                  <div className="divAdm">
+                    <Button font="grey-3-4">Editar</Button>
+                    <Button font="grey-3-4">Ver detalhes</Button>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="divNameUser">
+                    <Button font="ball-0-2">SL</Button>
+                    <span>Samuel Leão</span>
+                  </div>
+
+                  <div className="divMileAgePrice">
+                    <div>
+                      <span>0 KM</span>
+                      <span>2019</span>
+                    </div>
+                    <span>R$ 00.000,00</span>
+                  </div>
+                </>
+              )}
             </div>
           </li>
           <li className="liAdversiment">
@@ -167,24 +293,45 @@ export const CardAdversiment = () => {
               <img src={bmw} alt="cars" />
             </div>
 
-            <div className="divModelDescription">
-              <h3>modelo 1</h3>
-              <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem...
-              </p>
-            </div>
-
-            <div className="divNameUser">
-              <Button font="ball-0-2">SL</Button>
-              <span>Samuel Leão</span>
-            </div>
-
-            <div className="divMileAgePrice">
-              <div>
-                <span>0 KM</span>
-                <span>2019</span>
+            <div className="divInfos">
+              <div className="divModelDescription">
+                <h3>modelo 1</h3>
+                <p>
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                  Lorem...
+                </p>
               </div>
-              <span>R$ 00.000,00</span>
+
+              {window.location.pathname === "/advertiser" ? (
+                <>
+                  <div className="divMileAgePrice">
+                    <div>
+                      <span>0 KM</span>
+                      <span>2019</span>
+                    </div>
+                    <span>R$ 00.000,00</span>
+                  </div>
+                  <div className="divAdm">
+                    <Button font="grey-3-4">Editar</Button>
+                    <Button font="grey-3-4">Ver detalhes</Button>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="divNameUser">
+                    <Button font="ball-0-2">SL</Button>
+                    <span>Samuel Leão</span>
+                  </div>
+
+                  <div className="divMileAgePrice">
+                    <div>
+                      <span>0 KM</span>
+                      <span>2019</span>
+                    </div>
+                    <span>R$ 00.000,00</span>
+                  </div>
+                </>
+              )}
             </div>
           </li>
           <li className="liAdversiment">
@@ -192,24 +339,45 @@ export const CardAdversiment = () => {
               <img src={bmw} alt="cars" />
             </div>
 
-            <div className="divModelDescription">
-              <h3>modelo 1</h3>
-              <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem...
-              </p>
-            </div>
-
-            <div className="divNameUser">
-              <Button font="ball-0-2">SL</Button>
-              <span>Samuel Leão</span>
-            </div>
-
-            <div className="divMileAgePrice">
-              <div>
-                <span>0 KM</span>
-                <span>2019</span>
+            <div className="divInfos">
+              <div className="divModelDescription">
+                <h3>modelo 1</h3>
+                <p>
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                  Lorem...
+                </p>
               </div>
-              <span>R$ 00.000,00</span>
+
+              {window.location.pathname === "/advertiser" ? (
+                <>
+                  <div className="divMileAgePrice">
+                    <div>
+                      <span>0 KM</span>
+                      <span>2019</span>
+                    </div>
+                    <span>R$ 00.000,00</span>
+                  </div>
+                  <div className="divAdm">
+                    <Button font="grey-3-4">Editar</Button>
+                    <Button font="grey-3-4">Ver detalhes</Button>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="divNameUser">
+                    <Button font="ball-0-2">SL</Button>
+                    <span>Samuel Leão</span>
+                  </div>
+
+                  <div className="divMileAgePrice">
+                    <div>
+                      <span>0 KM</span>
+                      <span>2019</span>
+                    </div>
+                    <span>R$ 00.000,00</span>
+                  </div>
+                </>
+              )}
             </div>
           </li>
           <li className="liAdversiment">
@@ -217,99 +385,45 @@ export const CardAdversiment = () => {
               <img src={bmw} alt="cars" />
             </div>
 
-            <div className="divModelDescription">
-              <h3>modelo 1</h3>
-              <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem...
-              </p>
-            </div>
-
-            <div className="divNameUser">
-              <Button font="ball-0-2">SL</Button>
-              <span>Samuel Leão</span>
-            </div>
-
-            <div className="divMileAgePrice">
-              <div>
-                <span>0 KM</span>
-                <span>2019</span>
+            <div className="divInfos">
+              <div className="divModelDescription">
+                <h3>modelo 1</h3>
+                <p>
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                  Lorem...
+                </p>
               </div>
-              <span>R$ 00.000,00</span>
-            </div>
-          </li>
-          <li className="liAdversiment">
-            <div className="divImg">
-              <img src={bmw} alt="cars" />
-            </div>
 
-            <div className="divModelDescription">
-              <h3>modelo 1</h3>
-              <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem...
-              </p>
-            </div>
+              {window.location.pathname === "/advertiser" ? (
+                <>
+                  <div className="divMileAgePrice">
+                    <div>
+                      <span>0 KM</span>
+                      <span>2019</span>
+                    </div>
+                    <span>R$ 00.000,00</span>
+                  </div>
+                  <div className="divAdm">
+                    <Button font="grey-3-4">Editar</Button>
+                    <Button font="grey-3-4">Ver detalhes</Button>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="divNameUser">
+                    <Button font="ball-0-2">SL</Button>
+                    <span>Samuel Leão</span>
+                  </div>
 
-            <div className="divNameUser">
-              <Button font="ball-0-2">SL</Button>
-              <span>Samuel Leão</span>
-            </div>
-
-            <div className="divMileAgePrice">
-              <div>
-                <span>0 KM</span>
-                <span>2019</span>
-              </div>
-              <span>R$ 00.000,00</span>
-            </div>
-          </li>
-          <li className="liAdversiment">
-            <div className="divImg">
-              <img src={bmw} alt="cars" />
-            </div>
-
-            <div className="divModelDescription">
-              <h3>modelo 1</h3>
-              <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem...
-              </p>
-            </div>
-
-            <div className="divNameUser">
-              <Button font="ball-0-2">SL</Button>
-              <span>Samuel Leão</span>
-            </div>
-
-            <div className="divMileAgePrice">
-              <div>
-                <span>0 KM</span>
-                <span>2019</span>
-              </div>
-              <span>R$ 00.000,00</span>
-            </div>
-          </li>
-          <li className="liAdversiment">
-            <div className="divImg">
-              <img src={bmw} alt="cars" />
-            </div>
-
-            <div className="divModelDescription">
-              <h3>modelo 1</h3>
-              <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem...
-              </p>
-            </div>
-
-            <div className="divNameUser">
-              <Button font="ball-0-2">SL</Button>
-              <span>Samuel Leão</span>
-            </div>
-
-            <div className="divMileAgePrice">
-              <div>
-                <span>0 KM</span>
-                <span>2019</span>
-              </div>
-              <span>R$ 00.000,00</span>
+                  <div className="divMileAgePrice">
+                    <div>
+                      <span>0 KM</span>
+                      <span>2019</span>
+                    </div>
+                    <span>R$ 00.000,00</span>
+                  </div>
+                </>
+              )}
             </div>
           </li>
         </ul>
@@ -329,22 +443,34 @@ export const CardAdversiment = () => {
                     <img src={`${data.images.imageUrl}`} alt="cars" />
                   </div>
 
-                  <div className="divModelDescription">
-                    <h3>{data.model}</h3>
-                    <p>{data.description}</p>
-                  </div>
-
-                  <div className="divNameUser">
-                    <Button font="ball-0-2">{inicits.toUpperCase()}</Button>
-                    <span>{data.user.name}</span>
-                  </div>
-
-                  <div className="divMileAgePrice">
-                    <div>
-                      <span>{data.mileAge}</span>
-                      <span>{data.age}</span>
+                  <div className="divInfos">
+                    <div className="divModelDescription">
+                      <h3>{data.model}</h3>
+                      <p>{data.description}</p>
                     </div>
-                    <span>{data.price}</span>
+
+                    <div className="divNameUser">
+                      <Button font="ball-0-2">{inicits.toUpperCase()}</Button>
+                      <span>{data.user.name}</span>
+                    </div>
+
+                    <div className="divMileAgePrice">
+                      <div>
+                        <span>{data.mileAge}</span>
+                        <span>{data.age}</span>
+                      </div>
+                      <span>{data.price}</span>
+                    </div>
+                    {window.location.pathname === "/advertiser" ? (
+                      <>
+                        <div>
+                          <Button font="grey-0-1">Editar</Button>
+                          <Button font="grey-0-1">Ver detalhes</Button>
+                        </div>
+                      </>
+                    ) : (
+                      <></>
+                    )}
                   </div>
                 </li>
               </ul>
