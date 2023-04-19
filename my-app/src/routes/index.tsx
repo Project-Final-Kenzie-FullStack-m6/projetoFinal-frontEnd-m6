@@ -3,7 +3,6 @@ import Homepage from "../pages/Home/homeResponsive/index";
 import DetailsAdversiment from "../pages/detailsAdversiment";
 import LoginPage from "../pages/Session";
 import CreateAdversimentModal from "../components/modals/createAdversimentModal";
-import LoginPage from "../pages/Session";
 import PageAdvertiser from "../pages/PageAdvertiser";
 
 const RoutesMain = () => (
