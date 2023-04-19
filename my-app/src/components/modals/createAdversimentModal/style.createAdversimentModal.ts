@@ -2,9 +2,7 @@ import styled from "styled-components";
 
 export const StyledContainer = styled.div`
 
-    width: auto;
     height: auto;
-    margin-top: 150px;
     padding: 18px 24px 18px 30px;
     background-color: ${({theme}) => theme.colors.grey.whiteFixed};
     border-radius: 8px;
@@ -13,10 +11,16 @@ export const StyledContainer = styled.div`
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -35%);
 
     display: flex;
     flex-direction: column;
+
+    @media screen and (max-width: 768px) {
+    margin-top: 30px;
+    padding: 12px 16px 12px 20px;
+    width: 90%;
+  }
 `
 
 export const StyledBtnClose = styled.div`
@@ -36,6 +40,16 @@ export const StyledBtnClose = styled.div`
         font-size: ${({theme}) => theme.typography.fontSize.size16px};
     }
 
+    @media screen and (max-width: 768px) {
+    h1 {
+      font-size: ${({ theme }) => theme.typography.fontSize.size14px};
+    }
+
+    button {
+      font-size: ${({ theme }) => theme.typography.fontSize.size14px};
+    }
+  }
+
 `
 
 export const StyledTitle = styled.div`
@@ -45,12 +59,24 @@ export const StyledTitle = styled.div`
         color: ${({theme}) => theme.colors.grey.g1};
         font-weight: ${({theme}) => theme.typography.fontWeight.weight600};
     }
+
+    @media screen and (max-width: 768px) {
+    margin-bottom: 12px;
+
+    h1 {
+      font-size: ${({ theme }) => theme.typography.fontSize.size12px};
+    }
+  }
 `
 
 export const StyledFormContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @media screen and (max-width: 768px) {
+    flex-direction: column;
+    }
 
 `
 
@@ -68,6 +94,11 @@ export const StyledForm = styled.form`
         color: ${({theme}) => theme.colors.grey.g1};
         font-weight: ${({theme}) => theme.typography.fontWeight.weight600};
     }
+    
+    .styleOption {
+        color: ${({theme}) => theme.colors.grey.g3};
+
+    }
 
     .sideDivContainer {
         display: flex;
@@ -80,6 +111,10 @@ export const StyledForm = styled.form`
 
         .sideTwo{
             width: 50%;
+        }
+
+        @media screen and (max-width: 768px) {
+            gap: 5px;
         }
     }
 
@@ -97,6 +132,23 @@ export const StyledForm = styled.form`
         font-size: ${({theme}) => theme.typography.fontSize.size14px};
         font-weight: ${({theme}) => theme.typography.fontWeight.weight600};
         color: ${({ theme }) => theme.colors.brand.b1};
+
+        @media screen and (max-width: 768px) {
+            width: 50%;
+            font-size: 2.1vmin;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+          }
+        @media screen and (max-width: 414px) {
+            width: 50%;
+            font-size: 2.5vmin;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+          }
     }
 
     .btnEvent {
@@ -105,6 +157,8 @@ export const StyledForm = styled.form`
         margin-top: 24px;
         gap: 10px;
     }
+
+
 
 `
 
