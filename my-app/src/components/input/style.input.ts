@@ -51,9 +51,40 @@ const Input = styled.input`
           &:hover {
             filter: brightness(0.9);
           }
+
+          @media screen and (max-width: 768px) {
+            width: auto;
+          }
         `;
 
+      case "regular-input-3":
+        return css`
+          width: 466px;
+          height: 48px;
+          padding: 0px 16px 0px 16px;
+          border-radius: 4px;
+          background-color: ${({ theme }) => theme.colors.grey.g9};
+          transition: 0.5s;
+          margin-top: 1rem;
+          color: ${({ theme }) => theme.colors.whiteFixed};
+          font-size: ${({ theme }) => theme.typography.fontSize.size16px};
+          font-weight: ${({ theme }) => theme.typography.fontWeight.weight400};
+          border: 1px solid ${({ theme }) => theme.colors.grey.g5};
+          outline: none;
+          &::placeholder {
+            color: ${({ theme }) => theme.colors.grey.g3};
+          }
+          &:focus {
+            border: 1px solid ${({ theme }) => theme.colors.brand.b2};
+          }
+          &:hover {
+            filter: brightness(0.9);
+          }
 
+          @media screen and (max-width: 768px) {
+            width: auto;
+          }
+        `;
     }
   }}
 `;
@@ -102,6 +133,36 @@ const Select = styled.select`
           }
           &:hover {
             filter: brightness(0.9);
+          }
+
+          @media screen and (max-width: 768px) {
+            width: auto;
+          }
+        `;
+
+      case "regular-select-3":
+        return css`
+          width: 466px;
+          height: 48px;
+          padding: 0px 16px 0px 16px;
+          border-radius: 4px;
+          background-color: ${({ theme }) => theme.colors.grey.g9};
+          transition: 0.8s;
+          margin-top: 1rem;
+          color: ${({ theme }) => theme.colors.whiteFixed};
+          font-size: ${({ theme }) => theme.typography.fontSize.size16px};
+          font-weight: ${({ theme }) => theme.typography.fontWeight.weight400};
+          border: 1px solid ${({ theme }) => theme.colors.grey.g5};
+          outline: none;
+          &::placeholder {
+            color: ${({ theme }) => theme.colors.grey.g3};
+          }
+          &:hover {
+            filter: brightness(0.9);
+          }
+
+          @media screen and (max-width: 768px) {
+            width: auto;
           }
         `;
     }
@@ -158,6 +219,10 @@ const TextArea = styled.textarea`
           }
           &:hover {
             filter: brightness(0.9);
+          }
+
+          @media screen and (max-width: 768px) {
+            width: auto;
           }
         `;
     }

@@ -16,6 +16,7 @@ const CreateAdversimentModal = () => {
     const {postNewAdversiment, setModalAddOpen} = useContext(AdversimentContext)
     const {ApiFipeData, DataCars, DataModelCar,searchBrand, searchModel} = useContext(ApiFipeContext)
     const [NumImages, setNumImages] = useState(0)
+    
 
     const dataBrand = Object.keys(ApiFipeData)
 
@@ -30,7 +31,7 @@ const CreateAdversimentModal = () => {
 
     const watchedFields = watch(["brand", "model", "age", "fuelType", "mileAge", "color", "fipe", "price", "description", "images"])
 
-    console.log(watchedFields)
+    // console.log(watchedFields)
 
     const handleAddImage = () => {
         setNumImages(NumImages + 1)
@@ -57,10 +58,11 @@ const CreateAdversimentModal = () => {
                             Marca
                             <Select 
                             // onChange={searchBrand}
-                            font="regular-select"
+                            font="regular-select-3"
                             id="brand"
                             {...register("brand", {onChange: searchBrand})}
                             >
+                            <option className="styleOption" value="">Escolha uma opção</option>
                             {dataBrand?.map((data: any, index: any) =>{
                                 return (
                                     <>
@@ -68,6 +70,7 @@ const CreateAdversimentModal = () => {
                                     </>
                                 )
                             })}
+                            
                             </Select>
                         </label>
 
@@ -75,10 +78,11 @@ const CreateAdversimentModal = () => {
                             Modelo
                             <Select 
                             // onChange={searchModel}
-                            font="regular-select"
+                            font="regular-select-3"
                             id="model"
                             {...register("model", {onChange: searchModel})}
                             >
+                            <option className="styleOption" value="">Escolha uma opção</option>
                             {DataCars?.map((data: any, index: any) =>{
                                 return (
                                     <>
@@ -98,7 +102,8 @@ const CreateAdversimentModal = () => {
                                     placeholder="--"
                                     type="number"
                                     id="age"
-                                    defaultValue={DataModelCar?.map((data: any) => data.year)}
+                                    value={DataModelCar?.map((data: any, index: any) => data.year)}
+                                    key="age-input"
                                     {...register("age")}/>
                                 </label>
                             </div>
@@ -166,6 +171,7 @@ const CreateAdversimentModal = () => {
                                     placeholder="--"
                                     type="text"
                                     id="fipe"
+                                    key="fipe-input"
                                     value={DataModelCar?.map((data: any) => {
 
                                         const dataPrice = data.value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', minimumFractionDigits: 2 });
@@ -206,7 +212,7 @@ const CreateAdversimentModal = () => {
                         <label htmlFor="imageUrl">
                             Imagem da capa
                             <Input 
-                            font="regular-input"
+                            font="regular-input-3"
                             id="imageUrl"
                             type="text"
                             {...register("images.imageUrl")}
@@ -216,7 +222,7 @@ const CreateAdversimentModal = () => {
                         <label htmlFor="imageUrl">
                             1° Imagem da galeria
                             <Input 
-                            font="regular-input"
+                            font="regular-input-3"
                             id="imageUrl"
                             type="text"
                             {...register("images.imageUrl1")}
@@ -226,7 +232,7 @@ const CreateAdversimentModal = () => {
                         <label htmlFor="imageUrl">
                             2° Imagem da galeria
                             <Input 
-                            font="regular-input"
+                            font="regular-input-3"
                             id="imageUrl"
                             type="text"
                             {...register("images.imageUrl2")}
@@ -237,17 +243,13 @@ const CreateAdversimentModal = () => {
                             <label htmlFor="">
                                 Imagem da Galeria
                                 <Input
-                                font="regular-input"
+                                font="regular-input-3"
                                 type="text"
                                 key={index}
                                 {...register(`images.imageUrl`)}
                                 />
                             </label>
                         ))}
-
-
-
-
 
                         <button onClick={handleAddImage} className="btnAdd">Adicionar campo para imagem da galeria</button>
 
