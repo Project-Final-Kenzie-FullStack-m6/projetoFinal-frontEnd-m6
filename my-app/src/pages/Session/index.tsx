@@ -9,17 +9,11 @@ import schemaLogin from "./loginSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
-
-
-export interface iUserLogin {
-    email: string;
-    password: string;
-  }
-  const userLogin = ()=>console.log("ta Funfando")
+import { UserContext, iUserLogin } from "../../contexts/AuthUserContext/userContext";
 
 const LoginPage = ()=>{
     const navigate = useNavigate();
-    // const { userLogin } = useContext(UserContext);
+    const { userLogin } = useContext(UserContext);
 
   useEffect(() => {
     const token = localStorage.getItem("WorkMatch:token");
