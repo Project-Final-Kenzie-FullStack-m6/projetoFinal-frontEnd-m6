@@ -5,18 +5,20 @@ import { HiOutlineMenu } from "react-icons/hi";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
 
 export const Header = () => {
   const navigate = useNavigate()
 
   const [sideBar, setSideBar] = useState(false);
   const showSideBar = () => setSideBar(!sideBar);
+  const isSmallScreen = useMediaQuery({ maxWidth: "900px" });
   return (
     <StyledHeader className="headerMobile">
       <img src={motorShop}onClick={()=>navigate("/")} alt="logo MotorShop" />
       {window.location.pathname === "/home" ? (
         <>
-          {window.innerWidth > 900 ? (
+          {isSmallScreen ? (
             <div>
               <Button className="login" font="grey-7-8" onClick={()=>navigate("/login")}>
                 Fazer login
@@ -56,7 +58,7 @@ export const Header = () => {
         </>
       ) : (
         <>
-          {window.innerWidth > 900 ? (
+          {isSmallScreen ? (
             <div className="divNameUser">
               <Button font="ball-0-2">SL</Button>
               <span>Samuel Leão</span>
