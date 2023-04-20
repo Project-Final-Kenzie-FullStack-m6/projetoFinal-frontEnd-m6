@@ -5,7 +5,7 @@ export const StyledPageAdvertiser = styled.main`
   .pagination {
     padding: 85px 0 65px;
     width: 100%;
-    max-width: 1100px;
+    /* max-width: 1100px; */
     display: flex;
     justify-content: center;
     align-items: center;
