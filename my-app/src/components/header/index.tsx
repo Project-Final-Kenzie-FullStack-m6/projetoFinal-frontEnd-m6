@@ -3,16 +3,18 @@ import { Button } from "../button/style.button";
 import { StyledHeader } from "./style.header";
 import { HiOutlineMenu } from "react-icons/hi";
 import { useState } from "react";
+import { useMediaQuery } from "react-responsive";
 
 export const Header = () => {
   const [sideBar, setSideBar] = useState(false);
   const showSideBar = () => setSideBar(!sideBar);
+  const isSmallScreen = useMediaQuery({ maxWidth: "900px" });
   return (
     <StyledHeader className="headerMobile">
       <img src={motorShop} alt="logo MotorShop" />
       {window.location.pathname === "/home" ? (
         <>
-          {window.innerWidth > 900 ? (
+          {isSmallScreen ? (
             <div>
               <Button className="login" font="grey-7-8">
                 Fazer login
@@ -51,7 +53,7 @@ export const Header = () => {
         </>
       ) : (
         <>
-          {window.innerWidth > 900 ? (
+          {isSmallScreen ? (
             <div className="divNameUser">
               <Button font="ball-0-2">SL</Button>
               <span>Samuel Leão</span>
