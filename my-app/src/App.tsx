@@ -1,12 +1,15 @@
 import React from "react";
 import RoutesMain from "./routes";
 import AdversimentProvider from "./contexts/adversimentContext";
+import ApiFipeProvider from "./contexts/ApiFipeContext";
 
 function App() {
   return (
     <>
     <AdversimentProvider>
-      <RoutesMain />
+      <ApiFipeProvider>
+        <RoutesMain />
+      </ApiFipeProvider>
     </AdversimentProvider>
     </>
   );
