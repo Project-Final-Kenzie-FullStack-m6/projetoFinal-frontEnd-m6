@@ -47,13 +47,13 @@ const CreateAdversimentModal = ({ handleShowModal }: any) => {
 
   return (
     <>
+    <S.StyledContainerBackground/>
       <S.StyledContainer>
         <S.StyledBtnClose>
           <h1>Criar anúncio</h1>
           <button
             onClick={() => {
               handleShowModal();
-              setModalAddOpen(false);
             }}
           >
             X
@@ -278,8 +278,8 @@ const CreateAdversimentModal = ({ handleShowModal }: any) => {
               <Button
                 font="grey-4-5"
                 onClick={() => {
-                  setModalAddOpen(false);
-                }}
+                    handleShowModal();
+                  }}
               >
                 Cancelar
               </Button>

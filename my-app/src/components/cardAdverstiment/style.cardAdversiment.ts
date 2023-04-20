@@ -6,6 +6,7 @@ export const Container = styled.div`
   max-height: 1425px;
   overflow-y: hidden;
   display: flex;
+  justify-content: center;
 
   ul {
     li {
@@ -98,9 +99,10 @@ export const Container = styled.div`
     width: 100%;
     display: flex;
     gap: 40px 50px;
-    /* justify-content: flex-start; */
-    justify-content: center;
+    -webkit-box-pack: center;
+    justify-content: start;
     flex-wrap: wrap;
+    max-width: 1500px;
   }
 
   .liAdversiment {

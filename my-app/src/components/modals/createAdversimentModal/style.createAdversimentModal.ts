@@ -1,7 +1,18 @@
 import styled from "styled-components";
 
+export const StyledContainerBackground = styled.div`
+z-index: 2;
+ position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  animation: fadeIn 0.4s ease-in-out forwards;
+`
+
 export const StyledContainer = styled.div`
-  z-index: 1;
+  z-index: 3;
   height: auto;
   padding: 18px 24px 18px 30px;
   background-color: ${({ theme }) => theme.colors.grey.whiteFixed};
@@ -12,15 +23,27 @@ export const StyledContainer = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -35%);
+  animation: fadeIn 0.4s ease-in-out forwards;
 
   display: flex;
   flex-direction: column;
+
 
   @media screen and (max-width: 768px) {
     margin-top: 30px;
     padding: 12px 16px 12px 20px;
     width: 90%;
   }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
 `;
 
 export const StyledBtnClose = styled.div`
