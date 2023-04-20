@@ -34,9 +34,9 @@ const RegisterPage = () => {
     const { userRegister,activeButton,setActiveButton } = useContext(UserContext);
 
     useEffect(() => {
-        const token = localStorage.getItem("WorkMatch:token");
+        const token = localStorage.getItem("token");
         if (token) {
-            navigate("/home");
+            navigate("/");
         }
     }, [navigate]);
 
@@ -66,7 +66,7 @@ const RegisterPage = () => {
                     <label htmlFor="name">Nome</label>
                     <Input id="name" font="regular-input" placeholder="Ex: Rafael Soares"
                         {...register("name")}></Input>
-                    {errors.name ? <p className="error">{errors.name.message}</p> : ""}
+                    {/* {errors.name ? <p className="error">{errors.name.message}</p> : ""} */}
                     <label htmlFor="email">Email</label>
                     <Input
                         id="email"
@@ -75,7 +75,7 @@ const RegisterPage = () => {
                         placeholder="Digite seu email"
                         {...register("email")}
                     />
-                    {errors.email ? <p className="error">{errors.email.message}</p> : ""}
+                    {/* {errors.email ? <p className="error">{errors.email.message}</p> : ""} */}
                     <label htmlFor="cpf">CPF</label>
                     <Input
                         id="cpf"
@@ -84,16 +84,16 @@ const RegisterPage = () => {
                         placeholder="000.000.000-11"
                         {...register("cpf")}
                     />
-                    {errors.cpf ? <p className="error">{errors.cpf.message}</p> : ""}
+                    {/* {errors.cpf ? <p className="error">{errors.cpf.message}</p> : ""} */}
                     <label htmlFor="celular">Celular</label>
                     <Input
                         id="celular"
                         font="regular-input"
-                        type="text"
+                        type="number"
                         placeholder="(DDD)12345-6789"
                         {...register("phone")}
                     />
-                    {errors.phone ? <p className="error">{errors.phone.message}</p> : ""}
+                    {/* {errors.phone ? <p className="error">{errors.phone.message}</p> : ""} */}
                     <label htmlFor="Data de nascimento">Data de nascimento</label>
                     <input className="birthDate" type="date" {
                         ...register("birthDate")} />
@@ -104,17 +104,17 @@ const RegisterPage = () => {
                         placeholder="digitar descrição"
                         {...register("description")}
                     />
-                    {errors.description ? <p className="error">{errors.description.message}</p> : ""}
+                    {/* {errors.description ? <p className="error">{errors.description.message}</p> : ""} */}
                     <h3>Informações de endereço</h3>
                     <label htmlFor="CEP">CEP</label>
                     <Input
                         id="CEP"
                         font="regular-input"
-                        type="text"
+                        type="number"
                         placeholder="12345678"
                         {...register("cep")}
                     />
-                    {errors.cep ? <p className="error">{errors.cep.message}</p> : ""}
+                    {/* {errors.cep ? <p className="error">{errors.cep.message}</p> : ""} */}
                     <div className="doisInputs">
                         <div className="posicionamento">
                             <label htmlFor="estado">Estado</label>
@@ -125,7 +125,7 @@ const RegisterPage = () => {
                                 placeholder="Digitar estado"
                                 {...register("state")}
                             />
-                            {errors.state ? <p className="error">{errors.state.message}</p> : ""}
+                            {/* {errors.state ? <p className="error">{errors.state.message}</p> : ""} */}
                         </div><div className="posicionamento">
                             <label htmlFor="cidade">Cidade</label>
                             <Input
@@ -135,7 +135,8 @@ const RegisterPage = () => {
                                 placeholder="Digitar cidade"
                                 {...register("city")}
                             />
-                            {errors.city ? <p className="error">{errors.city.message}</p> : ""}</div>
+                            {/* {errors.city ? <p className="error">{errors.city.message}</p> : ""} */}
+                            </div>
 
                     </div>
                     <label htmlFor="rua">Rua</label>
@@ -143,7 +144,7 @@ const RegisterPage = () => {
                         font="regular-input"
                         type="text"
                         placeholder="Digitar Rua" {...register("street")} />
-                    {errors.street ? <p className="error">{errors.street.message}</p> : ""}
+                    {/* {errors.street ? <p className="error">{errors.street.message}</p> : ""} */}
                     <div className="doisInputs">
                         <div className="posicionamento">
 
@@ -155,7 +156,7 @@ const RegisterPage = () => {
                                 placeholder="Digitar numero"
                                 {...register("number")}
                             />
-                            {errors.number ? <p className="error">{errors.number.message}</p> : ""}
+                            {/* {errors.number ? <p className="error">{errors.number.message}</p> : ""} */}
                         </div>
                         <div className="posicionamento">
                             <label htmlFor="complemento">Complemento</label>
@@ -165,7 +166,8 @@ const RegisterPage = () => {
                                 type="text"
                                 placeholder="Ex: Apart. 300"
                                 {...register("complement")}
-                            />{errors.complement ? <p className="error">{errors.complement.message}</p> : ""}
+                            />
+                            {/* {errors.complement ? <p className="error">{errors.complement.message}</p> : ""} */}
                         </div>
                     </div>
                     <h3>Tipo de conta</h3>
@@ -182,7 +184,7 @@ const RegisterPage = () => {
                         placeholder="Digite sua senha"
                         {...register("password")}
                     />
-                    {errors.password ? <p className="error">{errors.password.message}</p> : ""}
+                    {/* {errors.password ? <p className="error">{errors.password.message}</p> : ""} */}
                     <label htmlFor="confirmPassword">Confirmar senha </label>
                     <Input
                         id="confirmPassword"
@@ -191,7 +193,7 @@ const RegisterPage = () => {
                         placeholder="Digite sua senha"
                         {...register("confirmPassword")}
                     />
-                    {errors.password ? <p className="error">{errors.password.message}</p> : ""}
+                    {/* {errors.password ? <p className="error">{errors.password.message}</p> : ""} */}
                     <Button font="brand-0-1" type="submit">Finalizar Cadastro</Button>
                 </form>
             </div>

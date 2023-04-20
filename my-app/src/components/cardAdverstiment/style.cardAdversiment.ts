@@ -93,4 +93,60 @@ export const Container = styled.div`
       width: 140px;
     }
   }
+
+  .ulAdversiment {
+    width: 100%;
+    display: flex;
+    gap: 40px 50px;
+    /* justify-content: flex-start; */
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .liAdversiment {
+    margin: 10px 0;
+    width: 300px;
+    border-radius: 4px;
+    background-color: ${({ theme }) => theme.colors.grey.whiteFixed};
+    box-shadow: 0px 0px 4px ${({ theme }) => theme.colors.grey.g3};
+
+    .divInfos {
+      padding: 0 10px 0px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      margin-bottom: 10px;
+
+      .divAdm {
+        display: flex;
+        gap: 10px;
+        button {
+          border: 1px solid ${({ theme }) => theme.colors.grey.g1};
+          width: unset;
+          height: unset;
+          padding: 7px 20px;
+          font-size: 14px;
+        }
+      }
+    }
+
+    p {
+      margin-top: 10px;
+      height: 50px;
+      max-height: 50px;
+      overflow-y: clip;
+    }
+  }
+
+  @media (max-width: 715px) {
+    .ulAdversiment {
+      margin: 0 25px;
+      display: flex;
+      justify-content: unset;
+      padding-left: 10px;
+      /* flex-direction: column; */
+      flex-wrap: nowrap;
+      overflow-y: scroll;
+    }
+  }
 `;

@@ -16,9 +16,9 @@ const LoginPage = ()=>{
     const { userLogin } = useContext(UserContext);
 
   useEffect(() => {
-    const token = localStorage.getItem("WorkMatch:token");
+    const token = localStorage.getItem("token");
     if (token) {
-      navigate("/home");
+      navigate("/");
     }
   }, [navigate]);
 
@@ -33,7 +33,7 @@ const LoginPage = ()=>{
     <LoginStyle>
     <div className="container">
 <h2>Login</h2>
-<form onSubmit={()=>handleSubmit(userLogin)}>
+<form onSubmit={handleSubmit(userLogin)}>
           <label htmlFor="email">Email</label>
           <Input
             id="email"

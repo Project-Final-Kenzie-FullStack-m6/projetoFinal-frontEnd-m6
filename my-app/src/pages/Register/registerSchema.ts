@@ -15,7 +15,7 @@ const schemaRegister = yup.object().shape({
     confirmPassword:yup.string()
     .required("Preencha o campo de confirmação de senha")
     .oneOf([yup.ref("password")], "As senhas devem ser identicas"),
-    cep:yup.number().required("Preencha o campo com um CEP"),
+    cep:yup.number().min(8).required("Preencha o campo com um CEP"),
     state:yup.string().required("preencha o campo de Estado"),
     city:yup.string().required("preencha o campo de Estado"),
     street:yup.string().required("preencha o campo de Rua"),
