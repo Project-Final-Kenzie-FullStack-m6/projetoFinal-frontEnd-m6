@@ -1,12 +1,21 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import Footer from "../../components/Footer";
 import { CardAdversiment } from "../../components/cardAdverstiment";
 import { Header } from "../../components/header";
 import HeaderAdvertiser from "./headerAdvertiser";
 import { StyledPageAdvertiser } from "./style";
+import { useNavigate } from "react-router-dom";
 import CreateAdversimentModal from "../../components/modals/createAdversimentModal";
 
 const PageAdvertiser = () => {
+const navigate= useNavigate()
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+        navigate("/");
+    }
+}, [navigate]);
   const [showModal, setShowModal] = useState(false);
 
   const handleShowModal = () => {

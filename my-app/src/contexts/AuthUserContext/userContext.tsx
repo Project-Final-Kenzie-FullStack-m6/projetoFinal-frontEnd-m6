@@ -63,7 +63,7 @@ function UserProvider({ children }: iUserProviderChildren) {
     try {
       const response = await Api.post("/login", info);
       localStorage.setItem("token", response.data.body);
-      navigate("/home");
+
       console.log(response.data);
 
     } catch (error) {
@@ -93,7 +93,7 @@ function UserProvider({ children }: iUserProviderChildren) {
       }
     };
     try {
-      const response = await Api.post("/register", newInfo);
+      const response = await Api.post("/users", newInfo);
 
       localStorage.setItem("token", response.data.token);
       console.log(response.data)

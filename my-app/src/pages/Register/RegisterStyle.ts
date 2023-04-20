@@ -21,7 +21,8 @@ h3{
     margin-top: 30px;
 }
 .error{
-    font-size: smaller;
+    font-size: 13px;
+    color:${({ theme }) => theme.colors.feedBack.alert1};
 }
 .birthDate{
     width: 315px;
