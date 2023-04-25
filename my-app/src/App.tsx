@@ -6,7 +6,8 @@ import ApiFipeProvider from "./contexts/ApiFipeContext";
 
 function App() {
   return (
-    <><UserProvider>
+    <>
+    <UserProvider>
     <AdversimentProvider>
     <ApiFipeProvider>
       <RoutesMain />

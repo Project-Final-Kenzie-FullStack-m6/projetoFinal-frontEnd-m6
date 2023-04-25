@@ -155,6 +155,14 @@ const Button = styled.button`
           &:hover {
             filter: brightness(0.9);
           }
+
+          @media screen and (max-width: 768px) {
+            font-size: 2.1vmin;
+          }
+          @media screen and (max-width: 414px) {
+            font-size: 3.8vmin;
+            height: 11vmin;
+          }
         `;
       case "grey-1-2":
         return css`
@@ -204,7 +212,7 @@ const Button = styled.button`
       case "grey-4-5":
         return css`
           width: 119px;
-          height: 38px;
+          height: 48px;
           border-radius: 4px;
           background-color: ${({ theme }) => theme.colors.grey.g6};
           transition: 0.8s;
@@ -214,6 +222,14 @@ const Button = styled.button`
 
           &:hover {
             filter: brightness(0.9);
+          }
+
+          @media screen and (max-width: 768px) {
+            font-size: 2.1vmin;
+          }
+          @media screen and (max-width: 414px) {
+            font-size: 3.8vmin;
+            height: 11vmin;
           }
         `;
       case "grey-5-6":
@@ -265,6 +281,7 @@ const Button = styled.button`
       //Color BRAND
       case "brand-0-1":
         return css`
+          width: 146px;
           height: 48px;
           border-radius: 4px;
           background-color: ${({ theme }) => theme.colors.brand.b1};
@@ -275,6 +292,14 @@ const Button = styled.button`
 
           &:hover {
             filter: brightness(0.9);
+          }
+
+          @media screen and (max-width: 768px) {
+            font-size: 2.1vmin;
+          }
+          @media screen and (max-width: 414px) {
+            font-size: 3.5vmin;
+            height: 11vmin;
           }
         `;
       case "brand-1-2":
@@ -404,6 +429,14 @@ const Button = styled.button`
             filter: brightness(0.9);
             background-color: ${({ theme }) => theme.colors.feedBack.alert2};
           }
+
+          @media screen and (max-width: 768px) {
+            font-size: 2.1vmin;
+          }
+          @media screen and (max-width: 414px) {
+            height: 11vmin;
+            font-size: 3.5vmin;
+          }
         `;
 
       case "red-1-2":
@@ -439,6 +472,7 @@ const Button = styled.button`
             filter: brightness(0.9);
             background-color: ${({ theme }) => theme.colors.feedBack.success2};
           }
+
         `;
 
       case "green-1-2":
@@ -474,6 +508,38 @@ const Button = styled.button`
 
           &:hover {
             filter: brightness(0.9);
+          }
+
+          @media screen and (max-width: 768px) {
+            font-size: 2.1vmin;
+          }
+          @media screen and (max-width: 414px) {
+            font-size: 3.8vmin;
+            height: 11vmin;
+          }
+        `;
+
+      case "purple-0-2":
+        return css`
+          width: 193px;
+          height: 48px;
+          border-radius: 4px;
+          background-color: ${({ theme }) => theme.colors.brand.b3};
+          transition: 0.8s;
+          color: ${({ theme }) => theme.colors.brand.b4};
+          font-size: ${({ theme }) => theme.typography.fontSize.size16px};
+          font-weight: ${({ theme }) => theme.typography.fontWeight.weight600};
+
+          &:hover {
+            filter: brightness(0.9);
+          }
+
+          @media screen and (max-width: 768px) {
+            font-size: 2.1vmin;
+          }
+          @media screen and (max-width: 414px) {
+            font-size: 3.8vmin;
+            height: 11vmin;
           }
         `;
 
