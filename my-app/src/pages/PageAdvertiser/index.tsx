@@ -5,14 +5,14 @@ import { Header } from "../../components/header";
 import HeaderAdvertiser from "./headerAdvertiser";
 import { StyledPageAdvertiser } from "./style";
 import { useNavigate } from "react-router-dom";
-import CreateAdversimentModal from "../../components/modals/createAdversimentModal";
+import CreateAdversimentModal from "../../components/modals/adversiments/createAdversimentModal";
 
 const PageAdvertiser = () => {
 const navigate= useNavigate()
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    if (token) {
+    if (!token) {
         navigate("/");
     }
 }, [navigate]);

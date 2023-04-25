@@ -1,13 +1,13 @@
 import { useContext, useState } from "react";
-import { Button } from "../../button/style.button";
-import { Input, Select, TextArea } from "../../input/style.input";
+import { Button } from "../../../button/style.button";
+import { Input, Select, TextArea } from "../../../input/style.input";
 import * as S from "./style.createAdversimentModal";
-import { AdversimentContext } from "../../../contexts/adversimentContext";
+import { AdversimentContext } from "../../../../contexts/adversimentContext";
 import { useForm } from "react-hook-form";
-import { iAdversimentDataRegister } from "../../../interface/adversiments";
+import { iAdversimentDataRegister } from "../../../../interface/adversiments";
 import { yupResolver } from "@hookform/resolvers/yup";
-import schemaCreateAdvertisement from "../../../validators/adversiments/createAdversimentUser";
-import { ApiFipeContext } from "../../../contexts/ApiFipeContext";
+import schemaCreateAdvertisement from "../../../../validators/adversiments/createAdversimentUser";
+import { ApiFipeContext } from "../../../../contexts/ApiFipeContext";
 
 const CreateAdversimentModal = ({ handleShowModal }: any) => {
   const { postNewAdversiment, setModalAddOpen } = useContext(AdversimentContext);

@@ -1,8 +1,9 @@
-import styled from "styled-components";
+import styled from "styled-components"
+
 
 export const StyledContainerBackground = styled.div`
-z-index: 2;
- position: fixed;
+  z-index: 1;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -22,7 +23,7 @@ export const StyledContainer = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -35%);
+  transform: translate(-50%, -50%);
   animation: fadeIn 0.4s ease-in-out forwards;
 
   display: flex;
@@ -101,6 +102,7 @@ export const StyledFormContainer = styled.div`
   }
 `;
 
+
 export const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
@@ -113,28 +115,11 @@ export const StyledForm = styled.form`
     font-size: ${({ theme }) => theme.typography.fontSize.size14px};
     color: ${({ theme }) => theme.colors.grey.g1};
     font-weight: ${({ theme }) => theme.typography.fontWeight.weight600};
+    margin-bottom: 8px;
   }
 
   .styleOption {
     color: ${({ theme }) => theme.colors.grey.g3};
-  }
-
-  .sideDivContainer {
-    display: flex;
-    width: 100%;
-    margin-top: 24px;
-
-    .sideOne {
-      width: 50%;
-    }
-
-    .sideTwo {
-      width: 50%;
-    }
-
-    @media screen and (max-width: 768px) {
-      gap: 5px;
-    }
   }
 
   .divDescription {
@@ -172,17 +157,14 @@ export const StyledForm = styled.form`
 
   .btnEvent {
     display: flex;
-    justify-content: end;
+    justify-content: center;
     margin-top: 24px;
     gap: 10px;
   }
-`;
 
-export const StyledDivErrors = styled.div`
-  border: 1px transparent solid;
-  width: 100%;
-  height: 15px;
-  span {
-    font-size: ${({ theme }) => theme.typography.fontSize.size12px};
+  @media screen and (max-width: 414px) {
+    .btnDelete {
+      display: none;
+    }
   }
 `;

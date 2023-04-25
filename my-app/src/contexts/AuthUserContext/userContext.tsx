@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect, ReactNode } from "react";
 import { Api } from "../../services/api";
 import { useNavigate } from "react-router-dom";
+import { iUser, iUserUpdate } from "../../interface/users";
 
 
 export interface iUserLogin {
@@ -34,6 +35,11 @@ interface iUserContext {
   userRegister: (info: iUserRegister) => void;
   activeButton: boolean;
   setActiveButton: React.Dispatch<React.SetStateAction<boolean>>;
+  deleteUser: () => void;
+  updateUser: (data: iUserUpdate) => void;
+  // updateAddressUser: (data: iUserAddressUpdate) => void;
+  userData: iUser
+  setUserData: React.Dispatch<React.SetStateAction<{}>>
 }
 
 export const UserContext = createContext<iUserContext>({} as iUserContext);
@@ -41,6 +47,7 @@ export const UserContext = createContext<iUserContext>({} as iUserContext);
 function UserProvider({ children }: iUserProviderChildren) {
   const navigate = useNavigate();
   const [activeButton, setActiveButton] = useState(true);
+  const [userData, setUserData] = useState({} as iUser)
 
   useEffect(() => {
     async function loadUser() {
@@ -48,6 +55,9 @@ function UserProvider({ children }: iUserProviderChildren) {
       const userId = localStorage.getItem("userId");
       if (token) {
         try {
+          Api.defaults.headers.authorization = `Bearer ${token}`
+          const {data} = await Api.get("/users")
+          setUserData(data)
 
         } catch (error) {
 
@@ -60,15 +70,15 @@ function UserProvider({ children }: iUserProviderChildren) {
   }, [navigate]);
 
   async function userLogin(info: iUserLogin) {
+    
     try {
       const response = await Api.post("/login", info);
-      localStorage.setItem("token", response.data.body);
+      localStorage.setItem("token", response.data.token);
 
       console.log(response.data);
 
     } catch (error) {
       console.log(error);
-
     }
   }
 
@@ -102,7 +112,35 @@ function UserProvider({ children }: iUserProviderChildren) {
     }
   }
 
-  return (<UserContext.Provider value={{ userLogin, userRegister, activeButton, setActiveButton }}>{children}</UserContext.Provider>)
+  async function updateUser(data: iUserUpdate) {
+    const token = localStorage.getItem("token");
+
+    try {
+      const response = await Api.patch(`/users`, data, 
+      {
+          headers: {
+            Authorization: `Bearer ${token}`
+        },
+      });
+      console.log(response.data)
+      navigate('/advertiser')
+
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  async function deleteUser(){
+    try {
+      await Api.delete(`/users`);
+      localStorage.clear();
+      navigate('/')
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  return (<UserContext.Provider value={{ userLogin, userRegister, activeButton, setActiveButton, deleteUser, updateUser, userData, setUserData }}>{children}</UserContext.Provider>)
 
 }
 
