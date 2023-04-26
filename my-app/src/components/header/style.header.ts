@@ -61,4 +61,15 @@ export const StyledHeader = styled.div`
   .showBtnsOff {
     display: none;
   }
+
+  .menuLogin {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-weight: 400;
+    font-size: 16px;
+    li {
+      color: ${({ theme }) => theme.colors.grey.g1};
+    }
+  }
 `;
