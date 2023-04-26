@@ -8,22 +8,24 @@ import { Link } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 
 export const Header = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const [sideBar, setSideBar] = useState(false);
   const showSideBar = () => setSideBar(!sideBar);
-  const isSmallScreen = useMediaQuery({ maxWidth: "900px" });
+  const isSmallScreen = useMediaQuery({ minWidth: "900px" });
   return (
     <StyledHeader className="headerMobile">
-      <img src={motorShop}onClick={()=>navigate("/")} alt="logo MotorShop" />
-      {window.location.pathname === "/home" ? (
+      <img src={motorShop} onClick={() => navigate("/")} alt="logo MotorShop" />
+      {window.location.pathname === "/" ? (
         <>
           {isSmallScreen ? (
             <div>
-              <Button className="login" font="grey-7-8" onClick={()=>navigate("/login")}>
+              <Button className="login" font="grey-7-8" onClick={() => navigate("/login")}>
                 Fazer login
               </Button>
-              <Button font="grey-7-8" onClick={()=>navigate("/register")}>Cadastrar</Button>
+              <Button font="grey-7-8" onClick={() => navigate("/register")}>
+                Cadastrar
+              </Button>
             </div>
           ) : (
             <>
@@ -33,10 +35,12 @@ export const Header = () => {
                     <HiOutlineMenu onClick={showSideBar} />
                   </div>
                   <div className="showBtnsOn">
-                    <Button className="login" font="grey-7-8" onClick={()=>navigate("/login")}>
+                    <Button className="login" font="grey-7-8" onClick={() => navigate("/login")}>
                       Fazer login
                     </Button>
-                    <Button font="grey-7-8"onClick={()=>navigate("/register")}>Cadastrar</Button>
+                    <Button font="grey-7-8" onClick={() => navigate("/register")}>
+                      Cadastrar
+                    </Button>
                   </div>
                 </>
               ) : (
@@ -45,11 +49,12 @@ export const Header = () => {
                     <HiOutlineMenu onClick={showSideBar} />
                   </div>
                   <div className="showBtnsOff">
-                    <Button className="login" onClick={()=>navigate("/login")} font="grey-7-8"
-                    >
+                    <Button className="login" onClick={() => navigate("/login")} font="grey-7-8">
                       Fazer login
                     </Button>
-                    <Button font="grey-7-8"onClick={()=>navigate("/register")}>Cadastrar</Button>
+                    <Button font="grey-7-8" onClick={() => navigate("/register")}>
+                      Cadastrar
+                    </Button>
                   </div>
                 </>
               )}
@@ -72,10 +77,12 @@ export const Header = () => {
                   </div>
                   <div className="showBtnsOn">
                     {/* <Link to={"/login"}> Fazer Login</Link> */}
-                    <Button className="login" onClick={()=>navigate("/login")} font="grey-7-8">
+                    <Button className="login" onClick={() => navigate("/login")} font="grey-7-8">
                       Fazer login
                     </Button>
-                    <Button font="grey-7-8"onClick={()=>navigate("/register")}>Cadastrar</Button>
+                    <Button font="grey-7-8" onClick={() => navigate("/register")}>
+                      Cadastrar
+                    </Button>
                   </div>
                 </>
               ) : (
@@ -84,10 +91,12 @@ export const Header = () => {
                     <HiOutlineMenu onClick={showSideBar} />
                   </div>
                   <div className="showBtnsOff">
-                    <Button className="login" onClick={()=>navigate("/login")} font="grey-7-8">
+                    <Button className="login" onClick={() => navigate("/login")} font="grey-7-8">
                       Fazer login
                     </Button>
-                    <Button font="grey-7-8"onClick={()=>navigate("/register")}>Cadastrar</Button>
+                    <Button font="grey-7-8" onClick={() => navigate("/register")}>
+                      Cadastrar
+                    </Button>
                   </div>
                 </>
               )}
