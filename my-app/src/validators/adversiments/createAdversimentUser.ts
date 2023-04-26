@@ -33,7 +33,7 @@ const schemaCreateAdvertisement = yup.object().shape({
     description: yup
     .string()
     .required(),
-    images: yup.array(schemaObjetct)
+    images: yup.array(schemaObjetct).required(),
 })
 
 export default schemaCreateAdvertisement

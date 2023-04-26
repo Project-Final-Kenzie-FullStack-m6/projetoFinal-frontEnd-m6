@@ -15,6 +15,7 @@ const CreateAdversimentModal = ({ handleShowModal }: any) => {
 
   const { ApiFipeData, DataCars, DataModelCar, searchBrand, searchModel } = useContext(ApiFipeContext);
   const [NumImages, setNumImages] = useState(0);
+  const [inputCount, setInputCount] = useState(2);
 
 
   const dataBrand = Object.keys(ApiFipeData);
@@ -25,7 +26,7 @@ const CreateAdversimentModal = ({ handleShowModal }: any) => {
     setValue,
     getValues,
     formState: { errors },
-  } = useForm<iAdversimentDataRegister>({
+  } = useForm<any>({
     resolver: yupResolver(schemaCreateAdvertisement),
   });
 
@@ -43,6 +44,15 @@ const CreateAdversimentModal = ({ handleShowModal }: any) => {
   const handleAddImage = () => {
     setNumImages(NumImages + 1);
   };
+
+  const handleInputCount = () => {
+    setInputCount(inputCount + 1);
+  }
+
+  const handleSubmitEvent = () => {
+    handleAddImage();
+    handleInputCount();
+  }
 
   return (
     <>
@@ -231,7 +241,7 @@ const CreateAdversimentModal = ({ handleShowModal }: any) => {
                 font="regular-input-3"
                 id="imageUrl"
                 type="text"
-                {...register("images.imageUrl")}
+                {...register("images.[0].imageUrl")}
                 
               />
             </label>
@@ -242,7 +252,7 @@ const CreateAdversimentModal = ({ handleShowModal }: any) => {
                 font="regular-input-3"
                 id="imageUrl"
                 type="text"
-                // {...register("images.imageUrl2")}
+                {...register("images.[1].imageUrl")}
               />
 
             </label>
@@ -253,23 +263,23 @@ const CreateAdversimentModal = ({ handleShowModal }: any) => {
                 font="regular-input-3"
                 id="imageUrl"
                 type="text"
-                // {...register("images.imageUrl3")}
+                {...register("images.[2].imageUrl")}
               />
             </label>
 
             {Array.from({ length: NumImages }, (_, index) => (
               <label htmlFor="">
-                Imagem da Galeria
+                {inputCount}° Imagem da Galeria
                 <Input
                   font="regular-input-3"
                   type="text"
                   key={index}
-                  // {...register(`images.imageUrl`)}
+                  {...register(`images.[${inputCount}].imageUrl`)}
                 />
               </label>
             ))}
 
-            <button onClick={handleAddImage} className="btnAdd" type="button">
+            <button onClick={handleSubmitEvent} className="btnAdd" type="button">
               Adicionar campo para imagem da galeria
             </button>
 

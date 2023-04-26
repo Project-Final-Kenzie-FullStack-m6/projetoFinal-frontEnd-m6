@@ -15,7 +15,7 @@ interface iAdversimentDataRegister {
     price: string;
     color: string;
     description: string;
-    images: iImageResponse;
+    images: [iImageResponse];
     user: iUser
 }
 
