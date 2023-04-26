@@ -1,49 +1,58 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Button } from "../../../button/style.button";
 import { Input, Select, TextArea } from "../../../input/style.input";
 import * as S from "./style.createAdversimentModal";
 import { AdversimentContext } from "../../../../contexts/adversimentContext";
-import { useForm } from "react-hook-form";
+import { RegisterOptions, useForm } from "react-hook-form";
 import { iAdversimentDataRegister } from "../../../../interface/adversiments";
 import { yupResolver } from "@hookform/resolvers/yup";
 import schemaCreateAdvertisement from "../../../../validators/adversiments/createAdversimentUser";
 import { ApiFipeContext } from "../../../../contexts/ApiFipeContext";
 
 const CreateAdversimentModal = ({ handleShowModal }: any) => {
-  const { postNewAdversiment, setModalAddOpen } = useContext(AdversimentContext);
-  const { ApiFipeData, DataCars, DataModelCar, searchBrand, searchModel } =
-    useContext(ApiFipeContext);
+
+  const { postNewAdversiment} = useContext(AdversimentContext);
+
+  const { ApiFipeData, DataCars, DataModelCar, searchBrand, searchModel } = useContext(ApiFipeContext);
   const [NumImages, setNumImages] = useState(0);
+  const [inputCount, setInputCount] = useState(2);
+
 
   const dataBrand = Object.keys(ApiFipeData);
 
   const {
     register,
     handleSubmit,
-    watch,
+    setValue,
+    getValues,
     formState: { errors },
-  } = useForm<iAdversimentDataRegister>({
+  } = useForm<any>({
     resolver: yupResolver(schemaCreateAdvertisement),
   });
 
-  const watchedFields = watch([
-    "brand",
-    "model",
-    "age",
-    "fuelType",
-    "mileAge",
-    "color",
-    "fipe",
-    "price",
-    "description",
-    "images",
-  ]);
+  const teste = getValues()
 
-  // console.log(watchedFields)
+  console.log(teste, "valores aqui")
+
+  useEffect(() => {
+      setValue('age', DataModelCar[0]?.year)
+      setValue('fuelType', DataModelCar[0]?.fuel)
+      setValue('fipe', DataModelCar[0]?.value)
+  }, [DataModelCar, setValue])
+
 
   const handleAddImage = () => {
     setNumImages(NumImages + 1);
   };
+
+  const handleInputCount = () => {
+    setInputCount(inputCount + 1);
+  }
+
+  const handleSubmitEvent = () => {
+    handleAddImage();
+    handleInputCount();
+  }
 
   return (
     <>
@@ -67,7 +76,6 @@ const CreateAdversimentModal = ({ handleShowModal }: any) => {
             <label style={{ marginBottom: 24 }} htmlFor="brand">
               Marca
               <Select
-                // onChange={searchBrand}
                 font="regular-select-3"
                 id="brand"
                 {...register("brand", { onChange: searchBrand })}
@@ -90,7 +98,6 @@ const CreateAdversimentModal = ({ handleShowModal }: any) => {
             <label htmlFor="model">
               Modelo
               <Select
-                // onChange={searchModel}
                 font="regular-select-3"
                 id="model"
                 {...register("model", { onChange: searchModel })}
@@ -224,7 +231,7 @@ const CreateAdversimentModal = ({ handleShowModal }: any) => {
             <div className="divDescription">
               <label htmlFor="description">
                 Descrição
-                <TextArea font="text-area-2" id="description" {...register("description")} />
+                <TextArea font="text-area-2" id="description"{...register("description")} />
               </label>
             </div>
 
@@ -234,7 +241,8 @@ const CreateAdversimentModal = ({ handleShowModal }: any) => {
                 font="regular-input-3"
                 id="imageUrl"
                 type="text"
-                {...register("images.imageUrl")}
+                {...register("images.[0].imageUrl")}
+                
               />
             </label>
 
@@ -244,8 +252,9 @@ const CreateAdversimentModal = ({ handleShowModal }: any) => {
                 font="regular-input-3"
                 id="imageUrl"
                 type="text"
-                {...register("images.imageUrl1")}
+                {...register("images.[1].imageUrl")}
               />
+
             </label>
 
             <label htmlFor="imageUrl">
@@ -254,23 +263,23 @@ const CreateAdversimentModal = ({ handleShowModal }: any) => {
                 font="regular-input-3"
                 id="imageUrl"
                 type="text"
-                {...register("images.imageUrl2")}
+                {...register("images.[2].imageUrl")}
               />
             </label>
 
             {Array.from({ length: NumImages }, (_, index) => (
               <label htmlFor="">
-                Imagem da Galeria
+                {inputCount}° Imagem da Galeria
                 <Input
                   font="regular-input-3"
                   type="text"
                   key={index}
-                  {...register(`images.imageUrl`)}
+                  {...register(`images.[${inputCount}].imageUrl`)}
                 />
               </label>
             ))}
 
-            <button onClick={handleAddImage} className="btnAdd">
+            <button onClick={handleSubmitEvent} className="btnAdd" type="button">
               Adicionar campo para imagem da galeria
             </button>
 
@@ -280,6 +289,7 @@ const CreateAdversimentModal = ({ handleShowModal }: any) => {
                 onClick={() => {
                     handleShowModal();
                   }}
+                type="button"
               >
                 Cancelar
               </Button>

@@ -2,8 +2,6 @@ import { iUser } from "../users";
 
 interface iImageResponse {
     imageUrl: string;
-    imageUrl1: string;
-    imageUrl2: string;
 }
 
 interface iAdversimentDataRegister {
@@ -17,7 +15,7 @@ interface iAdversimentDataRegister {
     price: string;
     color: string;
     description: string;
-    images: iImageResponse;
+    images: [iImageResponse];
     user: iUser
 }
 
