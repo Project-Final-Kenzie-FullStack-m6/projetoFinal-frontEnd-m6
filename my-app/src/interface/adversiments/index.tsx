@@ -2,8 +2,6 @@ import { iUser } from "../users";
 
 interface iImageResponse {
     imageUrl: string;
-    imageUrl1: string;
-    imageUrl2: string;
 }
 
 interface iAdversimentDataRegister {

@@ -1,5 +1,10 @@
 import * as yup from "yup"
 
+
+const schemaObjetct = yup.object().shape({
+    imageUrl: yup.string().required()
+})
+
 const schemaCreateAdvertisement = yup.object().shape({
     brand: yup
     .string()
@@ -28,14 +33,7 @@ const schemaCreateAdvertisement = yup.object().shape({
     description: yup
     .string()
     .required(),
-    images: yup.object({
-        imageUrl: yup
-        .string(),
-    })
-
+    images: yup.array(schemaObjetct)
 })
 
 export default schemaCreateAdvertisement
-
-
-//Marca, modelo, ano, combustivel, km, cor, fipe, preço, descrição, imagem
