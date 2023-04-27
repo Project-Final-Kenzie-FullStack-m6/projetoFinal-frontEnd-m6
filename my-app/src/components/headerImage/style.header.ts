@@ -1,11 +1,11 @@
 import styled from "styled-components";
-import bmw from "../../assets/bmw.png";
+import lambo from "../../assets/lambo.jpg";
 export const StyledImageHeader = styled.div`
   /* width: 100vw; */
   height: 500px;
 
-  background: no-repeat center/cover url(${bmw});
-  background-size: 85%;
+  background: no-repeat center/cover url(${lambo});
+  background-size: 100%;
 
   max-height: 350px;
 
@@ -55,8 +55,8 @@ export const StyledImageHeader = styled.div`
     line-height: 56px;
   }
 
-  @media (max-width: 570px) {
-    background: url(${bmw}) center center / 98% no-repeat;
+  @media (max-width: 900px) {
+    background: url(${lambo}) center center / 300% no-repeat;
     div {
       justify-content: start;
       align-items: center;
