@@ -66,7 +66,7 @@ const LoginPage = () => {
 						)}
 						<span
 							onClick={() => {
-								console.log("teste");
+								navigate("/sendResetPassword");
 							}}
 						>
 							Esqueci minha senha

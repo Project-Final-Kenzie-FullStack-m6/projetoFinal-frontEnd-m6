@@ -25,8 +25,13 @@ export interface iUserRegister {
 	complement: string;
 }
 
-export interface iUserResetPassword {
+export interface iUserSendResetPassword {
 	email: string;
+}
+
+export interface iUserResetPassword {
+	password: string;
+	password1: string;
 }
 
 interface iUserProviderChildren {
@@ -43,7 +48,8 @@ interface iUserContext {
 	// updateAddressUser: (data: iUserAddressUpdate) => void;
 	userData: iUser;
 	setUserData: React.Dispatch<React.SetStateAction<{}>>;
-	sendResetPassword: (data: iUserResetPassword) => void;
+	sendResetPassword: (data: iUserSendResetPassword) => void;
+	resetPassword: (data: iUserResetPassword) => void;
 }
 
 export const UserContext = createContext<iUserContext>({} as iUserContext);
@@ -137,16 +143,29 @@ function UserProvider({ children }: iUserProviderChildren) {
 		}
 	}
 
-	async function sendResetPassword(data: iUserResetPassword) {
-		console.log("foi");
+	async function sendResetPassword(data: iUserSendResetPassword) {
 		try {
-			console.log("foi");
 			const response = await Api.post("/users/resetPassword", data);
+			navigate("/");
+			console.log(response.data);
+		} catch (error) {
+			console.log(error);
+		}
+	}
+
+	async function resetPassword(data: iUserResetPassword) {
+		const searchParams = new URLSearchParams(window.location.search);
+		const userToken = searchParams.get("token");
+		try {
+			const response = await Api.patch(
+				`/users/resetPassword/${userToken}`,
+				data
+			);
+			navigate("/");
 
 			console.log(response.data);
 		} catch (error) {
 			console.log(error);
-			console.log("foi");
 		}
 	}
 
@@ -162,6 +181,7 @@ function UserProvider({ children }: iUserProviderChildren) {
 				userData,
 				setUserData,
 				sendResetPassword,
+				resetPassword,
 			}}
 		>
 			{children}

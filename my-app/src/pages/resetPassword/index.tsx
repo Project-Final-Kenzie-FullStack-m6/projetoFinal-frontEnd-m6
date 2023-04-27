@@ -7,8 +7,9 @@ import LoginStyle from "./loginStyle";
 import { Link, useNavigate } from "react-router-dom";
 import schemaResetPassword from "./resetSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+
 import {
 	UserContext,
 	iUserResetPassword,
@@ -33,8 +34,18 @@ const ResetPasswordPage = () => {
 	} = useForm<iUserResetPassword>({
 		resolver: yupResolver(schemaResetPassword),
 	});
-	const test = watch(["email"]);
-	console.log(test);
+	const password = watch(["password"]);
+	const password1 = watch(["password1"]);
+	const [passwordMatch, setPasswordsMatch] = useState<boolean>(false);
+
+	useEffect(() => {
+		if (password[0] === password1[0]) {
+			setPasswordsMatch(true);
+		} else {
+			setPasswordsMatch(false);
+		}
+	}, [watch, setPasswordsMatch, password, password1, passwordMatch]);
+
 	return (
 		<>
 			<Header />
@@ -42,21 +53,46 @@ const ResetPasswordPage = () => {
 				<div className="container">
 					<h2>Reset your password</h2>
 					<form onSubmit={handleSubmit(resetPassword)}>
-						<label htmlFor="email">Email</label>
+						<label htmlFor="password">New password</label>
 						<Input
-							id="email"
+							id="password"
 							font="regular-input"
-							type="text"
-							placeholder="Digite seu email"
-							{...register("email")}
+							type="password"
+							placeholder="New password"
+							{...register("password")}
 						/>
-						{errors.email ? (
-							<p className="error">{errors.email.message}</p>
+						{errors.password ? (
+							<p className="error">{errors.password.message}</p>
+						) : (
+							""
+						)}
+						<label htmlFor="password">
+							Re-type your new password
+						</label>
+						<Input
+							id="password2"
+							font="regular-input"
+							type="password"
+							placeholder="Re-type your new password"
+							{...register("password1")}
+						/>
+
+						{errors.password1 ? (
+							<p className="error">{errors.password1.message}</p>
+						) : (
+							""
+						)}
+						{passwordMatch === false ? (
+							<p className="error">Passwords do not match</p>
 						) : (
 							""
 						)}
 
-						<Button font="brand-0-1" type="submit">
+						<Button
+							font="brand-0-1"
+							type="submit"
+							disabled={!passwordMatch}
+						>
 							Reset password
 						</Button>
 					</form>
