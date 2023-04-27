@@ -9,20 +9,19 @@ export const CardAdversiment = ({ owner }: any) => {
  
   return(
     <>
-      {adversimentData?.map((data: iAdversimentDataResponse, index: number) => {
+      {adversimentData?.map((data: any, index: number) => {
       const arrayName = data.user.name?.split(" ");
       let initials = "";
       if (arrayName) {
         initials = `${arrayName[0][0]}${arrayName[arrayName.length - 1][0]}`;
       }
-
       return(
         <>
           <S.Container className="mobileVersion" id={`${data.id}`} key={`${data.id}`}>
           <ul className="ulAdversiment">
             <li className="liAdversiment">
               <div className="divImg">
-                <img src={`${data.images.imageUrl}`} alt="car" />
+                <img src={`${data.images[0].imageUrl}`} alt="car" />
               </div>
 
               <div className="divInfos">
