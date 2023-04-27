@@ -10,25 +10,18 @@ import jwtDecode from "jwt-decode";
 
 const PageAdvertiser = () => {
 const navigate= useNavigate()
-// const userId = props.match.params.id;
 const token:any = localStorage.getItem("token");
-
+const decodedToken:any = jwtDecode(token);
+const searchParams = new URLSearchParams(window.location.search);
+const userId = searchParams.get("id");
+const owner = decodedToken.sub === userId
+console.log(userId)
 useEffect(() => {
-  if (!token) {
-      navigate("/");
-    }
-  }, [navigate,token]);
-  const [showModal, setShowModal] = useState(false);
-  
-
-  const decodedToken:any = jwtDecode(token);
-  const searchParams = new URLSearchParams(window.location.search);
-  const userId = searchParams.get("id");
-
-  const teste = decodedToken.sub === userId
-  console.log(teste)
-
-
+  if (!token||!userId) {
+    navigate("/");
+  }
+}, [navigate,token,userId]);
+const [showModal, setShowModal] = useState(false);
 
   const handleShowModal = () => {
     setShowModal(!showModal);
@@ -37,8 +30,8 @@ useEffect(() => {
     <StyledPageAdvertiser>
       {showModal ? <CreateAdversimentModal handleShowModal={handleShowModal} /> : <></>}
       <Header />
-      <HeaderAdvertiser owner={teste} showModal={showModal} handleShowModal={handleShowModal} />
-      <CardAdversiment owner={teste}/>
+      <HeaderAdvertiser owner={owner} showModal={showModal} handleShowModal={handleShowModal} />
+      <CardAdversiment owner={owner}/>
       <div className="pagination">
         <h4>
           <strong>1</strong> de 2

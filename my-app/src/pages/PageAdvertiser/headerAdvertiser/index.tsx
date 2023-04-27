@@ -1,8 +1,7 @@
-import { useState } from "react";
 import { Button } from "../../../components/button/style.button";
 import { StyledHeaderAdvertiser } from "./style";
 
-const HeaderAdvertiser = ({owner, showModal, handleShowModal }: any) => {
+const HeaderAdvertiser = ({owner, handleShowModal }: any) => {
   return (
     <StyledHeaderAdvertiser>
       <div className="background"></div>
