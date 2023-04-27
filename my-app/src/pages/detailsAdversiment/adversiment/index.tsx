@@ -101,7 +101,6 @@ const Adversiment = () => {
                         <div>
                             <img src={bmw} alt="car" />
                         </div>
-                        
                     </div>
                 
                 </div>
