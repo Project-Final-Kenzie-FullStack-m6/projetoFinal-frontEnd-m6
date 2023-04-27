@@ -11,9 +11,9 @@ import { useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { UserContext, iUserLogin } from "../../contexts/AuthUserContext/userContext";
 
-const LoginPage = ()=>{
-    const navigate = useNavigate();
-    const { userLogin } = useContext(UserContext);
+const LoginPage = () => {
+  const navigate = useNavigate();
+  const { userLogin } = useContext(UserContext);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -28,12 +28,12 @@ const LoginPage = ()=>{
     formState: { errors },
   } = useForm<iUserLogin>({ resolver: yupResolver(schemaLogin) });
 
-    return(<>
-    <Header/>
+  return (<>
+    <Header />
     <LoginStyle>
-    <div className="container">
-<h2>Login</h2>
-<form onSubmit={handleSubmit(userLogin)}>
+      <div className="container">
+        <h2>Login</h2>
+        <form onSubmit={handleSubmit(userLogin)}>
           <label htmlFor="email">Email</label>
           <Input
             id="email"
@@ -42,7 +42,7 @@ const LoginPage = ()=>{
             placeholder="Digite seu email"
             {...register("email")}
           />
-           {errors.email ? <p className="error">{errors.email.message}</p> : ""} 
+          {/* {errors.email ? <p className="error">{errors.email.message}</p> : ""}  */}
           <label htmlFor="password">Senha </label>
           <Input
             id="password"
@@ -51,12 +51,12 @@ const LoginPage = ()=>{
             placeholder="Digite sua senha"
             {...register("password")}
           />
-          {errors.password ? (
+          {/* {errors.password ? (
             <p className="error">{errors.password.message}</p>
           ) : (
             ""
-          )}
-          <span onClick={()=>{console.log("teste")}}>Esqueci minha senha</span>
+          )} */}
+          <span onClick={() => { console.log("teste") }}>Esqueci minha senha</span>
           <Button font="brand-0-1" type="submit">Login</Button>
           <h4>Ainda não possui conta?</h4>
           <Link className="otherButton" to={"/register"}>
@@ -64,11 +64,11 @@ const LoginPage = ()=>{
           </Link>
 
         </form>
-    </div>
+      </div>
     </LoginStyle>
-    <Footer/>
-    </>
-    )
+    <Footer />
+  </>
+  )
 }
 
 export default LoginPage
