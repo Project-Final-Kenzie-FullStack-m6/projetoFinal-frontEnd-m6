@@ -3,12 +3,16 @@ import styled from "styled-components";
 export const Container = styled.div`
   /* width: 312px; */
   /* height: 420px; */
+  max-width: 90%;
   max-height: 1425px;
   overflow-y: hidden;
   display: flex;
-  justify-content: center;
+  gap: 48px;
+  justify-content: flex-start;
+  flex-wrap: wrap;
 
   ul {
+    display: flex;
     li {
       display: flex;
       flex-direction: column;
@@ -25,15 +29,17 @@ export const Container = styled.div`
     display: flex;
     justify-content: center;
     img {
-      width: 255px;
+      width: 100%;
       height: 100%;
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
     }
   }
 
   .divModelDescription {
     display: flex;
     flex-direction: column;
-    margin-top: 13px;
+    margin-top: 15px;
     h3 {
       font-size: ${({ theme }) => theme.typography.fontSize.size16px};
       color: ${({ theme }) => theme.colors.grey.g1};
@@ -52,9 +58,9 @@ export const Container = styled.div`
     display: flex;
     justify-content: start;
     gap: 5px;
-    margin: 10px 0;
+    margin: 0px 0px 10px 0px;
     span {
-      font-size: ${({ theme }) => theme.typography.fontSize.size14px};
+      font-size: ${({ theme }) => theme.typography.fontSize.size16px};
       color: ${({ theme }) => theme.colors.grey.g2};
       font-weight: ${({ theme }) => theme.typography.fontWeight.weight500};
       display: flex;
@@ -76,7 +82,7 @@ export const Container = styled.div`
         border-radius: 4px;
         background-color: ${({ theme }) => theme.colors.brand.b4};
         color: ${({ theme }) => theme.colors.brand.b1};
-        font-weight: ${({ theme }) => theme.typography.fontWeight.weight500};
+        font-weight: ${({ theme }) => theme.typography.fontWeight.weight600};
         font-size: 13px;
         line-height: 22px;
         display: flex;
@@ -86,13 +92,9 @@ export const Container = styled.div`
     }
 
     span {
-      /* font-size: ${({ theme }) => theme.typography.fontSize.size20px}; */
+      font-size: ${({ theme }) => theme.typography.fontSize.size16px};
       color: ${({ theme }) => theme.colors.grey.g1};
-      font-weight: ${({ theme }) => theme.typography.fontWeight.weight500};
-      font-weight: 500;
-      font-size: 14px;
-      line-height: 20px;
-      width: 140px;
+      font-weight: ${({ theme }) => theme.typography.fontWeight.weight600};
     }
   }
 
@@ -117,7 +119,6 @@ export const Container = styled.div`
       padding: 0 10px 0px 10px;
       display: flex;
       flex-direction: column;
-      gap: 18px;
       margin-bottom: 10px;
 
       .divAdm {

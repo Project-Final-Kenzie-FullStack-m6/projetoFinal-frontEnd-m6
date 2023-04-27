@@ -9,6 +9,7 @@ export const CardAdversiment = ({ owner }: any) => {
  
   return(
     <>
+    <S.Container className="mobileVersion">
       {adversimentData?.map((data: any, index: number) => {
       const arrayName = data.user.name?.split(" ");
       let initials = "";
@@ -17,7 +18,7 @@ export const CardAdversiment = ({ owner }: any) => {
       }
       return(
         <>
-          <S.Container className="mobileVersion" id={`${data.id}`} key={`${data.id}`}>
+        <div>
           <ul className="ulAdversiment">
             <li className="liAdversiment">
               <div className="divImg">
@@ -58,16 +59,17 @@ export const CardAdversiment = ({ owner }: any) => {
                         <span>{`${data.mileAge}KM`}</span>
                         <span>{data.age}</span>
                       </div>
-                      <span>R${data.price}</span>
+                      <span className="price">R${data.price}</span>
                     </div>
                   </>
                 )}
               </div>
             </li>
           </ul>
-          </S.Container>
+        </div>
         </>
       )})}
+    </S.Container>
     </>
   )
 };
