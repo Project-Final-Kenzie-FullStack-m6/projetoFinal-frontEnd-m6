@@ -5,7 +5,7 @@ import { iAdversimentDataResponse } from "../../interface/adversiments";
 import { Button } from "../button/style.button";
 import bmw from "../../assets/bmw.png";
 
-export const CardAdversiment = () => {
+export const CardAdversiment = ({ owner }: any) => {
   const { adversimentData } = useContext(AdversimentContext);
 
   return (
@@ -26,7 +26,7 @@ export const CardAdversiment = () => {
                 </p>
               </div>
 
-              {window.location.pathname === "/advertiser" ? (
+              {owner ? (
                 <>
                   <div className="divMileAgePrice">
                     <div>
@@ -72,7 +72,7 @@ export const CardAdversiment = () => {
                 </p>
               </div>
 
-              {window.location.pathname === "/advertiser" ? (
+              {owner ? (
                 <>
                   <div className="divMileAgePrice">
                     <div>
@@ -118,7 +118,7 @@ export const CardAdversiment = () => {
                 </p>
               </div>
 
-              {window.location.pathname === "/advertiser" ? (
+              {owner ? (
                 <>
                   <div className="divMileAgePrice">
                     <div>
@@ -164,7 +164,7 @@ export const CardAdversiment = () => {
                 </p>
               </div>
 
-              {window.location.pathname === "/advertiser" ? (
+              {owner ? (
                 <>
                   <div className="divMileAgePrice">
                     <div>
@@ -210,7 +210,7 @@ export const CardAdversiment = () => {
                 </p>
               </div>
 
-              {window.location.pathname === "/advertiser" ? (
+              {owner ? (
                 <>
                   <div className="divMileAgePrice">
                     <div>
@@ -256,7 +256,7 @@ export const CardAdversiment = () => {
                 </p>
               </div>
 
-              {window.location.pathname === "/advertiser" ? (
+              {owner ? (
                 <>
                   <div className="divMileAgePrice">
                     <div>
@@ -302,7 +302,7 @@ export const CardAdversiment = () => {
                 </p>
               </div>
 
-              {window.location.pathname === "/advertiser" ? (
+              {owner ? (
                 <>
                   <div className="divMileAgePrice">
                     <div>
@@ -348,7 +348,7 @@ export const CardAdversiment = () => {
                 </p>
               </div>
 
-              {window.location.pathname === "/advertiser" ? (
+              {owner ? (
                 <>
                   <div className="divMileAgePrice">
                     <div>
@@ -394,7 +394,7 @@ export const CardAdversiment = () => {
                 </p>
               </div>
 
-              {window.location.pathname === "/advertiser" ? (
+              {owner ? (
                 <>
                   <div className="divMileAgePrice">
                     <div>
@@ -461,7 +461,7 @@ export const CardAdversiment = () => {
                       </div>
                       <span>{data.price}</span>
                     </div>
-                    {window.location.pathname === "/advertiser" ? (
+                    {owner ? (
                       <>
                         <div>
                           <Button font="grey-0-1">Editar</Button>

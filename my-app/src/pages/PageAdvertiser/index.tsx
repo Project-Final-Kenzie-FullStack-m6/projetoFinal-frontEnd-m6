@@ -6,17 +6,29 @@ import HeaderAdvertiser from "./headerAdvertiser";
 import { StyledPageAdvertiser } from "./style";
 import { useNavigate } from "react-router-dom";
 import CreateAdversimentModal from "../../components/modals/adversiments/createAdversimentModal";
+import jwtDecode from "jwt-decode";
 
 const PageAdvertiser = () => {
 const navigate= useNavigate()
+// const userId = props.match.params.id;
+const token:any = localStorage.getItem("token");
 
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (!token) {
-        navigate("/");
+useEffect(() => {
+  if (!token) {
+      navigate("/");
     }
-}, [navigate]);
+  }, [navigate,token]);
   const [showModal, setShowModal] = useState(false);
+  
+
+  const decodedToken:any = jwtDecode(token);
+  const searchParams = new URLSearchParams(window.location.search);
+  const userId = searchParams.get("id");
+
+  const teste = decodedToken.sub === userId
+  console.log(teste)
+
+
 
   const handleShowModal = () => {
     setShowModal(!showModal);
@@ -25,8 +37,8 @@ const navigate= useNavigate()
     <StyledPageAdvertiser>
       {showModal ? <CreateAdversimentModal handleShowModal={handleShowModal} /> : <></>}
       <Header />
-      <HeaderAdvertiser showModal={showModal} handleShowModal={handleShowModal} />
-      <CardAdversiment />
+      <HeaderAdvertiser owner={teste} showModal={showModal} handleShowModal={handleShowModal} />
+      <CardAdversiment owner={teste}/>
       <div className="pagination">
         <h4>
           <strong>1</strong> de 2

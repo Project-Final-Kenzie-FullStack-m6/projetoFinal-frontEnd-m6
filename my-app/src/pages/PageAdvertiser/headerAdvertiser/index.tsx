@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "../../../components/button/style.button";
 import { StyledHeaderAdvertiser } from "./style";
 
-const HeaderAdvertiser = ({ showModal, handleShowModal }: any) => {
+const HeaderAdvertiser = ({owner, showModal, handleShowModal }: any) => {
   return (
     <StyledHeaderAdvertiser>
       <div className="background"></div>
@@ -17,10 +17,11 @@ const HeaderAdvertiser = ({ showModal, handleShowModal }: any) => {
           <p>
             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
             has been the industry's standard dummy text ever since the 1500s
-          </p>
-          <Button onClick={handleShowModal} className="createAd" font="brand-10-11">
+          </p>{owner?
+          (<Button onClick={handleShowModal} className="createAd" font="brand-10-11">
             Criar Anuncio
-          </Button>
+          </Button>):
+          ("")}
         </div>
       </div>
     </StyledHeaderAdvertiser>

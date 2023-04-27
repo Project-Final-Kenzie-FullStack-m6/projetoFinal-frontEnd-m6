@@ -16,8 +16,8 @@ const RoutesMain = () => (
     <Route path="/createAds" element={<CreateAdversimentModal />} />
     <Route path="/updateUser" element={<UpdateUserModal />}/>
     <Route path="/updateAddress" element={<UpdateAddressModal />}/>
-    <Route path="/deleteUser" element={<DeleteUserModal />}/>
-    <Route path="/advertiser" element={<PageAdvertiser />} />
+    <Route path="/deleteUser" element={<DeleteUserModal />}/>Sw
+    <Route path="/advertiser/" element={<PageAdvertiser />} />
     <Route path="/login" element={<LoginPage />} />
     <Route path="/register" element={<RegisterPage />} />
   </Routes>
