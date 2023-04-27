@@ -81,6 +81,7 @@ function UserProvider({ children }: iUserProviderChildren) {
 		try {
 			const response = await Api.post("/login", info);
 			localStorage.setItem("token", response.data.token);
+			localStorage.setItem("userId", response.data.userId);
 
 			console.log(response.data);
 		} catch (error) {
