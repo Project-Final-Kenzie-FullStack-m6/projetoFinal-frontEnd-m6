@@ -26,6 +26,17 @@ const AdversimentProvider = ({children}: iAdversimentProviderProps) => {
         loadAdversiment()
     }, [])
 
+    
+    // const loadOnlyMyAdversiment = async () => {
+    //     try {
+    //         const {data} = await Api.get("/adversiments")
+    //         setAdversimentData(data)
+    //         setLoading(true)
+    //     } catch (error) {
+    //         console.error(error)
+    //     }
+    //     setLoading(false)
+    // }
 
     const postNewAdversiment= async (data:iAdversimentDataRegister) => {
         try {

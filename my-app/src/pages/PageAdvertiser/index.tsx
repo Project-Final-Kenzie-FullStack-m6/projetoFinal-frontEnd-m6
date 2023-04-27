@@ -9,14 +9,17 @@ import CreateAdversimentModal from "../../components/modals/adversiments/createA
 
 const PageAdvertiser = () => {
 const navigate= useNavigate()
-
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (!token) {
-        navigate("/");
-    }
-}, [navigate]);
-  const [showModal, setShowModal] = useState(false);
+const logeedId:any = localStorage.getItem("userId");
+const searchParams = new URLSearchParams(window.location.search);
+const userId = searchParams.get("id");
+const owner =logeedId === userId
+console.log(userId)
+useEffect(() => {
+  if (!userId) {
+    navigate("/");
+  }
+}, [navigate,userId]);
+const [showModal, setShowModal] = useState(false);
 
   const handleShowModal = () => {
     setShowModal(!showModal);
@@ -25,8 +28,8 @@ const navigate= useNavigate()
     <StyledPageAdvertiser>
       {showModal ? <CreateAdversimentModal handleShowModal={handleShowModal} /> : <></>}
       <Header />
-      <HeaderAdvertiser showModal={showModal} handleShowModal={handleShowModal} />
-      <CardAdversiment />
+      <HeaderAdvertiser owner={owner} showModal={showModal} handleShowModal={handleShowModal} />
+      <CardAdversiment owner={owner}/>
       <div className="pagination">
         <h4>
           <strong>1</strong> de 2

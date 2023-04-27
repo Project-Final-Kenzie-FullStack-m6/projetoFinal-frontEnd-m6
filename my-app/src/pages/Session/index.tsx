@@ -15,8 +15,10 @@ import {
 } from "../../contexts/AuthUserContext/userContext";
 
 const LoginPage = () => {
+
 	const navigate = useNavigate();
 	const { userLogin } = useContext(UserContext);
+
 
 	useEffect(() => {
 		const token = localStorage.getItem("token");
