@@ -6,21 +6,19 @@ import HeaderAdvertiser from "./headerAdvertiser";
 import { StyledPageAdvertiser } from "./style";
 import { useNavigate } from "react-router-dom";
 import CreateAdversimentModal from "../../components/modals/adversiments/createAdversimentModal";
-import jwtDecode from "jwt-decode";
 
 const PageAdvertiser = () => {
 const navigate= useNavigate()
-const token:any = localStorage.getItem("token");
-const decodedToken:any = jwtDecode(token);
+const logeedId:any = localStorage.getItem("userId");
 const searchParams = new URLSearchParams(window.location.search);
 const userId = searchParams.get("id");
-const owner = decodedToken.sub === userId
+const owner =logeedId === userId
 console.log(userId)
 useEffect(() => {
-  if (!token||!userId) {
+  if (!userId) {
     navigate("/");
   }
-}, [navigate,token,userId]);
+}, [navigate,userId]);
 const [showModal, setShowModal] = useState(false);
 
   const handleShowModal = () => {
