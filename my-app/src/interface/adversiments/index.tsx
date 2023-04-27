@@ -29,7 +29,7 @@ interface iAdversimentDataResponse {
     price: number;
     color: string;
     description: string;
-    images: iImageResponse;
+    images: [iImageResponse];
     user: iUser
 }
 
