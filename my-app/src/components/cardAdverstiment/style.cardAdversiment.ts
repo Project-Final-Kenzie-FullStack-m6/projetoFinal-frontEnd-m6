@@ -70,7 +70,8 @@ export const Container = styled.div`
       display: flex;
       gap: 10px;
       span {
-        width: 51px;
+        width: auto;
+        padding: 5px;
         height: 32px;
         border-radius: 4px;
         background-color: ${({ theme }) => theme.colors.brand.b4};
