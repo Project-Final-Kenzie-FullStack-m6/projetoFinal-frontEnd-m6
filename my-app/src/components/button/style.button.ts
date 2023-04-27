@@ -596,6 +596,15 @@ const Button = styled.button`
           &:hover {
             filter: brightness(0.9);
           }
+
+          @media screen and (max-width: 768px) {
+            width: 12vmin;
+            height: 12vmin;
+          }
+          @media screen and (max-width: 414px) {
+            width: 15vmin;
+            height: 15vmin;
+          }
         `;
 
       //COLOR - TYPE - ID

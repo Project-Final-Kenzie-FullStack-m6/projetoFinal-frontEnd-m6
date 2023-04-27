@@ -226,6 +226,7 @@ const StyledContainer = styled.main`
                 .divImages {
                     display: flex;
                     flex-wrap: wrap;
+                    justify-content: start;
                     margin-top: 32px;
                     gap: 14px;
                     
@@ -243,6 +244,11 @@ const StyledContainer = styled.main`
                             max-width: 100%;
                             height: auto;
                         }
+                    }
+
+                    @media screen and (max-width: 1652px) {
+                            width: 100%;
+                            justify-content: center;   
                     }
                 }
             }
@@ -264,6 +270,16 @@ const StyledContainer = styled.main`
                         color: ${({ theme }) => theme.colors.grey.g1};
                         font-size: ${({ theme }) => theme.typography.fontSize.size20px};
                         font-weight: ${({ theme }) => theme.typography.fontWeight.weight600};
+
+                        @media screen and (max-width: 1200px) {
+                            font-size: 2.5vmin;
+                        }
+                        @media screen and (max-width: 768px) {
+                            font-size: 2.1vmin;
+                        }
+                        @media screen and (max-width: 414px) {
+                            font-size: 3.8vmin;
+                        }
                     }
     
                     p {
@@ -272,6 +288,16 @@ const StyledContainer = styled.main`
                         color: ${({ theme }) => theme.colors.grey.g2};
                         font-size: ${({ theme }) => theme.typography.fontSize.size16px};
                         font-weight: ${({ theme }) => theme.typography.fontWeight.weight400};
+
+                        @media screen and (max-width: 1200px) {
+                            font-size: 2vmin;
+                        }
+                        @media screen and (max-width: 768px) {
+                            font-size: 2.1vmin;
+                        }
+                        @media screen and (max-width: 414px) {
+                            font-size: 3.8vmin;
+                        }
                     }
     
                     .button2{
@@ -282,6 +308,18 @@ const StyledContainer = styled.main`
                         color: ${({ theme }) => theme.colors.grey.whiteFixed};
                         font-size: ${({ theme }) => theme.typography.fontSize.size16px};
                         font-weight: ${({ theme }) => theme.typography.fontWeight.weight600};
+
+                        @media screen and (max-width: 1200px) {
+                            font-size: 3vmin;
+                            width: 60%;
+                        }
+                        @media screen and (max-width: 768px) {
+                            font-size: 2.1vmin;
+                        }
+                        @media screen and (max-width: 414px) {
+                            font-size: 3.8vmin;
+                            height: 11vmin;
+                        }
                     }
                 }
             }
