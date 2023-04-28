@@ -6,6 +6,7 @@ interface iUser {
     phone?: number;
     birthDate?:Date;
     description?:string;
+    isSeller?:boolean;
     address?: iUserAddress;
 }
 
