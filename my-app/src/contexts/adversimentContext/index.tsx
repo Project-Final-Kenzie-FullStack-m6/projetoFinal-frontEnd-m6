@@ -12,6 +12,7 @@ export const AdversimentContext = createContext({} as iAdversimentContextProps);
 
 const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
   const [adversimentData, setAdversimentData] = useState([] as iAdversimentDataResponse[]);
+  const [filterAdversiments, setFilterAdversiments] = useState([] as iAdversimentDataResponse[]);
   const [filterBrand, setFilterBrand] = useState("");
   const [filterModel, setFilterModel] = useState("");
   const [filterColor, setFilterColor] = useState("");
@@ -24,36 +25,37 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
   const [renderFilter, setRenderFilter] = useState(false);
   const [listBrands, setListBrands] = useState([]);
 
-  const arrBrands: any = [];
-  adversimentData.map((data) => {
-    if (!arrBrands.includes(data.brand)) {
-      arrBrands.push(data.brand);
-    }
-  });
+  // const arrBrands: any = [];
+  // adversimentData.map((data) => {
+  //   if (!arrBrands.includes(data.brand)) {
+  //     arrBrands.push(data.brand);
+  //   }
+  // });
   // setListBrands(arrBrands);
 
   const loadAdversiment = async () => {
     try {
+      const { data } = await Api.get("/adversiments");
+      setAdversimentData(data);
+      setFilterAdversiments(data);
       if (filterBrand) {
         const listFilter = adversimentData.filter((data) => data.brand === filterBrand);
-        setAdversimentData(listFilter);
+        setFilterAdversiments(listFilter);
       } else if (filterModel) {
         const listFilter = adversimentData.filter((data) => data.model === filterModel);
-        setAdversimentData(listFilter);
+        setFilterAdversiments(listFilter);
       } else if (filterColor) {
         const listFilter = adversimentData.filter((data) => data.color === filterColor);
-        setAdversimentData(listFilter);
+        setFilterAdversiments(listFilter);
       } else if (filterAge) {
         const listFilter = adversimentData.filter((data) => data.age === filterAge);
-        setAdversimentData(listFilter);
+        setFilterAdversiments(listFilter);
       } else if (filterFuel) {
         const listFilter = adversimentData.filter((data) => data.fuelType === filterFuel);
-        setAdversimentData(listFilter);
+        setFilterAdversiments(listFilter);
       } else if (filterKM) {
       } else if (filterPrice) {
       } else {
-        const { data } = await Api.get("/adversiments");
-        setAdversimentData(data);
       }
       setLoading(true);
     } catch (error) {
@@ -75,7 +77,8 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
 
   useEffect(() => {
     loadAdversiment();
-    setListBrands(arrBrands);
+    // setListBrands(arrBrands);
+    // }, []);
   }, [renderFilter]);
 
   // const loadOnlyMyAdversiment = async () => {
@@ -121,6 +124,8 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
         ModalAddOpen,
         renderFilter,
         setRenderFilter,
+        filterAdversiments,
+        setFilterAdversiments,
         listBrands,
       }}
     >

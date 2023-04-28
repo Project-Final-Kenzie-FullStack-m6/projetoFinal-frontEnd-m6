@@ -20,17 +20,17 @@ interface iAdversimentDataRegister {
 }
 
 interface iAdversimentDataResponse {
-    id: string;
-    brand: string;
-    model: string;
-    age: number;
-    fuelType: string;
-    mileAge: number;
-    price: number;
-    color: string;
-    description: string;
-    images: [iImageResponse];
-    user: iUser
+  id: string;
+  brand: string;
+  model: string;
+  age: number;
+  fuelType: string;
+  mileAge: number;
+  price: number;
+  color: string;
+  description: string;
+  images: [iImageResponse];
+  user: iUser;
 }
 
 interface iAdversimentProviderProps {
@@ -47,7 +47,9 @@ interface iAdversimentContextProps {
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
 
   adversimentData: iAdversimentDataResponse[];
+  filterAdversiments: iAdversimentDataResponse[];
   setAdversimentData: React.Dispatch<React.SetStateAction<iAdversimentDataResponse[]>>;
+  setFilterAdversiments: React.Dispatch<React.SetStateAction<iAdversimentDataResponse[]>>;
 
   ModalAddOpen?: boolean;
   setModalAddOpen: React.Dispatch<React.SetStateAction<boolean>>;
