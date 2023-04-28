@@ -60,6 +60,9 @@ interface iAdversimentContextProps {
   setFilterKM: React.Dispatch<React.SetStateAction<boolean>>;
   setFilterPrice: React.Dispatch<React.SetStateAction<boolean>>;
   filterBrand: any;
+  renderFilter: boolean;
+  setRenderFilter: React.Dispatch<React.SetStateAction<boolean>>;
+  listBrands: string[];
 }
 
 export type {

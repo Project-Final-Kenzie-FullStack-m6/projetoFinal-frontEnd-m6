@@ -21,6 +21,16 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
   const [filterPrice, setFilterPrice] = useState(false);
   const [ModalAddOpen, setModalAddOpen] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
+  const [renderFilter, setRenderFilter] = useState(false);
+  const [listBrands, setListBrands] = useState([]);
+
+  const arrBrands: any = [];
+  adversimentData.map((data) => {
+    if (!arrBrands.includes(data.brand)) {
+      arrBrands.push(data.brand);
+    }
+  });
+  // setListBrands(arrBrands);
 
   const loadAdversiment = async () => {
     try {
@@ -65,7 +75,8 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
 
   useEffect(() => {
     loadAdversiment();
-  }, []);
+    setListBrands(arrBrands);
+  }, [renderFilter]);
 
   // const loadOnlyMyAdversiment = async () => {
   //     try {
@@ -108,6 +119,9 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
         adversimentData,
         loading,
         ModalAddOpen,
+        renderFilter,
+        setRenderFilter,
+        listBrands,
       }}
     >
       {children}
