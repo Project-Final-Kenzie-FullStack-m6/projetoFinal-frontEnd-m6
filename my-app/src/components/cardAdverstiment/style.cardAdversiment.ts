@@ -100,6 +100,7 @@ export const Container = styled.div`
 
   .ulAdversiment {
     width: 100%;
+    max-height: 1235px;
     display: flex;
     gap: 40px 50px;
     -webkit-box-pack: center;
