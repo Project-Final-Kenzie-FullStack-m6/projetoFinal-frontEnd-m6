@@ -2,6 +2,12 @@ import styled from "styled-components";
 
 export const StyledPageAdvertiser = styled.main`
   background-color: ${({ theme }) => theme.colors.grey.g8};
+
+  .divCard {
+    display: flex;
+    justify-content: center;
+  }
+
   .pagination {
     padding: 85px 0 65px;
     width: 100%;

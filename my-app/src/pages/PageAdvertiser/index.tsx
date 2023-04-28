@@ -6,6 +6,7 @@ import HeaderAdvertiser from "./headerAdvertiser";
 import { StyledPageAdvertiser } from "./style";
 import { useNavigate } from "react-router-dom";
 import CreateAdversimentModal from "../../components/modals/adversiments/createAdversimentModal";
+import * as S from "../../components/cardAdverstiment/style.cardAdversiment";
 
 const PageAdvertiser = () => {
 const navigate= useNavigate()
@@ -29,7 +30,15 @@ const [showModal, setShowModal] = useState(false);
       {showModal ? <CreateAdversimentModal handleShowModal={handleShowModal} /> : <></>}
       <Header />
       <HeaderAdvertiser owner={owner} showModal={showModal} handleShowModal={handleShowModal} />
-      <CardAdversiment owner={owner}/>
+      <div className="divCard">
+        <section className="cardList">
+          <S.Container className="mobileVersion">
+            <ul className="ulAdversiment">
+              <CardAdversiment owner={owner}/>
+            </ul>
+          </S.Container>
+        </section>
+      </div>
       <div className="pagination">
         <h4>
           <strong>1</strong> de 2
