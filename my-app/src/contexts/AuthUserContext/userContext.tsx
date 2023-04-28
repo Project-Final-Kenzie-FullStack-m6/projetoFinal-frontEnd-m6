@@ -43,6 +43,10 @@ interface iUserContext {
 	userRegister: (info: iUserRegister) => void;
 	activeButton: boolean;
 	setActiveButton: React.Dispatch<React.SetStateAction<boolean>>;
+	setEditProfile: React.Dispatch<React.SetStateAction<boolean>>;
+	setEditAdress: React.Dispatch<React.SetStateAction<boolean>>;
+	editAdress:boolean;
+	editProfile:boolean;
 	deleteUser: () => void;
 	updateUser: (data: iUserUpdate) => void;
 	// updateAddressUser: (data: iUserAddressUpdate) => void;
@@ -57,6 +61,8 @@ export const UserContext = createContext<iUserContext>({} as iUserContext);
 function UserProvider({ children }: iUserProviderChildren) {
 	const navigate = useNavigate();
 	const [activeButton, setActiveButton] = useState(true);
+	const [editProfile, setEditProfile] = useState(false);
+  const [editAdress, setEditAdress] = useState(false);
 	const [userData, setUserData] = useState({} as iUser);
 
 	useEffect(() => {
@@ -82,7 +88,7 @@ function UserProvider({ children }: iUserProviderChildren) {
 			const response = await Api.post("/login", info);
 			localStorage.setItem("token", response.data.token);
 			localStorage.setItem("userId", response.data.userId);
-
+			navigate("/")
 			console.log(response.data);
 		} catch (error) {
 			console.log(error);
@@ -177,6 +183,10 @@ function UserProvider({ children }: iUserProviderChildren) {
 				userRegister,
 				activeButton,
 				setActiveButton,
+				editProfile,
+				editAdress,
+				setEditAdress,
+				setEditProfile,
 				deleteUser,
 				updateUser,
 				userData,
