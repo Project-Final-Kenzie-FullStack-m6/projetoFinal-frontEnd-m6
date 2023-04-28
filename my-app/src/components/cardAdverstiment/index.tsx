@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { AdversimentContext } from "../../contexts/adversimentContext";
-// import * as S from "./style.cardAdversiment";
 import { iAdversimentDataResponse } from "../../interface/adversiments";
 import { Button } from "../button/style.button";
 
@@ -20,7 +19,7 @@ export const CardAdversiment = ({ owner }: any) => {
           <>
             <li className="liAdversiment" id={`${data.id}`} key={`${data.id}`}>
               <div className="divImg">
-                <img src={`${data.images.imageUrl}`} alt="car" />
+                <img src={`${data.images[0].imageUrl}`} alt="car" />
               </div>
 
               <div className="divInfos">
@@ -55,7 +54,7 @@ export const CardAdversiment = ({ owner }: any) => {
                         <span>{`${data.mileAge}KM`}</span>
                         <span>{data.age}</span>
                       </div>
-                      <span>R${data.price}</span>
+                      <span className="price">R${data.price}</span>
                     </div>
                   </>
                 )}
