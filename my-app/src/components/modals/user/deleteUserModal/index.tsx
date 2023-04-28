@@ -19,7 +19,7 @@ const DeleteUserModal = ({setOpenModal}: any) => {
                     >X</button>
                 </S.StyledBtnClose>
                 <S.StyledTitle>
-                    <h1>Tem certeza que deseja remover este anúncio?</h1>
+                    <h1>Tem certeza que deseja excluir essa conta?</h1>
                 </S.StyledTitle>
 
                 <S.StyledParagraphContainer>
@@ -43,7 +43,7 @@ const DeleteUserModal = ({setOpenModal}: any) => {
                             className='btnStyle'
                             onClick={deleteUser}
                         >
-                            Sim, excluir anúncio
+                            Sim, excluir conta
                         </Button>
                     </div>
                 </S.StyledParagraphContainer>
