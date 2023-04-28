@@ -39,11 +39,10 @@ if(userData.name){
   return (<>
     <StyledHeader className="headerMobile">
       <img src={motorShop} onClick={() => navigate("/")} alt="logo MotorShop" />
-      {/* {window.location.pathname === "/" ? ( */}
       {window.localStorage.token ? (
         <>
           {isSmallScreen ? (<>
-            {sideBar ?(<>
+          {isSeller?(<>{sideBar ?(<>
             <div className="divNameUser" onClick={showSideBar}>
               <Button font="ball-0-2">{bolinha}</Button>
               <span>{userData.name}</span>
@@ -60,7 +59,24 @@ if(userData.name){
              <div className="divNameUser" onClick={showSideBar}>
               <Button font="ball-0-2">{bolinha}</Button>
               <span>{userData.name}</span>
-            </div>)}
+            </div>)}</>):(<>{sideBar ?(<>
+            <div className="divNameUser" onClick={showSideBar}>
+              <Button font="ball-0-2">{bolinha}</Button>
+              <span>{userData.name}</span>
+            </div>
+            <div className="showBtnsOn">
+            <ul className="menuLogin">
+              <li onClick={showEditProfile}>Editar Perfil</li>
+              <li onClick={showEditAdress}>Editar endereço</li>
+              <li onClick={logout}>Sair</li>
+            </ul>
+          </div></>
+             ) :(
+             <div className="divNameUser" onClick={showSideBar}>
+              <Button font="ball-0-2">{bolinha}</Button>
+              <span>{userData.name}</span>
+            </div>)}</>)}
+            
            </>
           ) : (
             <>
