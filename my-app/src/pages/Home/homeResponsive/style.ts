@@ -46,7 +46,7 @@ export const StyledHomePageMobile = styled.main`
   }
 
   .mobileVersion {
-    max-height: 1035px;
+    max-height: 1100px;
   }
   /* .headerMobile {
     height: 70px;

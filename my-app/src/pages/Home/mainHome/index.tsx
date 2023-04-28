@@ -21,6 +21,8 @@ export const MainHome = () => {
     filterBrand,
     renderFilter,
     setRenderFilter,
+    adversimentData,
+    setFilterAdversiments,
     // listBrands,
   } = useContext(AdversimentContext);
 
@@ -307,13 +309,16 @@ export const MainHome = () => {
             </ul>
             <h2>KM</h2>
             <div className="divButton">
-              <Button
+              {/* <Button
                 onClick={() => {
                   setFilterKM(false);
                   setRenderFilter(!renderFilter);
                 }}
                 font="grey-0-1"
               >
+                Mínima
+              </Button> */}
+              <Button onClick={() => setFilterAdversiments(adversimentData)} font="grey-0-1">
                 Mínima
               </Button>
               <Button
@@ -621,13 +626,16 @@ export const MainHome = () => {
           </ul>
           <h2>KM</h2>
           <div className="divButton">
-            <Button
+            {/* <Button
               onClick={() => {
                 setFilterKM(false);
                 setRenderFilter(!renderFilter);
               }}
               font="grey-0-1"
             >
+              Mínima
+            </Button> */}
+            <Button onClick={() => setFilterAdversiments(adversimentData)} font="grey-0-1">
               Mínima
             </Button>
             <Button
