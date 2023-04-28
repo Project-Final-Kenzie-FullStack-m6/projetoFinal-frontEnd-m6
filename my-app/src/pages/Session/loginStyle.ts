@@ -20,6 +20,7 @@ h2{
 }
 button{
     margin-top: 10%;
+    width: 100%;
 }
 input{
     margin-top: 0;

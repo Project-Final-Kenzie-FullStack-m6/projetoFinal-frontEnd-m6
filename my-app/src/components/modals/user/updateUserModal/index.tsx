@@ -11,8 +11,10 @@ import DeleteUserModal from '../deleteUserModal';
 
 const UpdateUserModal = () => {
 
-    const {updateUser, userData} = useContext(UserContext)
+    const {updateUser, userData, setEditProfile,editProfile} = useContext(UserContext)
     const [openModal, setOpenModal ] = useState(false)
+
+    const showEditProfile = () => setEditProfile(!editProfile)
 
     const {
         register,
@@ -54,7 +56,7 @@ const UpdateUserModal = () => {
                 {openModal && <DeleteUserModal handleOpenModal={handleOpenModal} setOpenModal={setOpenModal}/>}
                 <S.StyledBtnClose>
                     <h1>Editar Perfil</h1>
-                    <button>X</button>
+                    <button onClick={showEditProfile}>X</button>
                 </S.StyledBtnClose>
                 <S.StyledTitle>
                     <h1>Informações Pessoais</h1>
@@ -130,6 +132,8 @@ const UpdateUserModal = () => {
                             <Button 
                                 font='grey-0-1'
                                 type='button'
+                                onClick={showEditProfile}
+                
                             >
                                 Cancelar
                             </Button>

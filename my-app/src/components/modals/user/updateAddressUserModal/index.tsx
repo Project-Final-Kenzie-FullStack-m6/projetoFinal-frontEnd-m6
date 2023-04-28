@@ -11,8 +11,8 @@ import { UserContext } from "../../../../contexts/AuthUserContext/userContext"
 
 const UpdateAddressModal = () => {
     
-    const {updateUser, userData} = useContext(UserContext)
-
+    const {updateUser, userData,editAdress,setEditAdress} = useContext(UserContext)
+    const showEdit = () => setEditAdress(!editAdress);
     const {
         register,
         handleSubmit,
@@ -37,7 +37,7 @@ const UpdateAddressModal = () => {
             <S.StyledContainer>
                 <S.StyledBtnClose>
                     <h1>Editar endereço</h1>
-                    <button>X</button>
+                    <button onClick={showEdit}>X</button>
                 </S.StyledBtnClose>
                 <S.StyledTitle>
                     <h1>Informações de endereço</h1>
@@ -118,6 +118,7 @@ const UpdateAddressModal = () => {
                         <div className="btnEvent">
                             <Button
                                 font="grey-4-5"
+                                onClick={showEdit}
                             >
                                 Cancelar
                             </Button>
