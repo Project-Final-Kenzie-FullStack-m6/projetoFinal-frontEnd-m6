@@ -116,8 +116,7 @@ function UserProvider({ children }: iUserProviderChildren) {
 		};
 		try {
 			const response = await Api.post("/users", newInfo);
-
-			localStorage.setItem("token", response.data.token);
+			navigate("/login")
 			console.log(response.data);
 		} catch (error) {
 			console.log(error);

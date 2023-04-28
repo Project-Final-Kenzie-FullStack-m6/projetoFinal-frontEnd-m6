@@ -70,6 +70,7 @@ export const StyledHeader = styled.div`
     font-size: 16px;
     li {
       color: ${({ theme }) => theme.colors.grey.g1};
+      cursor: pointer;
     }
   }
 `;
