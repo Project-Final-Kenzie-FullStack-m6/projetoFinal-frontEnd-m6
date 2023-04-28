@@ -13,7 +13,7 @@ import { UserContext } from "../../contexts/AuthUserContext/userContext";
 
 export const Header = () => {
   const navigate = useNavigate();
-  const { setEditAdress,setEditProfile,editAdress,editProfile} = useContext(UserContext);
+  const { setEditAdress,setEditProfile,editAdress,editProfile,userData} = useContext(UserContext);
   const token = localStorage.getItem("token")
   const userId = localStorage.getItem("userId")
   let isSeller = false
@@ -27,6 +27,11 @@ export const Header = () => {
   const myAdversiments = ()=> navigate(`/advertiser?id=${userId}`)
   const logout = () => {localStorage.clear()
   navigate("/login")}
+let bolinha = ""
+if(userData.name){
+  const teste:any = userData.name?.split("")
+  bolinha =teste[0]+teste[1]
+}
 
   const [sideBar, setSideBar] = useState(false);
   const showSideBar = () => setSideBar(!sideBar);
@@ -40,8 +45,8 @@ export const Header = () => {
           {isSmallScreen ? (<>
             {sideBar ?(<>
             <div className="divNameUser" onClick={showSideBar}>
-              <Button font="ball-0-2">SL</Button>
-              <span>Samuel Leão</span>
+              <Button font="ball-0-2">{bolinha}</Button>
+              <span>{userData.name}</span>
             </div>
             <div className="showBtnsOn">
             <ul className="menuLogin">
@@ -53,8 +58,8 @@ export const Header = () => {
           </div></>
              ) :(
              <div className="divNameUser" onClick={showSideBar}>
-              <Button font="ball-0-2">SL</Button>
-              <span>Samuel Leão</span>
+              <Button font="ball-0-2">{bolinha}</Button>
+              <span>{userData.name}</span>
             </div>)}
            </>
           ) : (
