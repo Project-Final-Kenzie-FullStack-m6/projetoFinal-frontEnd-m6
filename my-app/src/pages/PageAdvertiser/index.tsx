@@ -1,4 +1,4 @@
-import { useState,useEffect } from "react";
+import { useState,useEffect, useContext } from "react";
 import Footer from "../../components/Footer";
 import { CardAdversiment } from "../../components/cardAdverstiment";
 import { Header } from "../../components/header";
@@ -7,8 +7,10 @@ import { StyledPageAdvertiser } from "./style";
 import { useNavigate } from "react-router-dom";
 import CreateAdversimentModal from "../../components/modals/adversiments/createAdversimentModal";
 import * as S from "../../components/cardAdverstiment/style.cardAdversiment";
+import { UserContext } from "../../contexts/AuthUserContext/userContext";
 
 const PageAdvertiser = () => {
+  const {userData}= useContext(UserContext)
 const navigate= useNavigate()
 const logeedId:any = localStorage.getItem("userId");
 const searchParams = new URLSearchParams(window.location.search);
@@ -18,6 +20,8 @@ console.log(userId)
 useEffect(() => {
   if (!userId) {
     navigate("/");
+  }else if(userData.id ==userId&&userData.isSeller !=true){
+    navigate("/")
   }
 }, [navigate,userId]);
 const [showModal, setShowModal] = useState(false);
