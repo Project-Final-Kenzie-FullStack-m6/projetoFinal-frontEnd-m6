@@ -16,6 +16,9 @@ export const StyledMain = styled.main`
       flex-wrap: wrap;
     }
 
+    .bold {
+      color: red;
+    }
     .liAdversiment {
       width: 300px;
 
@@ -74,6 +77,11 @@ export const StyledMain = styled.main`
     }
     ul {
       padding: 12px 0px 35px;
+
+      .bold {
+        color: ${({ theme }) => theme.colors.grey.g1};
+        font-weight: 600;
+      }
     }
     li {
       font-weight: 500;

@@ -4,11 +4,11 @@ import { iAdversimentDataResponse } from "../../interface/adversiments";
 import { Button } from "../button/style.button";
 
 export const CardAdversiment = ({ owner }: any) => {
-  const { adversimentData } = useContext(AdversimentContext);
+  const { filterAdversiments } = useContext(AdversimentContext);
 
   return (
     <>
-      {adversimentData?.map((data: iAdversimentDataResponse, index: number) => {
+      {filterAdversiments?.map((data: iAdversimentDataResponse, index: number) => {
         const arrayName = data.user.name?.split(" ");
         let initials = "";
         if (arrayName) {

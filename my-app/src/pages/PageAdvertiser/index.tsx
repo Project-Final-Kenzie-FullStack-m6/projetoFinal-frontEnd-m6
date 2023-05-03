@@ -20,10 +20,10 @@ useEffect(() => {
   console.log(userData.isSeller)
   if (!userId) {
     navigate("/");
-  }else if(userData.id ==userId&&userData.isSeller !=true){
+  }else if(userData.id === userId&&userData.isSeller !==true){
     navigate("/")
   }
-}, [navigate,userId,userData]);
+}, [navigate,userId, userData]);
 const [showModal, setShowModal] = useState(false);
 
   const handleShowModal = () => {
