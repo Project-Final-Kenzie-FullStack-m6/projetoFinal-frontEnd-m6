@@ -3,6 +3,14 @@ import { iUser } from "../users";
 interface iImageResponse {
   imageUrl: string;
 }
+interface iImageResponse1 {
+  imageUrl: string;
+}
+interface iImageResponse2 {
+  imageUrl: string;
+}
+
+
 
 interface iAdversimentDataRegister {
   id: string;
@@ -17,6 +25,20 @@ interface iAdversimentDataRegister {
   description: string;
   images: [iImageResponse];
   user: iUser;
+}
+interface iAdversimentDataUpdate {
+  id?: string;
+  brand?: string;
+  model?: string;
+  age?: number;
+  fipe?: string;
+  fuelType: string;
+  mileAge?: number;
+  price?: string;
+  color?: string;
+  description?: string;
+  images?: [iImageResponse, iImageResponse1, iImageResponse2];
+  isActive?: boolean;
 }
 
 interface iAdversimentDataResponse {
@@ -39,7 +61,16 @@ interface iAdversimentProviderProps {
 
 interface iAdversimentContextProps {
   //post adversiment
-  postNewAdversiment: (data: any) => Promise<void>;
+  postNewAdversiment: (data: iAdversimentDataRegister) => Promise<void>;
+
+  //update adversiment
+  updateAdversiment: (data: iAdversimentDataUpdate) => Promise<void>
+
+  //get unique adversiment
+  getDetailsAdversiment: (id: string | undefined) => Promise<void>
+
+  //delete adversiment
+  deleteAdversiment: () => Promise<void>
 
   //globals
 
@@ -65,6 +96,10 @@ interface iAdversimentContextProps {
   renderFilter: boolean;
   setRenderFilter: React.Dispatch<React.SetStateAction<boolean>>;
   listBrands: string[];
+
+  detailsAds: iAdversimentDataUpdate[]
+  isActive: boolean
+  setIsActive: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 export type {
@@ -72,4 +107,5 @@ export type {
   iAdversimentProviderProps,
   iAdversimentDataResponse,
   iAdversimentDataRegister,
+  iAdversimentDataUpdate
 };

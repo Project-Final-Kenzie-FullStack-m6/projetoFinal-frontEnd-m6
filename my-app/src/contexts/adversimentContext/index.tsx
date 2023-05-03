@@ -5,6 +5,7 @@ import {
   iAdversimentContextProps,
   iAdversimentDataRegister,
   iAdversimentDataResponse,
+  iAdversimentDataUpdate,
   iAdversimentProviderProps,
 } from "../../interface/adversiments";
 
@@ -24,6 +25,12 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
   const [loading, setLoading] = useState<boolean>(false);
   const [renderFilter, setRenderFilter] = useState(false);
   const [listBrands, setListBrands] = useState([]);
+  const [detailsAds, setDetailsAds] = useState([{}] as iAdversimentDataUpdate[])
+  const [isActive, setIsActive] = useState(true);
+
+  console.log(detailsAds, "aqui no contexto")
+
+  const navigate = useNavigate();
 
   // const arrBrands: any = [];
   // adversimentData.map((data) => {
@@ -92,7 +99,17 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
   //     setLoading(false)
   // }
 
+  const getDetailsAdversiment = async (id: string | undefined) => {
+    try {
+      const {data} = await Api.get(`/adversiments/${id}`)
+      setDetailsAds(data)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
   const postNewAdversiment = async (data: iAdversimentDataRegister) => {
+
     try {
       await Api.post("/adversiments", data);
       loadAdversiment();
@@ -104,10 +121,44 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
     }
   };
 
+  const updateAdversiment = async (data: iAdversimentDataUpdate) => {
+    const token = localStorage.getItem("token")
+    const newData = {...data, isActive: isActive}
+  
+    try {
+      const response = await Api.patch(`/adversiments/${detailsAds[0]?.id}`, newData, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        },
+      });
+      window.location.reload()
+      console.log(response.data)
+
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+
+  const deleteAdversiment = async () => {
+    
+    try {
+      await Api.delete(`/adversiments/${detailsAds[0]?.id}`);
+      window.location.reload()
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+
+
   return (
     <AdversimentContext.Provider
       value={{
         postNewAdversiment,
+        getDetailsAdversiment,
+        updateAdversiment,
+        deleteAdversiment,
         setAdversimentData,
         setLoading,
         setModalAddOpen,
@@ -118,6 +169,7 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
         setFilterFuel,
         setFilterKM,
         setFilterPrice,
+        detailsAds,
         filterBrand,
         adversimentData,
         loading,
@@ -127,6 +179,8 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
         filterAdversiments,
         setFilterAdversiments,
         listBrands,
+        isActive, 
+        setIsActive,
       }}
     >
       {children}
