@@ -99,7 +99,7 @@ export const MainHome = () => {
     setActivePriceMax,
     setActivePriceMin,
   } = useContext(FiltersContext);
-
+  const fontrab = () => setActiveGenerals(false);
   // const sdad = () => {
   //   console.log(filterBrand);
   //   setFilterBrand("Ford");
@@ -444,9 +444,9 @@ export const MainHome = () => {
             <li
               className={activeGenerals ? "bold" : ""}
               onClick={() => {
-                setFilterBrand("General Motors");
-                setActiveGenerals(!activeGenerals);
-                setActiveFilter(!activeFilter);
+                // setFilterBrand("General Motors");
+                fontrab()
+                // setActiveFilter(!activeFilter);
               }}
             >
               General Motors
