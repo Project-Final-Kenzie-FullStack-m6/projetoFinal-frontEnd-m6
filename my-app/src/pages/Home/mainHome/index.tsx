@@ -5,6 +5,7 @@ import { StyledMain } from "../style";
 import { useContext, useState } from "react";
 import { GrFormClose } from "react-icons/gr";
 import * as S from "../../../components/cardAdverstiment/style.cardAdversiment";
+import { FiltersContext } from "../../../contexts/filtersContext";
 
 export const MainHome = () => {
   const [sideBar, setSideBar] = useState(false);
@@ -19,17 +20,90 @@ export const MainHome = () => {
     setFilterKM,
     setFilterPrice,
     filterBrand,
-    renderFilter,
-    setRenderFilter,
+    activeFilter,
+    setActiveFilter,
     adversimentData,
     setFilterAdversiments,
     // listBrands,
   } = useContext(AdversimentContext);
 
-  const sdad = () => {
-    console.log(filterBrand);
-    setFilterBrand("Ford");
-  };
+  const {
+    activeGenerals,
+    activeFiat,
+    activeFord,
+    activeHonda,
+    activePorsche,
+    activeVolswagen,
+    activeCivic,
+    activeCorolla,
+    activeCruze,
+    activeFit,
+    activeGol,
+    activeKa,
+    activeOnix,
+    activePorscheModel,
+    activeAzul,
+    activeBranca,
+    activeCinza,
+    activePrata,
+    activePreta,
+    activeVerde,
+    active2022,
+    active2021,
+    active2018,
+    active2015,
+    active2013,
+    active2012,
+    active2010,
+    activeDiesel,
+    activeEtanol,
+    activeGasolina,
+    activeFlex,
+    activeKmMax,
+    activeKmMin,
+    activePriceMin,
+    activePriceMax,
+    setActiveFord,
+    setActiveHonda,
+    setActiveKa,
+    setActiveOnix,
+    setActivePorscheModel,
+    setActiveAzul,
+    setActiveBranca,
+    setActiveCinza,
+    setActivePrata,
+    setActivePreta,
+    setActiveVerde,
+    setActive2022,
+    setActiveFiat,
+    setActive2021,
+    setActiveGenerals,
+    setActive2018,
+    setActiveDiesel,
+    setActivePorsche,
+    setActive2015,
+    setActiveVolswagen,
+    setActiveCruze,
+    setActiveCorolla,
+    setActiveCivic,
+    setActive2013,
+    setActive2012,
+    setActiveFit,
+    setActiveGol,
+    setActive2010,
+    setActiveEtanol,
+    setActiveGasolina,
+    setActiveFlex,
+    setActiveKmMax,
+    setActiveKmMin,
+    setActivePriceMax,
+    setActivePriceMin,
+  } = useContext(FiltersContext);
+
+  // const sdad = () => {
+  //   console.log(filterBrand);
+  //   setFilterBrand("Ford");
+  // };
   return (
     <StyledMain>
       {sideBar ? (
@@ -47,17 +121,21 @@ export const MainHome = () => {
             </ul> */}
             <ul>
               <li
+                className={activeFilter ? "bold" : ""}
                 onClick={() => {
                   setFilterBrand("General Motors");
-                  setRenderFilter(!renderFilter);
+                  // setActiveGenerals(!activeGenerals);
+                  setActiveFilter(!activeFilter);
                 }}
               >
                 General Motors
               </li>
               <li
+                className={activeFiat ? "bold" : ""}
                 onClick={() => {
                   setFilterBrand("Fiat");
-                  setRenderFilter(!renderFilter);
+                  // setActiveFiat(!activeFiat);
+                  setActiveFilter(!activeFilter);
                 }}
               >
                 Fiat
@@ -65,7 +143,7 @@ export const MainHome = () => {
               <li
                 onClick={() => {
                   setFilterBrand("Ford");
-                  setRenderFilter(!renderFilter);
+                  setActiveFilter(!activeFilter);
                 }}
               >
                 Ford
@@ -73,7 +151,7 @@ export const MainHome = () => {
               <li
                 onClick={() => {
                   setFilterBrand("Honda");
-                  setRenderFilter(!renderFilter);
+                  setActiveFilter(!activeFilter);
                 }}
               >
                 Honda
@@ -81,7 +159,7 @@ export const MainHome = () => {
               <li
                 onClick={() => {
                   setFilterBrand("Porsche");
-                  setRenderFilter(!renderFilter);
+                  setActiveFilter(!activeFilter);
                 }}
               >
                 Porsche
@@ -89,7 +167,7 @@ export const MainHome = () => {
               <li
                 onClick={() => {
                   setFilterBrand("Volswagen");
-                  setRenderFilter(!renderFilter);
+                  setActiveFilter(!activeFilter);
                 }}
               >
                 Volswagen
@@ -100,7 +178,7 @@ export const MainHome = () => {
               <li
                 onClick={() => {
                   setFilterModel("Civic");
-                  setRenderFilter(!renderFilter);
+                  setActiveFilter(!activeFilter);
                 }}
               >
                 Civic
@@ -108,7 +186,7 @@ export const MainHome = () => {
               <li
                 onClick={() => {
                   setFilterModel("Corolla");
-                  setRenderFilter(!renderFilter);
+                  setActiveFilter(!activeFilter);
                 }}
               >
                 Corolla
@@ -116,7 +194,7 @@ export const MainHome = () => {
               <li
                 onClick={() => {
                   setFilterModel("Cruze");
-                  setRenderFilter(!renderFilter);
+                  setActiveFilter(!activeFilter);
                 }}
               >
                 Cruze
@@ -124,7 +202,7 @@ export const MainHome = () => {
               <li
                 onClick={() => {
                   setFilterModel("Fit");
-                  setRenderFilter(!renderFilter);
+                  setActiveFilter(!activeFilter);
                 }}
               >
                 Fit
@@ -132,7 +210,7 @@ export const MainHome = () => {
               <li
                 onClick={() => {
                   setFilterModel("Gol");
-                  setRenderFilter(!renderFilter);
+                  setActiveFilter(!activeFilter);
                 }}
               >
                 Gol
@@ -140,7 +218,7 @@ export const MainHome = () => {
               <li
                 onClick={() => {
                   setFilterModel("Ka");
-                  setRenderFilter(!renderFilter);
+                  setActiveFilter(!activeFilter);
                 }}
               >
                 Ka
@@ -148,7 +226,7 @@ export const MainHome = () => {
               <li
                 onClick={() => {
                   setFilterModel("Onix");
-                  setRenderFilter(!renderFilter);
+                  setActiveFilter(!activeFilter);
                 }}
               >
                 Onix
@@ -156,7 +234,7 @@ export const MainHome = () => {
               <li
                 onClick={() => {
                   setFilterModel("Porsche 718");
-                  setRenderFilter(!renderFilter);
+                  setActiveFilter(!activeFilter);
                 }}
               >
                 Porsche 718
@@ -167,7 +245,7 @@ export const MainHome = () => {
               <li
                 onClick={() => {
                   setFilterColor("Azul");
-                  setRenderFilter(!renderFilter);
+                  setActiveFilter(!activeFilter);
                 }}
               >
                 Azul
@@ -175,7 +253,7 @@ export const MainHome = () => {
               <li
                 onClick={() => {
                   setFilterColor("Branca");
-                  setRenderFilter(!renderFilter);
+                  setActiveFilter(!activeFilter);
                 }}
               >
                 Branca
@@ -183,7 +261,7 @@ export const MainHome = () => {
               <li
                 onClick={() => {
                   setFilterColor("Cinza");
-                  setRenderFilter(!renderFilter);
+                  setActiveFilter(!activeFilter);
                 }}
               >
                 Cinza
@@ -191,7 +269,7 @@ export const MainHome = () => {
               <li
                 onClick={() => {
                   setFilterColor("Prata");
-                  setRenderFilter(!renderFilter);
+                  setActiveFilter(!activeFilter);
                 }}
               >
                 Prata
@@ -199,7 +277,7 @@ export const MainHome = () => {
               <li
                 onClick={() => {
                   setFilterColor("Preta");
-                  setRenderFilter(!renderFilter);
+                  setActiveFilter(!activeFilter);
                 }}
               >
                 Preta
@@ -207,7 +285,7 @@ export const MainHome = () => {
               <li
                 onClick={() => {
                   setFilterColor("Verde");
-                  setRenderFilter(!renderFilter);
+                  setActiveFilter(!activeFilter);
                 }}
               >
                 Verde
@@ -218,7 +296,7 @@ export const MainHome = () => {
               <li
                 onClick={() => {
                   setFilterAge(2022);
-                  setRenderFilter(!renderFilter);
+                  setActiveFilter(!activeFilter);
                 }}
               >
                 2022
@@ -226,7 +304,7 @@ export const MainHome = () => {
               <li
                 onClick={() => {
                   setFilterAge(2021);
-                  setRenderFilter(!renderFilter);
+                  setActiveFilter(!activeFilter);
                 }}
               >
                 2021
@@ -234,7 +312,7 @@ export const MainHome = () => {
               <li
                 onClick={() => {
                   setFilterAge(2018);
-                  setRenderFilter(!renderFilter);
+                  setActiveFilter(!activeFilter);
                 }}
               >
                 2018
@@ -242,7 +320,7 @@ export const MainHome = () => {
               <li
                 onClick={() => {
                   setFilterAge(2015);
-                  setRenderFilter(!renderFilter);
+                  setActiveFilter(!activeFilter);
                 }}
               >
                 2015
@@ -250,7 +328,7 @@ export const MainHome = () => {
               <li
                 onClick={() => {
                   setFilterAge(2013);
-                  setRenderFilter(!renderFilter);
+                  setActiveFilter(!activeFilter);
                 }}
               >
                 2013
@@ -258,7 +336,7 @@ export const MainHome = () => {
               <li
                 onClick={() => {
                   setFilterAge(2012);
-                  setRenderFilter(!renderFilter);
+                  setActiveFilter(!activeFilter);
                 }}
               >
                 2012
@@ -266,7 +344,7 @@ export const MainHome = () => {
               <li
                 onClick={() => {
                   setFilterAge(2010);
-                  setRenderFilter(!renderFilter);
+                  setActiveFilter(!activeFilter);
                 }}
               >
                 2010
@@ -277,7 +355,7 @@ export const MainHome = () => {
               <li
                 onClick={() => {
                   setFilterFuel("Diesel");
-                  setRenderFilter(!renderFilter);
+                  setActiveFilter(!activeFilter);
                 }}
               >
                 Diesel
@@ -285,7 +363,7 @@ export const MainHome = () => {
               <li
                 onClick={() => {
                   setFilterFuel("Etanol");
-                  setRenderFilter(!renderFilter);
+                  setActiveFilter(!activeFilter);
                 }}
               >
                 Etanol
@@ -293,7 +371,7 @@ export const MainHome = () => {
               <li
                 onClick={() => {
                   setFilterFuel("Gasolina");
-                  setRenderFilter(!renderFilter);
+                  setActiveFilter(!activeFilter);
                 }}
               >
                 Gasolina
@@ -301,7 +379,7 @@ export const MainHome = () => {
               <li
                 onClick={() => {
                   setFilterFuel("Flex");
-                  setRenderFilter(!renderFilter);
+                  setActiveFilter(!activeFilter);
                 }}
               >
                 Flex
@@ -312,7 +390,7 @@ export const MainHome = () => {
               {/* <Button
                 onClick={() => {
                   setFilterKM(false);
-                  setRenderFilter(!renderFilter);
+                  setActiveFilter(!activeFilter);
                 }}
                 font="grey-0-1"
               >
@@ -324,7 +402,7 @@ export const MainHome = () => {
               <Button
                 onClick={() => {
                   setFilterKM(false);
-                  setRenderFilter(!renderFilter);
+                  setActiveFilter(!activeFilter);
                 }}
                 font="grey-0-1"
               >
@@ -336,7 +414,7 @@ export const MainHome = () => {
               <Button
                 onClick={() => {
                   setFilterPrice(false);
-                  setRenderFilter(!renderFilter);
+                  setActiveFilter(!activeFilter);
                 }}
                 font="grey-0-1"
               >
@@ -345,7 +423,7 @@ export const MainHome = () => {
               <Button
                 onClick={() => {
                   setFilterPrice(true);
-                  setRenderFilter(!renderFilter);
+                  setActiveFilter(!activeFilter);
                 }}
                 font="grey-0-1"
               >
@@ -364,17 +442,21 @@ export const MainHome = () => {
             </ul> */}
           <ul>
             <li
+              className={activeGenerals ? "bold" : ""}
               onClick={() => {
                 setFilterBrand("General Motors");
-                setRenderFilter(!renderFilter);
+                setActiveGenerals(!activeGenerals);
+                setActiveFilter(!activeFilter);
               }}
             >
               General Motors
             </li>
             <li
+              className={activeFiat ? "bold" : ""}
               onClick={() => {
                 setFilterBrand("Fiat");
-                setRenderFilter(!renderFilter);
+                // setActiveFiat(!activeFiat);
+                setActiveFilter(!activeFilter);
               }}
             >
               Fiat
@@ -382,7 +464,7 @@ export const MainHome = () => {
             <li
               onClick={() => {
                 setFilterBrand("Ford");
-                setRenderFilter(!renderFilter);
+                setActiveFilter(!activeFilter);
               }}
             >
               Ford
@@ -390,7 +472,7 @@ export const MainHome = () => {
             <li
               onClick={() => {
                 setFilterBrand("Honda");
-                setRenderFilter(!renderFilter);
+                setActiveFilter(!activeFilter);
               }}
             >
               Honda
@@ -398,7 +480,7 @@ export const MainHome = () => {
             <li
               onClick={() => {
                 setFilterBrand("Porsche");
-                setRenderFilter(!renderFilter);
+                setActiveFilter(!activeFilter);
               }}
             >
               Porsche
@@ -406,7 +488,7 @@ export const MainHome = () => {
             <li
               onClick={() => {
                 setFilterBrand("Volswagen");
-                setRenderFilter(!renderFilter);
+                setActiveFilter(!activeFilter);
               }}
             >
               Volswagen
@@ -417,7 +499,7 @@ export const MainHome = () => {
             <li
               onClick={() => {
                 setFilterModel("Civic");
-                setRenderFilter(!renderFilter);
+                setActiveFilter(!activeFilter);
               }}
             >
               Civic
@@ -425,7 +507,7 @@ export const MainHome = () => {
             <li
               onClick={() => {
                 setFilterModel("Corolla");
-                setRenderFilter(!renderFilter);
+                setActiveFilter(!activeFilter);
               }}
             >
               Corolla
@@ -433,7 +515,7 @@ export const MainHome = () => {
             <li
               onClick={() => {
                 setFilterModel("Cruze");
-                setRenderFilter(!renderFilter);
+                setActiveFilter(!activeFilter);
               }}
             >
               Cruze
@@ -441,7 +523,7 @@ export const MainHome = () => {
             <li
               onClick={() => {
                 setFilterModel("Fit");
-                setRenderFilter(!renderFilter);
+                setActiveFilter(!activeFilter);
               }}
             >
               Fit
@@ -449,7 +531,7 @@ export const MainHome = () => {
             <li
               onClick={() => {
                 setFilterModel("Gol");
-                setRenderFilter(!renderFilter);
+                setActiveFilter(!activeFilter);
               }}
             >
               Gol
@@ -457,7 +539,7 @@ export const MainHome = () => {
             <li
               onClick={() => {
                 setFilterModel("Ka");
-                setRenderFilter(!renderFilter);
+                setActiveFilter(!activeFilter);
               }}
             >
               Ka
@@ -465,7 +547,7 @@ export const MainHome = () => {
             <li
               onClick={() => {
                 setFilterModel("Onix");
-                setRenderFilter(!renderFilter);
+                setActiveFilter(!activeFilter);
               }}
             >
               Onix
@@ -473,7 +555,7 @@ export const MainHome = () => {
             <li
               onClick={() => {
                 setFilterModel("Porsche 718");
-                setRenderFilter(!renderFilter);
+                setActiveFilter(!activeFilter);
               }}
             >
               Porsche 718
@@ -484,7 +566,7 @@ export const MainHome = () => {
             <li
               onClick={() => {
                 setFilterColor("Azul");
-                setRenderFilter(!renderFilter);
+                setActiveFilter(!activeFilter);
               }}
             >
               Azul
@@ -492,7 +574,7 @@ export const MainHome = () => {
             <li
               onClick={() => {
                 setFilterColor("Branca");
-                setRenderFilter(!renderFilter);
+                setActiveFilter(!activeFilter);
               }}
             >
               Branca
@@ -500,7 +582,7 @@ export const MainHome = () => {
             <li
               onClick={() => {
                 setFilterColor("Cinza");
-                setRenderFilter(!renderFilter);
+                setActiveFilter(!activeFilter);
               }}
             >
               Cinza
@@ -508,7 +590,7 @@ export const MainHome = () => {
             <li
               onClick={() => {
                 setFilterColor("Prata");
-                setRenderFilter(!renderFilter);
+                setActiveFilter(!activeFilter);
               }}
             >
               Prata
@@ -516,7 +598,7 @@ export const MainHome = () => {
             <li
               onClick={() => {
                 setFilterColor("Preta");
-                setRenderFilter(!renderFilter);
+                setActiveFilter(!activeFilter);
               }}
             >
               Preta
@@ -524,7 +606,7 @@ export const MainHome = () => {
             <li
               onClick={() => {
                 setFilterColor("Verde");
-                setRenderFilter(!renderFilter);
+                setActiveFilter(!activeFilter);
               }}
             >
               Verde
@@ -535,7 +617,7 @@ export const MainHome = () => {
             <li
               onClick={() => {
                 setFilterAge(2022);
-                setRenderFilter(!renderFilter);
+                setActiveFilter(!activeFilter);
               }}
             >
               2022
@@ -543,7 +625,7 @@ export const MainHome = () => {
             <li
               onClick={() => {
                 setFilterAge(2021);
-                setRenderFilter(!renderFilter);
+                setActiveFilter(!activeFilter);
               }}
             >
               2021
@@ -551,7 +633,7 @@ export const MainHome = () => {
             <li
               onClick={() => {
                 setFilterAge(2018);
-                setRenderFilter(!renderFilter);
+                setActiveFilter(!activeFilter);
               }}
             >
               2018
@@ -559,7 +641,7 @@ export const MainHome = () => {
             <li
               onClick={() => {
                 setFilterAge(2015);
-                setRenderFilter(!renderFilter);
+                setActiveFilter(!activeFilter);
               }}
             >
               2015
@@ -567,7 +649,7 @@ export const MainHome = () => {
             <li
               onClick={() => {
                 setFilterAge(2013);
-                setRenderFilter(!renderFilter);
+                setActiveFilter(!activeFilter);
               }}
             >
               2013
@@ -575,7 +657,7 @@ export const MainHome = () => {
             <li
               onClick={() => {
                 setFilterAge(2012);
-                setRenderFilter(!renderFilter);
+                setActiveFilter(!activeFilter);
               }}
             >
               2012
@@ -583,7 +665,7 @@ export const MainHome = () => {
             <li
               onClick={() => {
                 setFilterAge(2010);
-                setRenderFilter(!renderFilter);
+                setActiveFilter(!activeFilter);
               }}
             >
               2010
@@ -594,7 +676,7 @@ export const MainHome = () => {
             <li
               onClick={() => {
                 setFilterFuel("Diesel");
-                setRenderFilter(!renderFilter);
+                setActiveFilter(!activeFilter);
               }}
             >
               Diesel
@@ -602,7 +684,7 @@ export const MainHome = () => {
             <li
               onClick={() => {
                 setFilterFuel("Etanol");
-                setRenderFilter(!renderFilter);
+                setActiveFilter(!activeFilter);
               }}
             >
               Etanol
@@ -610,7 +692,7 @@ export const MainHome = () => {
             <li
               onClick={() => {
                 setFilterFuel("Gasolina");
-                setRenderFilter(!renderFilter);
+                setActiveFilter(!activeFilter);
               }}
             >
               Gasolina
@@ -618,7 +700,7 @@ export const MainHome = () => {
             <li
               onClick={() => {
                 setFilterFuel("Flex");
-                setRenderFilter(!renderFilter);
+                setActiveFilter(!activeFilter);
               }}
             >
               Flex
@@ -629,7 +711,7 @@ export const MainHome = () => {
             {/* <Button
               onClick={() => {
                 setFilterKM(false);
-                setRenderFilter(!renderFilter);
+                setActiveFilter(!activeFilter);
               }}
               font="grey-0-1"
             >
@@ -641,7 +723,7 @@ export const MainHome = () => {
             <Button
               onClick={() => {
                 setFilterKM(false);
-                setRenderFilter(!renderFilter);
+                setActiveFilter(!activeFilter);
               }}
               font="grey-0-1"
             >
@@ -653,7 +735,7 @@ export const MainHome = () => {
             <Button
               onClick={() => {
                 setFilterPrice(false);
-                setRenderFilter(!renderFilter);
+                setActiveFilter(!activeFilter);
               }}
               font="grey-0-1"
             >
@@ -662,7 +744,7 @@ export const MainHome = () => {
             <Button
               onClick={() => {
                 setFilterPrice(true);
-                setRenderFilter(!renderFilter);
+                setActiveFilter(!activeFilter);
               }}
               font="grey-0-1"
             >
