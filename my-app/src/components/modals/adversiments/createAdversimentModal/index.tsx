@@ -3,7 +3,7 @@ import { Button } from "../../../button/style.button";
 import { Input, Select, TextArea } from "../../../input/style.input";
 import * as S from "./style.createAdversimentModal";
 import { AdversimentContext } from "../../../../contexts/adversimentContext";
-import { RegisterOptions, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { iAdversimentDataRegister } from "../../../../interface/adversiments";
 import { yupResolver } from "@hookform/resolvers/yup";
 import schemaCreateAdvertisement from "../../../../validators/adversiments/createAdversimentUser";
@@ -16,7 +16,6 @@ const CreateAdversimentModal = ({ handleShowModal }: any) => {
   const { ApiFipeData, DataCars, DataModelCar, searchBrand, searchModel } = useContext(ApiFipeContext);
   const [NumImages, setNumImages] = useState(0);
   const [inputCount, setInputCount] = useState(2);
-
 
   const dataBrand = Object.keys(ApiFipeData);
 

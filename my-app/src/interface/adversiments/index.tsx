@@ -1,8 +1,17 @@
+import { iCommentDataRequest, iCommentDataResponse } from "../comments";
 import { iUser } from "../users";
 
 interface iImageResponse {
   imageUrl: string;
 }
+interface iImageResponse1 {
+  imageUrl: string;
+}
+interface iImageResponse2 {
+  imageUrl: string;
+}
+
+
 
 interface iAdversimentDataRegister {
   id: string;
@@ -19,6 +28,26 @@ interface iAdversimentDataRegister {
   user: iUser;
 }
 
+
+interface iAdversimentDataUpdate {
+  id?: string;
+  brand?: string;
+  model?: string;
+  age?: number;
+  fipe?: string;
+  fuelType: string;
+  mileAge?: number;
+  price?: string;
+  color?: string;
+  description?: string;
+  images?: [iImageResponse, iImageResponse1, iImageResponse2];
+  isActive?: boolean;
+  user?: iUser;
+  comments?: [iCommentDataResponse]
+}
+
+
+
 interface iAdversimentDataResponse {
   id: string;
   brand: string;
@@ -28,6 +57,7 @@ interface iAdversimentDataResponse {
   mileAge: number;
   price: number;
   color: string;
+  isActive: boolean;
   description: string;
   images: [iImageResponse];
   user: iUser;
@@ -43,7 +73,19 @@ interface iFiltersProviderProps {
 
 interface iAdversimentContextProps {
   //post adversiment
-  postNewAdversiment: (data: any) => Promise<void>;
+  postNewAdversiment: (data: iAdversimentDataRegister) => Promise<void>;
+
+  //post comment
+  createCommentUser: (data: iCommentDataRequest) => Promise<void>
+
+  //update adversiment
+  updateAdversiment: (data: iAdversimentDataUpdate) => Promise<void>
+
+  //get unique adversiment
+  getDetailsAdversiment: (id: string | undefined) => Promise<void>
+
+  //delete adversiment
+  deleteAdversiment: () => Promise<void>
 
   //globals
 
@@ -75,6 +117,10 @@ interface iAdversimentContextProps {
   activeFilter: boolean;
   setActiveFilter: React.Dispatch<React.SetStateAction<boolean>>;
   listBrands: string[];
+
+  detailsAds: iAdversimentDataUpdate[]
+  isActive: boolean
+  setIsActive: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 // interface iFiltersContextProps {
@@ -157,4 +203,5 @@ export type {
   iFiltersProviderProps,
   iAdversimentDataResponse,
   iAdversimentDataRegister,
+  iAdversimentDataUpdate
 };

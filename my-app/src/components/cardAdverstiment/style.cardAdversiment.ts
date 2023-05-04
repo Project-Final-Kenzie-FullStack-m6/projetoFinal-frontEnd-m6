@@ -71,30 +71,61 @@ export const Container = styled.div`
   .divMileAgePrice {
     display: flex;
     justify-content: space-around;
-    align-items: center;
-    div {
+    align-items: start;
+    flex-direction: column;
+    margin-bottom: 10px;
+
+    div{
       display: flex;
-      gap: 10px;
-      span {
-        width: auto;
-        padding: 5px;
-        height: 32px;
-        border-radius: 4px;
-        background-color: ${({ theme }) => theme.colors.brand.b4};
-        color: ${({ theme }) => theme.colors.brand.b1};
-        font-weight: ${({ theme }) => theme.typography.fontWeight.weight600};
-        font-size: 13px;
-        line-height: 22px;
+      align-items: center;
+      div {
         display: flex;
-        align-items: center;
-        justify-content: center;
+        gap: 10px;
+        span {
+          width: auto;
+          padding: 5px;
+          height: 32px;
+          border-radius: 4px;
+          background-color: ${({ theme }) => theme.colors.brand.b4};
+          color: ${({ theme }) => theme.colors.brand.b1};
+          font-weight: ${({ theme }) => theme.typography.fontWeight.weight600};
+          font-size: 13px;
+          line-height: 22px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+  
+      span {
+        font-size: ${({ theme }) => theme.typography.fontSize.size16px};
+        color: ${({ theme }) => theme.colors.grey.g1};
+        font-weight: ${({ theme }) => theme.typography.fontWeight.weight600};
       }
     }
 
-    span {
-      font-size: ${({ theme }) => theme.typography.fontSize.size16px};
-      color: ${({ theme }) => theme.colors.grey.g1};
-      font-weight: ${({ theme }) => theme.typography.fontWeight.weight600};
+    .spanActive{
+      width: 51px;
+      height: 24px;
+      background-color: ${({ theme }) => theme.colors.brand.b1};
+      color: ${({ theme }) => theme.colors.grey.whiteFixed};
+      font-size: ${({ theme }) => theme.typography.fontSize.size14px};
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+
+    .spanInactive{
+      width: 61px;
+      height: 24px;
+      background-color: ${({ theme }) => theme.colors.grey.g4};
+      color: ${({ theme }) => theme.colors.grey.whiteFixed};
+      font-size: ${({ theme }) => theme.typography.fontSize.size14px};
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
     }
   }
 
@@ -125,12 +156,38 @@ export const Container = styled.div`
       .divAdm {
         display: flex;
         gap: 10px;
+
         button {
           border: 1px solid ${({ theme }) => theme.colors.grey.g1};
           width: unset;
           height: unset;
           padding: 7px 20px;
           font-size: 14px;
+        }
+        .btnProfile {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border: 1px solid ${({ theme }) => theme.colors.grey.g1};
+          font-weight: ${({ theme }) => theme.typography.fontWeight.weight500};
+          font-size: ${({ theme }) => theme.typography.fontSize.size14px};
+          width: unset;
+          height: unset;
+          border-radius: 4px;
+          padding: 10px;
+        }
+
+        .btn{
+          width: 100%;
+          height: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border: 1px solid ${({ theme }) => theme.colors.brand.b1};
+          color: ${({ theme }) => theme.colors.brand.b1};
+          border-radius: 4px;
+          font-size: ${({ theme }) => theme.typography.fontSize.size14px};
+          font-weight: ${({ theme }) => theme.typography.fontWeight.weight600};
         }
       }
     }
@@ -154,4 +211,12 @@ export const Container = styled.div`
       overflow-y: scroll;
     }
   }
+
+`;
+
+export const Details = styled.div`
+
+  position: relative;
+  display: flex;
+  justify-content: center;
 `;
