@@ -8,6 +8,12 @@ export const StyledPageAdvertiser = styled.main`
     justify-content: center;
   }
 
+  .divAdversiment{
+    width: 100%;
+    margin: 20px;
+
+  }
+
   .pagination {
     padding: 85px 0 65px;
     width: 100%;
