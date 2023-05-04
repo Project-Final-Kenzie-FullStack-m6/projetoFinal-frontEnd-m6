@@ -133,10 +133,15 @@ const AdversimentMobile = () => {
                 <div className="divCommentsBox">
                     <h1>Comentários</h1>
                     {detailsAds.comments?.map((comment) =>{
+                    let tagName = ""
+                    if(comment.user?.name){
+                        const tag:any = comment.user?.name.split("")
+                        tagName =tag[0]+tag[1]
+                    }
                     return(
                         <div className="divComments">
                         <div>
-                            <Button font="ball-0-1">{tagNameUser.toLocaleUpperCase()}</Button>
+                            <Button font="ball-0-1">{tagName.toLocaleUpperCase()}</Button>
                             <span className="span1">{comment.user.name}</span>
                             <span className="span2">{eventMoment(comment.createdAt)}</span>
                         </div>
