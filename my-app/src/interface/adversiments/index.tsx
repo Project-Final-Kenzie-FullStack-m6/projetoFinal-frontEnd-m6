@@ -61,7 +61,6 @@ interface iAdversimentDataResponse {
   description: string;
   images: [iImageResponse];
   user: iUser;
-  isActive: boolean;
 }
 
 interface iAdversimentProviderProps {
