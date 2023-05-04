@@ -1,32 +1,31 @@
-import { Button } from '../../../button/style.button';
 import {useContext} from "react"
-import * as S from './style.deleteUserModal'
-import { UserContext } from '../../../../contexts/AuthUserContext/userContext';
+import { AdversimentContext } from "../../../../contexts/adversimentContext"
+import * as S from './style.deleteAdversimentModal'
+import { Button } from "../../../button/style.button"
 
 
-const DeleteUserModal = ({setOpenModal}: any) => {
-
-    const {deleteUser} = useContext(UserContext)
+const DeleteAdversimentModal = ({handleOpenModal, setOpenModal}: any) => {
+    const {deleteAdversiment} = useContext(AdversimentContext)
 
     return (
         <>
         <S.StyledContainerBackground>
             <S.StyledContainer>
                 <S.StyledBtnClose>
-                    <h1>Excluir Conta</h1>
+                    <h1>Excluir Anúncio</h1>
                     <button
                     onClick={() => setOpenModal(false)}
-                    >X</button>
+                    >X
+                    </button>
                 </S.StyledBtnClose>
                 <S.StyledTitle>
-                    <h1>Tem certeza que deseja excluir essa conta?</h1>
+                    <h1>Tem certeza que deseja excluir esse anúncio?</h1>
                 </S.StyledTitle>
 
                 <S.StyledParagraphContainer>
-
                     <div className='styleParagraph'>
                         <p>
-                        Essa ação não pode ser desfeita. Isso excluirá permanentemente sua conta e removerá seus dados de nossos servidores.
+                        Isso excluirá permanentemente seu anúncio e removerá seus dados de nossos servidores.
                         </p>
                     </div>
 
@@ -41,17 +40,16 @@ const DeleteUserModal = ({setOpenModal}: any) => {
                             font='red-0-1'
                             type='submit'
                             className='btnStyle'
-                            onClick={deleteUser}
+                            onClick={deleteAdversiment}
                         >
-                            Sim, excluir conta
+                            Sim, excluir anúncio
                         </Button>
                     </div>
                 </S.StyledParagraphContainer>
             </S.StyledContainer>
         </S.StyledContainerBackground>
-
         </>
     )
 }
 
-export default DeleteUserModal;
+export default DeleteAdversimentModal;

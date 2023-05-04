@@ -98,7 +98,7 @@ export const StyledHomePageMobile = styled.main`
     .ulAdversiment {
       margin: 0 25px;
       display: flex;
-      height: 390px;
+      height: 450px;
       flex-direction: column;
       flex-wrap: nowrap;
       overflow-y: scroll;

@@ -10,6 +10,7 @@ import UpdateAddressModal from "../components/modals/user/updateAddressUserModal
 import DeleteUserModal from "../components/modals/user/deleteUserModal";
 import SendResetPasswordPage from "../pages/resetPasswordSend";
 import ResetPasswordPage from "../pages/resetPassword";
+import UpdateAdversimentModal from "../components/modals/adversiments/updateAdversimentModal";
 
 const RoutesMain = () => (
 	<Routes>
@@ -20,6 +21,7 @@ const RoutesMain = () => (
 		<Route path="/updateAddress" element={<UpdateAddressModal />} />
 		<Route path="/deleteUser" element={<DeleteUserModal />} />
 		<Route path="/advertiser" element={<PageAdvertiser />} />
+		<Route path="/advertiserUpdate" element={<UpdateAdversimentModal />} />
 		<Route path="/login" element={<LoginPage />} />
 		<Route path="/register" element={<RegisterPage />} />
 		<Route path="/sendResetPassword" element={<SendResetPasswordPage />} />

@@ -16,8 +16,9 @@ const logeedId:any = localStorage.getItem("userId");
 const searchParams = new URLSearchParams(window.location.search);
 const userId = searchParams.get("id");
 const owner =logeedId === userId
-console.log(userId)
+
 useEffect(() => {
+  console.log(userData.isSeller)
   if (!userId) {
     navigate("/");
   }else if(userData.id === userId&&userData.isSeller !==true){
@@ -34,7 +35,7 @@ const [showModal, setShowModal] = useState(false);
       {showModal ? <CreateAdversimentModal handleShowModal={handleShowModal} /> : <></>}
       <Header />
       <HeaderAdvertiser owner={owner} showModal={showModal} handleShowModal={handleShowModal} />
-      <div className="divCard">
+      <div className="divAdversiment">
         <section className="cardList">
           <S.Container className="mobileVersion">
             <ul className="ulAdversiment">

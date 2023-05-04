@@ -30,9 +30,11 @@ const StyledContainer = styled.main`
                 background-color: ${({ theme }) => theme.colors.grey.g10};
                 border-radius: 4px;
                 img {
+                    padding: 10px;
                     width: 50%;
                     max-width: 100%;
                     height: auto;
+                    border-radius: 15px;
                 }
             }
 
@@ -59,14 +61,14 @@ const StyledContainer = styled.main`
                         display: flex;
                         gap: 10px;
                         span {
-                            width: 51px;
-                            height: 32px;
+                            width: auto;
+                            padding: 5px;
+                            height: auto;
                             border-radius: 4px;
                             background-color: ${({ theme }) => theme.colors.brand.b4};
                             color: ${({ theme }) => theme.colors.brand.b1};
                             font-weight: ${({ theme }) => theme.typography.fontWeight.weight600};
                             font-size: ${({ theme }) => theme.typography.fontSize.size14px};
-                            line-height: 22px;
                             display: flex;
                             align-items: center;
                             justify-content: center;
@@ -108,9 +110,9 @@ const StyledContainer = styled.main`
 
             .divCommentsBox {
                 height: 557px;
-                margin: 36px 44px;
                 border-radius: 4px;
                 background-color: ${({ theme }) => theme.colors.grey.g10};
+                padding: 36px 44px;
 
                 h1 {
                     margin-bottom: 28px;
@@ -153,7 +155,7 @@ const StyledContainer = styled.main`
 
             .divPostComment {
                 height: 289px;
-                margin: 36px 44px;
+                padding: 36px 44px;
                 border-radius: 4px;
                 background-color: ${({ theme }) => theme.colors.grey.g10};
 
@@ -172,14 +174,27 @@ const StyledContainer = styled.main`
 
                 //ADICIONAR UM COMPONENTE TEXTAREA
                 textarea{
-                    width: 672px;
-                    height: 128px;
+                    width: 90%;
+                    height: 130px;
                     border-radius: 4px;
-                    border: ${({ theme }) => theme.colors.grey.g7};
+                    border: 1px solid ${({ theme }) => theme.colors.brand.b3};
+                    color: ${({ theme }) => theme.colors.brand.b2};
+                    font-size: 16px;
+                    padding: 10px;
+                    &::placeholder {
+                        color: ${({ theme }) => theme.colors.grey.g3};
+                    }
+                    &:focus {
+                        border: 1px solid ${({ theme }) => theme.colors.brand.b2};
+                    }
+                    &:hover {
+                        filter: brightness(0.95);
+                    }
                 }
 
                 .divBtnEvent {
                     display: flex;
+                    margin-top: 10px;
                     .btn1 {
                         width: 101px;
                         height: 24px;
@@ -239,9 +254,10 @@ const StyledContainer = styled.main`
                     margin-top: 32px;
                     gap: 14px;
                     
+                    
                     div {
                         background-color: ${({ theme }) => theme.colors.grey.g7};
-                        width: 30%;
+                        width: auto;
                         max-width: 100%;
                         height: auto;
                         display: flex;
@@ -308,6 +324,9 @@ const StyledContainer = styled.main`
                     }
 
                     .button2{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
                         width: 60%;
                         height: 48px;
                         border-radius: 4px;

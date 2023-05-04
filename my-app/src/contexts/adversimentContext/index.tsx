@@ -5,8 +5,10 @@ import {
   iAdversimentContextProps,
   iAdversimentDataRegister,
   iAdversimentDataResponse,
+  iAdversimentDataUpdate,
   iAdversimentProviderProps,
 } from "../../interface/adversiments";
+import { iCommentDataRequest } from "../../interface/comments";
 
 export const AdversimentContext = createContext({} as iAdversimentContextProps);
 
@@ -22,8 +24,12 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
   const [filterPrice, setFilterPrice] = useState(false);
   const [ModalAddOpen, setModalAddOpen] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
-  const [renderFilter, setRenderFilter] = useState(false);
+  const [activeFilter, setActiveFilter] = useState(false);
   const [listBrands, setListBrands] = useState([]);
+  const [detailsAds, setDetailsAds] = useState({} as iAdversimentDataUpdate)
+  const [isActive, setIsActive] = useState(true);
+
+  const navigate = useNavigate();
 
   // const arrBrands: any = [];
   // adversimentData.map((data) => {
@@ -39,24 +45,50 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
       setAdversimentData(data);
       setFilterAdversiments(data);
       if (filterBrand) {
-        const listFilter = adversimentData.filter((data) => data.brand === filterBrand);
-        setFilterAdversiments(listFilter);
+        if (activeFilter) {
+          const listFilter = adversimentData.filter((data) => data.brand === filterBrand);
+          setFilterAdversiments(listFilter);
+        } else {
+          setAdversimentData(data);
+          setFilterBrand("");
+        }
       } else if (filterModel) {
-        const listFilter = adversimentData.filter((data) => data.model === filterModel);
-        setFilterAdversiments(listFilter);
+        if (activeFilter) {
+          const listFilter = adversimentData.filter((data) => data.model === filterModel);
+          setFilterAdversiments(listFilter);
+        } else {
+          setAdversimentData(data);
+          setFilterModel("");
+        }
       } else if (filterColor) {
-        const listFilter = adversimentData.filter((data) => data.color === filterColor);
-        setFilterAdversiments(listFilter);
+        if (activeFilter) {
+          const listFilter = adversimentData.filter((data) => data.color === filterColor);
+          setFilterAdversiments(listFilter);
+        } else {
+          setAdversimentData(data);
+          setFilterColor("");
+        }
       } else if (filterAge) {
-        const listFilter = adversimentData.filter((data) => data.age === filterAge);
-        setFilterAdversiments(listFilter);
+        if (activeFilter) {
+          const listFilter = adversimentData.filter((data) => data.age === filterAge);
+          setFilterAdversiments(listFilter);
+        } else {
+          setAdversimentData(data);
+          setFilterAge(0);
+        }
       } else if (filterFuel) {
-        const listFilter = adversimentData.filter((data) => data.fuelType === filterFuel);
-        setFilterAdversiments(listFilter);
+        if (activeFilter) {
+          const listFilter = adversimentData.filter((data) => data.fuelType === filterFuel);
+          setFilterAdversiments(listFilter);
+        } else {
+          setAdversimentData(data);
+          setFilterFuel("");
+        }
       } else if (filterKM) {
       } else if (filterPrice) {
       } else {
       }
+
       setLoading(true);
     } catch (error) {
       console.error(error);
@@ -79,7 +111,16 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
     loadAdversiment();
     // setListBrands(arrBrands);
     // }, []);
-  }, [renderFilter]);
+  }, [
+    filterBrand,
+    filterModel,
+    filterColor,
+    filterAge,
+    filterFuel,
+    filterKM,
+    filterPrice,
+    activeFilter,
+  ]);
 
   // const loadOnlyMyAdversiment = async () => {
   //     try {
@@ -92,7 +133,17 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
   //     setLoading(false)
   // }
 
+  const getDetailsAdversiment = async (id: string | undefined) => {
+    try {
+      const {data} = await Api.get(`/adversiments/${id}`)
+      setDetailsAds(data)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
   const postNewAdversiment = async (data: iAdversimentDataRegister) => {
+
     try {
       await Api.post("/adversiments", data);
       loadAdversiment();
@@ -104,10 +155,60 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
     }
   };
 
+  const updateAdversiment = async (data: iAdversimentDataUpdate) => {
+    const token = localStorage.getItem("token")
+    const newData = {...data, isActive: isActive}
+  
+    try {
+      const response = await Api.patch(`/adversiments/${detailsAds?.id}`, newData, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        },
+      });
+      window.location.reload()
+      console.log(response.data)
+
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  const createCommentUser = async(data: iCommentDataRequest) =>{
+    const token = localStorage.getItem("token")
+    try {
+      const response = await Api.post(`/comments/${detailsAds.id}`, data,{
+        headers: {
+          Authorization: `Bearer ${token}`
+        },
+      })
+      navigate("/details")
+      console.log(response.data)
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+
+  const deleteAdversiment = async () => {
+    
+    try {
+      await Api.delete(`/adversiments/${detailsAds?.id}`);
+      window.location.reload()
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+
+
   return (
     <AdversimentContext.Provider
       value={{
         postNewAdversiment,
+        getDetailsAdversiment,
+        createCommentUser,
+        updateAdversiment,
+        deleteAdversiment,
         setAdversimentData,
         setLoading,
         setModalAddOpen,
@@ -118,15 +219,24 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
         setFilterFuel,
         setFilterKM,
         setFilterPrice,
+        detailsAds,
         filterBrand,
+        filterModel,
+        filterColor,
+        filterAge,
+        filterFuel,
+        filterKM,
+        filterPrice,
         adversimentData,
         loading,
         ModalAddOpen,
-        renderFilter,
-        setRenderFilter,
+        activeFilter,
+        setActiveFilter,
         filterAdversiments,
         setFilterAdversiments,
         listBrands,
+        isActive, 
+        setIsActive,
       }}
     >
       {children}
