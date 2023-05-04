@@ -1,3 +1,4 @@
+import { iCommentDataRequest, iCommentDataResponse } from "../comments";
 import { iUser } from "../users";
 
 interface iImageResponse {
@@ -26,6 +27,8 @@ interface iAdversimentDataRegister {
   images: [iImageResponse];
   user: iUser;
 }
+
+
 interface iAdversimentDataUpdate {
   id?: string;
   brand?: string;
@@ -39,7 +42,11 @@ interface iAdversimentDataUpdate {
   description?: string;
   images?: [iImageResponse, iImageResponse1, iImageResponse2];
   isActive?: boolean;
+  user?: iUser;
+  comments?: [iCommentDataResponse]
 }
+
+
 
 interface iAdversimentDataResponse {
   id: string;
@@ -50,6 +57,7 @@ interface iAdversimentDataResponse {
   mileAge: number;
   price: number;
   color: string;
+  isActive: boolean;
   description: string;
   images: [iImageResponse];
   user: iUser;
@@ -62,6 +70,9 @@ interface iAdversimentProviderProps {
 interface iAdversimentContextProps {
   //post adversiment
   postNewAdversiment: (data: iAdversimentDataRegister) => Promise<void>;
+
+  //post comment
+  createCommentUser: (data: iCommentDataRequest) => Promise<void>
 
   //update adversiment
   updateAdversiment: (data: iAdversimentDataUpdate) => Promise<void>

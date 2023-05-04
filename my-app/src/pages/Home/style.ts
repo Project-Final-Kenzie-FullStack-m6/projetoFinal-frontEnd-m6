@@ -11,7 +11,7 @@ export const StyledMain = styled.main`
     .ulAdversiment {
       width: 100%;
       display: flex;
-      gap: 40px 50px;
+      gap: 0px 25px;
       justify-content: flex-start;
       flex-wrap: wrap;
     }

@@ -8,6 +8,7 @@ import {
   iAdversimentDataUpdate,
   iAdversimentProviderProps,
 } from "../../interface/adversiments";
+import { iCommentDataRequest } from "../../interface/comments";
 
 export const AdversimentContext = createContext({} as iAdversimentContextProps);
 
@@ -27,8 +28,6 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
   const [listBrands, setListBrands] = useState([]);
   const [detailsAds, setDetailsAds] = useState([{}] as iAdversimentDataUpdate[])
   const [isActive, setIsActive] = useState(true);
-
-  console.log(detailsAds, "aqui no contexto")
 
   const navigate = useNavigate();
 
@@ -139,6 +138,21 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
     }
   }
 
+  const createCommentUser = async(data: iCommentDataRequest) =>{
+    const token = localStorage.getItem("token")
+    try {
+      const response = await Api.post(`/comments/${detailsAds[0].id}`, data,{
+        headers: {
+          Authorization: `Bearer ${token}`
+        },
+      })
+      navigate("/details")
+      console.log(response.data)
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
 
   const deleteAdversiment = async () => {
     
@@ -157,6 +171,7 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
       value={{
         postNewAdversiment,
         getDetailsAdversiment,
+        createCommentUser,
         updateAdversiment,
         deleteAdversiment,
         setAdversimentData,

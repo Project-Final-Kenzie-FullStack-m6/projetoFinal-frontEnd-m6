@@ -54,7 +54,7 @@ const colors = {
 		primary:   'rgba(156, 156, 153, 0.3)',
 		secondary: 'rgba(0, 0, 0, 0.3)',
 		tertiary:  'rgb(0 0 0 / 25%)',
-		quartiary: 'rgb(21,21,21,0.8)'
+		quartiary: 'rgba(69, 41, 230, 0.12)'
 
 	}
 }

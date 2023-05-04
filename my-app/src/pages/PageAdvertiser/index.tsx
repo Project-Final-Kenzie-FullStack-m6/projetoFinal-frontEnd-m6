@@ -16,7 +16,7 @@ const logeedId:any = localStorage.getItem("userId");
 const searchParams = new URLSearchParams(window.location.search);
 const userId = searchParams.get("id");
 const owner =logeedId === userId
-console.log(userId)
+
 useEffect(() => {
   if (!userId) {
     navigate("/");
