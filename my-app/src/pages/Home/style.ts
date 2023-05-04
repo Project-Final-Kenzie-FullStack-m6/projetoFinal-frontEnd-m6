@@ -16,8 +16,19 @@ export const StyledMain = styled.main`
       flex-wrap: wrap;
     }
 
+    li {
+      cursor: pointer;
+      width: max-content;
+    }
+
     .bold {
-      color: red;
+      color: ${({ theme }) => theme.colors.grey.g1};
+      font-weight: 600;
+    }
+
+    .btnActive {
+      background-color: ${({ theme }) => theme.colors.brand.b1};
+      color: ${({ theme }) => theme.colors.grey.whiteFixed};
     }
     .liAdversiment {
       width: 300px;
@@ -81,9 +92,16 @@ export const StyledMain = styled.main`
       .bold {
         color: ${({ theme }) => theme.colors.grey.g1};
         font-weight: 600;
+        cursor: pointer;
       }
     }
+    .btnActive {
+      background-color: ${({ theme }) => theme.colors.brand.b1};
+      color: ${({ theme }) => theme.colors.grey.whiteFixed};
+    }
     li {
+      width: max-content;
+      cursor: pointer;
       font-weight: 500;
       font-size: 17px;
       line-height: 25px;

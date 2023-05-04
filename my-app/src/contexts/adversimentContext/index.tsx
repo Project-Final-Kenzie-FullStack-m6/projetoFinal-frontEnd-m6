@@ -42,11 +42,9 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
         if (activeFilter) {
           const listFilter = adversimentData.filter((data) => data.brand === filterBrand);
           setFilterAdversiments(listFilter);
-          console.log(filterBrand);
         } else {
           setAdversimentData(data);
           setFilterBrand("");
-          console.log(filterBrand);
         }
       } else if (filterModel) {
         if (activeFilter) {
@@ -156,6 +154,12 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
         setFilterKM,
         setFilterPrice,
         filterBrand,
+        filterModel,
+        filterColor,
+        filterAge,
+        filterFuel,
+        filterKM,
+        filterPrice,
         adversimentData,
         loading,
         ModalAddOpen,
