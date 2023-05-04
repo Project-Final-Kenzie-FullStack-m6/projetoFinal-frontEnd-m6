@@ -6,6 +6,7 @@ import {
   iAdversimentDataRegister,
   iAdversimentDataResponse,
   iAdversimentProviderProps,
+  iImageResponse,
 } from "../../interface/adversiments";
 
 export const AdversimentContext = createContext({} as iAdversimentContextProps);
@@ -16,6 +17,7 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
   const [filterBrand, setFilterBrand] = useState("");
   const [filterModel, setFilterModel] = useState("");
   const [filterColor, setFilterColor] = useState("");
+  const [imageBase64, setImageBase64] = useState<[]>([]);
   const [filterAge, setFilterAge] = useState(0);
   const [filterFuel, setFilterFuel] = useState("");
   const [filterKM, setFilterKM] = useState(false);
@@ -130,11 +132,14 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
   // }
 
   const postNewAdversiment = async (data: iAdversimentDataRegister) => {
+    const newData = {...data,images:imageBase64}
+console.log(imageBase64)
     try {
-      await Api.post("/adversiments", data);
+      const response =await Api.post("/adversiments", newData);
       loadAdversiment();
       //falta toast
       setModalAddOpen(false);
+      console.log(response.data)
     } catch (error) {
       //falta toast
       console.error(error);
@@ -164,6 +169,8 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
         filterAdversiments,
         setFilterAdversiments,
         listBrands,
+        imageBase64,
+        setImageBase64
       }}
     >
       {children}

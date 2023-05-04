@@ -2,9 +2,20 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## 🛠 Dependences
+- [x] [Styled-Components](https://styled-components.com/) -  Applying styles in the application
+- [x] [Axios](https://axios-http.com/ptbr/docs/intro) - HTTP request management
+- [x] [Toastify](https://fkhadra.github.io/react-toastify/introduction) - Feedback errors to users
+- [x] [React Hook Form](https://reactrouter.com/) & [Yup](https://www.npmjs.com/package/yup) - Forms and validations manager
+- [x] [React Icons](https://react-icons.github.io/react-icons/) - Application icon lib
+- [x] [Vercel](https://vercel.com/) - Apllication deployer
+- [x] Other libraries that helped in the development can be found in the section:`"dependencies"` e `"devDependencies"` in archive `package.json`.
+
 ## Available Scripts
 
 In the project directory, you can run:
+
+
 
 ### `yarn start`
 

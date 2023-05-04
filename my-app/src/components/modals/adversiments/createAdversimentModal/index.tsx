@@ -3,15 +3,16 @@ import { Button } from "../../../button/style.button";
 import { Input, Select, TextArea } from "../../../input/style.input";
 import * as S from "./style.createAdversimentModal";
 import { AdversimentContext } from "../../../../contexts/adversimentContext";
-import { RegisterOptions, useForm } from "react-hook-form";
-import { iAdversimentDataRegister } from "../../../../interface/adversiments";
+import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import schemaCreateAdvertisement from "../../../../validators/adversiments/createAdversimentUser";
 import { ApiFipeContext } from "../../../../contexts/ApiFipeContext";
+import { Api3 } from "../../../../services/api";
+
 
 const CreateAdversimentModal = ({ handleShowModal }: any) => {
 
-  const { postNewAdversiment} = useContext(AdversimentContext);
+  const { postNewAdversiment,imageBase64,setImageBase64} = useContext(AdversimentContext);
 
   const { ApiFipeData, DataCars, DataModelCar, searchBrand, searchModel } = useContext(ApiFipeContext);
   const [NumImages, setNumImages] = useState(0);
@@ -29,6 +30,49 @@ const CreateAdversimentModal = ({ handleShowModal }: any) => {
   } = useForm<any>({
     resolver: yupResolver(schemaCreateAdvertisement),
   });
+
+function getBase64(file: File): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result as string);
+    reader.onerror = error => reject(error);
+  });
+}
+
+
+  
+
+  const handleFileInputChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      const base64 = await getBase64(file);
+      const newImage ={ imageUrl:base64.slice(23)}
+
+
+      setImageBase64(...imageBase64,newImage)
+      console.log(newImage)
+      // qqcoisa(newImage)
+    }
+  };
+
+  async function qqcoisa(param:any) {
+
+
+var FormData = require('form-data');
+var data = new FormData();
+data.append('image', param);
+data.append('type', "base64");
+
+try {
+  const response =await Api3.post("", data);
+
+  console.log(response.data)
+} catch (error) {
+  //falta toast
+  console.error(error);
+}
+  }
 
   const teste = getValues()
 
@@ -240,8 +284,9 @@ const CreateAdversimentModal = ({ handleShowModal }: any) => {
               <Input
                 font="regular-input-3"
                 id="imageUrl"
-                type="text"
+                type="file"
                 {...register("images.[0].imageUrl")}
+                onChange={handleFileInputChange}
                 
               />
             </label>
@@ -251,8 +296,9 @@ const CreateAdversimentModal = ({ handleShowModal }: any) => {
               <Input
                 font="regular-input-3"
                 id="imageUrl"
-                type="text"
+                type="file"
                 {...register("images.[1].imageUrl")}
+                onChange={handleFileInputChange}
               />
 
             </label>
@@ -262,8 +308,9 @@ const CreateAdversimentModal = ({ handleShowModal }: any) => {
               <Input
                 font="regular-input-3"
                 id="imageUrl"
-                type="text"
+                type="file"
                 {...register("images.[2].imageUrl")}
+                onChange={handleFileInputChange}
               />
             </label>
 
@@ -272,9 +319,10 @@ const CreateAdversimentModal = ({ handleShowModal }: any) => {
                 {inputCount}° Imagem da Galeria
                 <Input
                   font="regular-input-3"
-                  type="text"
+                  type="file"
                   key={index}
                   {...register(`images.[${inputCount}].imageUrl`)}
+                  onChange={handleFileInputChange}
                 />
               </label>
             ))}
