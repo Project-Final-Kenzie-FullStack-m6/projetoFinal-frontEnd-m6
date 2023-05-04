@@ -19,7 +19,7 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
   const [filterBrand, setFilterBrand] = useState("");
   const [filterModel, setFilterModel] = useState("");
   const [filterColor, setFilterColor] = useState("");
-  const [imageBase64, setImageBase64] = useState<iImageResponse[]>([]);
+  const [imageBase64, setImageBase64] = useState([] as iImageResponse[]);
   const [filterAge, setFilterAge] = useState(0);
   const [filterFuel, setFilterFuel] = useState("");
   const [filterKM, setFilterKM] = useState(false);
@@ -32,6 +32,7 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
   const [isActive, setIsActive] = useState(true);
 
   const navigate = useNavigate();
+
 
   // const arrBrands: any = [];
   // adversimentData.map((data) => {

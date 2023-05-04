@@ -47,12 +47,12 @@ function getBase64(file: File): Promise<string> {
     const file = event.target.files?.[0];
     if (file) {
       const base64 = await getBase64(file);
-      const  imageUrl:any= base64.slice(23)
+      const newimage= {imageUrl:base64}
       
-
-      setImageBase64([...imageBase64,imageUrl])
-      // console.log(newImage)
-      // qqcoisa(newImage)
+      // .slice(23)
+      setImageBase64([...imageBase64,newimage])
+      console.log(imageBase64)
+      qqcoisa(newimage)
     }
   };
 
