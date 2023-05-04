@@ -117,7 +117,7 @@ interface iAdversimentContextProps {
   setActiveFilter: React.Dispatch<React.SetStateAction<boolean>>;
   listBrands: string[];
 
-  detailsAds: iAdversimentDataUpdate[]
+  detailsAds: iAdversimentDataUpdate
   isActive: boolean
   setIsActive: React.Dispatch<React.SetStateAction<boolean>>
 }
