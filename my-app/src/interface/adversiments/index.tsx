@@ -61,9 +61,13 @@ interface iAdversimentDataResponse {
   description: string;
   images: [iImageResponse];
   user: iUser;
+  isActive: boolean;
 }
 
 interface iAdversimentProviderProps {
+  children: React.ReactNode;
+}
+interface iFiltersProviderProps {
   children: React.ReactNode;
 }
 
@@ -103,9 +107,15 @@ interface iAdversimentContextProps {
   setFilterFuel: React.Dispatch<React.SetStateAction<string>>;
   setFilterKM: React.Dispatch<React.SetStateAction<boolean>>;
   setFilterPrice: React.Dispatch<React.SetStateAction<boolean>>;
-  filterBrand: any;
-  renderFilter: boolean;
-  setRenderFilter: React.Dispatch<React.SetStateAction<boolean>>;
+  filterBrand: string;
+  filterModel: string;
+  filterColor: string;
+  filterAge: number;
+  filterFuel: string;
+  filterKM: boolean;
+  filterPrice: boolean;
+  activeFilter: boolean;
+  setActiveFilter: React.Dispatch<React.SetStateAction<boolean>>;
   listBrands: string[];
 
   detailsAds: iAdversimentDataUpdate[]
@@ -113,9 +123,84 @@ interface iAdversimentContextProps {
   setIsActive: React.Dispatch<React.SetStateAction<boolean>>
 }
 
+// interface iFiltersContextProps {
+//   activeGenerals: boolean;
+//   activeFiat: boolean;
+//   activeFord: boolean;
+//   activeHonda: boolean;
+//   activePorsche: boolean;
+//   activeVolswagen: boolean;
+//   activeCivic: boolean;
+//   activeCorolla: boolean;
+//   activeCruze: boolean;
+//   activeFit: boolean;
+//   activeGol: boolean;
+//   activeKa: boolean;
+//   activeOnix: boolean;
+//   activePorscheModel: boolean;
+//   activeAzul: boolean;
+//   activeBranca: boolean;
+//   activeCinza: boolean;
+//   activePrata: boolean;
+//   activePreta: boolean;
+//   activeVerde: boolean;
+//   active2022: boolean;
+//   active2021: boolean;
+//   active2018: boolean;
+//   active2015: boolean;
+//   active2013: boolean;
+//   active2012: boolean;
+//   active2010: boolean;
+//   activeDiesel: boolean;
+//   activeEtanol: boolean;
+//   activeGasolina: boolean;
+//   activeFlex: boolean;
+//   activeKmMax: boolean;
+//   activeKmMin: boolean;
+//   activePriceMin: boolean;
+//   activePriceMax: boolean;
+//   setActiveGenerals: React.Dispatch<React.SetStateAction<boolean>>;
+//   setActiveFiat: React.Dispatch<React.SetStateAction<boolean>>;
+//   setActiveFord: React.Dispatch<React.SetStateAction<boolean>>;
+//   setActiveHonda: React.Dispatch<React.SetStateAction<boolean>>;
+//   setActiveKa: React.Dispatch<React.SetStateAction<boolean>>;
+//   setActiveVolswagen: React.Dispatch<React.SetStateAction<boolean>>;
+//   setActivePorsche: React.Dispatch<React.SetStateAction<boolean>>;
+//   setActiveOnix: React.Dispatch<React.SetStateAction<boolean>>;
+//   setActivePorscheModel: React.Dispatch<React.SetStateAction<boolean>>;
+//   setActiveAzul: React.Dispatch<React.SetStateAction<boolean>>;
+//   setActiveBranca: React.Dispatch<React.SetStateAction<boolean>>;
+//   setActiveCinza: React.Dispatch<React.SetStateAction<boolean>>;
+//   setActivePrata: React.Dispatch<React.SetStateAction<boolean>>;
+//   setActivePreta: React.Dispatch<React.SetStateAction<boolean>>;
+//   setActiveVerde: React.Dispatch<React.SetStateAction<boolean>>;
+//   setActive2022: React.Dispatch<React.SetStateAction<boolean>>;
+//   setActive2021: React.Dispatch<React.SetStateAction<boolean>>;
+//   setActive2018: React.Dispatch<React.SetStateAction<boolean>>;
+//   setActiveDiesel: React.Dispatch<React.SetStateAction<boolean>>;
+//   setActive2015: React.Dispatch<React.SetStateAction<boolean>>;
+//   setActiveCruze: React.Dispatch<React.SetStateAction<boolean>>;
+//   setActiveCorolla: React.Dispatch<React.SetStateAction<boolean>>;
+//   setActiveCivic: React.Dispatch<React.SetStateAction<boolean>>;
+//   setActive2013: React.Dispatch<React.SetStateAction<boolean>>;
+//   setActive2012: React.Dispatch<React.SetStateAction<boolean>>;
+//   setActiveFit: React.Dispatch<React.SetStateAction<boolean>>;
+//   setActiveGol: React.Dispatch<React.SetStateAction<boolean>>;
+//   setActive2010: React.Dispatch<React.SetStateAction<boolean>>;
+//   setActiveEtanol: React.Dispatch<React.SetStateAction<boolean>>;
+//   setActiveGasolina: React.Dispatch<React.SetStateAction<boolean>>;
+//   setActiveFlex: React.Dispatch<React.SetStateAction<boolean>>;
+//   setActiveKmMax: React.Dispatch<React.SetStateAction<boolean>>;
+//   setActiveKmMin: React.Dispatch<React.SetStateAction<boolean>>;
+//   setActivePriceMax: React.Dispatch<React.SetStateAction<boolean>>;
+//   setActivePriceMin: React.Dispatch<React.SetStateAction<boolean>>;
+// }
+
 export type {
   iAdversimentContextProps,
+  // iFiltersContextProps,
   iAdversimentProviderProps,
+  iFiltersProviderProps,
   iAdversimentDataResponse,
   iAdversimentDataRegister,
   iAdversimentDataUpdate
