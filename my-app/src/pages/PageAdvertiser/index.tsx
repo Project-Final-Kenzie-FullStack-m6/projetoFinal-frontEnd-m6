@@ -16,8 +16,8 @@ const logeedId:any = localStorage.getItem("userId");
 const searchParams = new URLSearchParams(window.location.search);
 const userId = searchParams.get("id");
 const owner =logeedId === userId
-console.log(userId)
 useEffect(() => {
+  console.log(userData.isSeller)
   if (!userId) {
     navigate("/");
   }else if(userData.id === userId&&userData.isSeller !==true){

@@ -9,6 +9,7 @@ export const CardAdversiment = ({ owner }: any) => {
   return (
     <>
       {filterAdversiments?.map((data: iAdversimentDataResponse, index: number) => {
+        // if (data.isActive) {
         const arrayName = data.user.name?.split(" ");
         let initials = "";
         if (arrayName) {
@@ -62,6 +63,7 @@ export const CardAdversiment = ({ owner }: any) => {
             </li>
           </>
         );
+        // }
       })}
     </>
   );
