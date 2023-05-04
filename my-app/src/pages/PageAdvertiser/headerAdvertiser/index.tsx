@@ -37,10 +37,10 @@ const HeaderAdvertiser = ({owner, handleShowModal }: any) => {
               SL
             </Button>
             <h2>
-              {detailsAds[0].user?.name} <strong>anunciante</strong>
+              {detailsAds.user?.name} <strong>anunciante</strong>
             </h2>
             <p>
-              {detailsAds[0].user?.name}
+              {detailsAds.user?.name}
             </p>{owner?
             (<Button onClick={handleShowModal} className="createAd" font="brand-10-11">
               Criar Anuncio

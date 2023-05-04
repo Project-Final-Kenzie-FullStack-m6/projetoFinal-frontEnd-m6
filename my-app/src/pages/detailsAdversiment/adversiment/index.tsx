@@ -12,7 +12,7 @@ import { iCommentDataRequest } from "../../../interface/comments";
 const Adversiment = () => {
     const {detailsAds, createCommentUser} = useContext(AdversimentContext)
 
-    const img = detailsAds[0].images?.[0].imageUrl
+    const img = detailsAds.images?.[0].imageUrl
 
     const {
         register,
@@ -32,27 +32,27 @@ const Adversiment = () => {
                 </div>
 
                 <div className="divDetails">
-                    <h1>{detailsAds[0].model}</h1>
+                    <h1>{detailsAds?.model}</h1>
 
                     <div className="divAgePrice">
                         <div>
-                            <span>{detailsAds[0].age}</span>
-                            <span>{detailsAds[0].mileAge}km</span>
+                            <span>{detailsAds?.age}</span>
+                            <span>{detailsAds?.mileAge}km</span>
                         </div>
 
-                        <span><b>R${detailsAds[0].price}</b></span>
+                        <span><b>R${detailsAds.price}</b></span>
                     </div>
                     <Button font="brand-6-7">Comprar</Button>
                 </div>
 
                 <div className="divDescription">
                     <h1>Descrição</h1>
-                    <p>{detailsAds[0].description}</p>
+                    <p>{detailsAds?.description}</p>
                 </div>
 
                 <div className="divCommentsBox">
                     <h1>Comentários</h1>
-                    {detailsAds[0].comments?.map((comment) =>{
+                    {detailsAds.comments?.map((comment) =>{
                     return(
                         <div className="divComments">
                         <div>
@@ -96,7 +96,7 @@ const Adversiment = () => {
 
                     <div className="divImages">
                         <div>
-                            {detailsAds[0].images?.map((data, index)=>{
+                            {detailsAds.images?.map((data, index)=>{
                                 return(
                                     <img src={data.imageUrl} key={index} alt="car" />
                                 )
@@ -109,9 +109,9 @@ const Adversiment = () => {
                 <div className="divDetailsUser">
                     <div>
                         <Button font="ball-0-3">SL</Button>
-                        <span>{detailsAds[0].user?.name}</span>
-                        <p>{detailsAds[0].user?.description}</p>
-                        <Link to={`/advertiser?id=${detailsAds[0].user?.id}`} className="button2" type="button">Ver todos anúncios</Link>
+                        <span>{detailsAds.user?.name}</span>
+                        <p>{detailsAds.user?.description}</p>
+                        <Link to={`/advertiser?id=${detailsAds.user?.id}`} className="button2" type="button">Ver todos anúncios</Link>
                     </div>
                 </div>
             </div>

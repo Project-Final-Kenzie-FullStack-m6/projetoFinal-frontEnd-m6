@@ -28,11 +28,10 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
   const [loading, setLoading] = useState<boolean>(false);
   const [activeFilter, setActiveFilter] = useState(false);
   const [listBrands, setListBrands] = useState([]);
-  const [detailsAds, setDetailsAds] = useState([{}] as iAdversimentDataUpdate[])
+  const [detailsAds, setDetailsAds] = useState({} as iAdversimentDataUpdate)
   const [isActive, setIsActive] = useState(true);
 
   const navigate = useNavigate();
-
 
   // const arrBrands: any = [];
   // adversimentData.map((data) => {
@@ -166,7 +165,7 @@ console.log(imageBase64)
     const newData = {...data, isActive: isActive}
   
     try {
-      const response = await Api.patch(`/adversiments/${detailsAds[0]?.id}`, newData, {
+      const response = await Api.patch(`/adversiments/${detailsAds?.id}`, newData, {
         headers: {
           Authorization: `Bearer ${token}`
         },
@@ -182,7 +181,7 @@ console.log(imageBase64)
   const createCommentUser = async(data: iCommentDataRequest) =>{
     const token = localStorage.getItem("token")
     try {
-      const response = await Api.post(`/comments/${detailsAds[0].id}`, data,{
+      const response = await Api.post(`/comments/${detailsAds.id}`, data,{
         headers: {
           Authorization: `Bearer ${token}`
         },
@@ -198,7 +197,7 @@ console.log(imageBase64)
   const deleteAdversiment = async () => {
     
     try {
-      await Api.delete(`/adversiments/${detailsAds[0]?.id}`);
+      await Api.delete(`/adversiments/${detailsAds?.id}`);
       window.location.reload()
     } catch (error) {
       console.error(error);

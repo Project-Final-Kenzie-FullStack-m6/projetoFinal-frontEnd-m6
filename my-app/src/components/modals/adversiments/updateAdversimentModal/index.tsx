@@ -33,17 +33,17 @@ const UpdateAdversimentModal = ({setOpenModalUpdate}: any) => {
     console.log(values)
 
     useEffect(() => {
-        setValue('brand', detailsAds[0]?.brand)
-        setValue('model', detailsAds[0]?.model)
-        setValue('age', detailsAds[0]?.age)
-        setValue('fuelType', detailsAds[0]?.fuelType)
-        setValue('mileAge', detailsAds[0]?.mileAge)
-        setValue('color', detailsAds[0]?.color)
-        setValue('fipe', detailsAds[0]?.fipe)
-        setValue('price', detailsAds[0]?.price)
-        setValue('isActive', detailsAds[0]?.isActive)
-        setValue('description', detailsAds[0]?.description)
-        setValue('images', detailsAds[0]?.images)
+        setValue('brand', detailsAds?.brand)
+        setValue('model', detailsAds?.model)
+        setValue('age', detailsAds?.age)
+        setValue('fuelType', detailsAds?.fuelType)
+        setValue('mileAge', detailsAds?.mileAge)
+        setValue('color', detailsAds?.color)
+        setValue('fipe', detailsAds?.fipe)
+        setValue('price', detailsAds?.price)
+        setValue('isActive', detailsAds?.isActive)
+        setValue('description', detailsAds?.description)
+        setValue('images', detailsAds?.images)
     }, [detailsAds, setValue])
 
     const handleAddImage = () => {
