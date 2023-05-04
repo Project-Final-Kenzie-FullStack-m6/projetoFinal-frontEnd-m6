@@ -20,90 +20,18 @@ export const MainHome = () => {
     setFilterKM,
     setFilterPrice,
     filterBrand,
+    filterModel,
+    filterColor,
+    filterAge,
+    filterFuel,
+    filterKM,
+    filterPrice,
     activeFilter,
     setActiveFilter,
-    adversimentData,
-    setFilterAdversiments,
+    // adversimentData,
+    // setFilterAdversiments,
     // listBrands,
   } = useContext(AdversimentContext);
-
-  const {
-    activeGenerals,
-    activeFiat,
-    activeFord,
-    activeHonda,
-    activePorsche,
-    activeVolswagen,
-    activeCivic,
-    activeCorolla,
-    activeCruze,
-    activeFit,
-    activeGol,
-    activeKa,
-    activeOnix,
-    activePorscheModel,
-    activeAzul,
-    activeBranca,
-    activeCinza,
-    activePrata,
-    activePreta,
-    activeVerde,
-    active2022,
-    active2021,
-    active2018,
-    active2015,
-    active2013,
-    active2012,
-    active2010,
-    activeDiesel,
-    activeEtanol,
-    activeGasolina,
-    activeFlex,
-    activeKmMax,
-    activeKmMin,
-    activePriceMin,
-    activePriceMax,
-    setActiveFord,
-    setActiveHonda,
-    setActiveKa,
-    setActiveOnix,
-    setActivePorscheModel,
-    setActiveAzul,
-    setActiveBranca,
-    setActiveCinza,
-    setActivePrata,
-    setActivePreta,
-    setActiveVerde,
-    setActive2022,
-    setActiveFiat,
-    setActive2021,
-    setActiveGenerals,
-    setActive2018,
-    setActiveDiesel,
-    setActivePorsche,
-    setActive2015,
-    setActiveVolswagen,
-    setActiveCruze,
-    setActiveCorolla,
-    setActiveCivic,
-    setActive2013,
-    setActive2012,
-    setActiveFit,
-    setActiveGol,
-    setActive2010,
-    setActiveEtanol,
-    setActiveGasolina,
-    setActiveFlex,
-    setActiveKmMax,
-    setActiveKmMin,
-    setActivePriceMax,
-    setActivePriceMin,
-  } = useContext(FiltersContext);
-  const fontrab = () => setActiveGenerals(false);
-  // const sdad = () => {
-  //   console.log(filterBrand);
-  //   setFilterBrand("Ford");
-  // };
   return (
     <StyledMain>
       {sideBar ? (
@@ -114,41 +42,38 @@ export const MainHome = () => {
               <GrFormClose onClick={showSideBar} />
             </div>
             <h2>Marca</h2>
-            {/* <ul>
-              {listBrands.map((data) => {
-                return <li>{data}</li>;
-              })}
-            </ul> */}
             <ul>
               <li
-                className={activeFilter ? "bold" : ""}
+                className={filterBrand === "General Motors" ? "bold" : ""}
                 onClick={() => {
                   setFilterBrand("General Motors");
-                  // setActiveGenerals(!activeGenerals);
                   setActiveFilter(!activeFilter);
                 }}
               >
                 General Motors
               </li>
               <li
-                className={activeFiat ? "bold" : ""}
-                onClick={() => {
+                className={filterBrand === "Fiat" ? "bold" : ""}
+                onClick={(e) => {
                   setFilterBrand("Fiat");
-                  // setActiveFiat(!activeFiat);
                   setActiveFilter(!activeFilter);
+                  e.target.addEventListener("click", () => {});
                 }}
               >
                 Fiat
               </li>
               <li
-                onClick={() => {
+                className={filterBrand === "Ford" ? "bold" : ""}
+                onClick={(e) => {
                   setFilterBrand("Ford");
                   setActiveFilter(!activeFilter);
+                  console.log(e.target);
                 }}
               >
                 Ford
               </li>
               <li
+                className={filterBrand === "Honda" ? "bold" : ""}
                 onClick={() => {
                   setFilterBrand("Honda");
                   setActiveFilter(!activeFilter);
@@ -157,6 +82,7 @@ export const MainHome = () => {
                 Honda
               </li>
               <li
+                className={filterBrand === "Porsche" ? "bold" : ""}
                 onClick={() => {
                   setFilterBrand("Porsche");
                   setActiveFilter(!activeFilter);
@@ -165,6 +91,7 @@ export const MainHome = () => {
                 Porsche
               </li>
               <li
+                className={filterBrand === "Volswagen" ? "bold" : ""}
                 onClick={() => {
                   setFilterBrand("Volswagen");
                   setActiveFilter(!activeFilter);
@@ -176,6 +103,7 @@ export const MainHome = () => {
             <h2>Modelo</h2>
             <ul>
               <li
+                className={filterModel === "Civic" ? "bold" : ""}
                 onClick={() => {
                   setFilterModel("Civic");
                   setActiveFilter(!activeFilter);
@@ -184,6 +112,7 @@ export const MainHome = () => {
                 Civic
               </li>
               <li
+                className={filterModel === "Corolla" ? "bold" : ""}
                 onClick={() => {
                   setFilterModel("Corolla");
                   setActiveFilter(!activeFilter);
@@ -192,6 +121,7 @@ export const MainHome = () => {
                 Corolla
               </li>
               <li
+                className={filterModel === "Cruze" ? "bold" : ""}
                 onClick={() => {
                   setFilterModel("Cruze");
                   setActiveFilter(!activeFilter);
@@ -200,6 +130,7 @@ export const MainHome = () => {
                 Cruze
               </li>
               <li
+                className={filterModel === "Fit" ? "bold" : ""}
                 onClick={() => {
                   setFilterModel("Fit");
                   setActiveFilter(!activeFilter);
@@ -208,6 +139,7 @@ export const MainHome = () => {
                 Fit
               </li>
               <li
+                className={filterModel === "Gol" ? "bold" : ""}
                 onClick={() => {
                   setFilterModel("Gol");
                   setActiveFilter(!activeFilter);
@@ -216,6 +148,7 @@ export const MainHome = () => {
                 Gol
               </li>
               <li
+                className={filterModel === "Ka" ? "bold" : ""}
                 onClick={() => {
                   setFilterModel("Ka");
                   setActiveFilter(!activeFilter);
@@ -224,6 +157,7 @@ export const MainHome = () => {
                 Ka
               </li>
               <li
+                className={filterModel === "Onix" ? "bold" : ""}
                 onClick={() => {
                   setFilterModel("Onix");
                   setActiveFilter(!activeFilter);
@@ -232,6 +166,7 @@ export const MainHome = () => {
                 Onix
               </li>
               <li
+                className={filterModel === "Porsche 718" ? "bold" : ""}
                 onClick={() => {
                   setFilterModel("Porsche 718");
                   setActiveFilter(!activeFilter);
@@ -243,6 +178,7 @@ export const MainHome = () => {
             <h2>Cor</h2>
             <ul>
               <li
+                className={filterColor === "Azul" ? "bold" : ""}
                 onClick={() => {
                   setFilterColor("Azul");
                   setActiveFilter(!activeFilter);
@@ -251,6 +187,7 @@ export const MainHome = () => {
                 Azul
               </li>
               <li
+                className={filterColor === "Branca" ? "bold" : ""}
                 onClick={() => {
                   setFilterColor("Branca");
                   setActiveFilter(!activeFilter);
@@ -259,6 +196,7 @@ export const MainHome = () => {
                 Branca
               </li>
               <li
+                className={filterColor === "Cinza" ? "bold" : ""}
                 onClick={() => {
                   setFilterColor("Cinza");
                   setActiveFilter(!activeFilter);
@@ -267,6 +205,7 @@ export const MainHome = () => {
                 Cinza
               </li>
               <li
+                className={filterColor === "Prata" ? "bold" : ""}
                 onClick={() => {
                   setFilterColor("Prata");
                   setActiveFilter(!activeFilter);
@@ -275,6 +214,7 @@ export const MainHome = () => {
                 Prata
               </li>
               <li
+                className={filterColor === "Preta" ? "bold" : ""}
                 onClick={() => {
                   setFilterColor("Preta");
                   setActiveFilter(!activeFilter);
@@ -283,6 +223,7 @@ export const MainHome = () => {
                 Preta
               </li>
               <li
+                className={filterColor === "Verde" ? "bold" : ""}
                 onClick={() => {
                   setFilterColor("Verde");
                   setActiveFilter(!activeFilter);
@@ -294,6 +235,7 @@ export const MainHome = () => {
             <h2>Ano</h2>
             <ul>
               <li
+                className={filterAge === 2022 ? "bold" : ""}
                 onClick={() => {
                   setFilterAge(2022);
                   setActiveFilter(!activeFilter);
@@ -302,6 +244,7 @@ export const MainHome = () => {
                 2022
               </li>
               <li
+                className={filterAge === 2021 ? "bold" : ""}
                 onClick={() => {
                   setFilterAge(2021);
                   setActiveFilter(!activeFilter);
@@ -310,6 +253,7 @@ export const MainHome = () => {
                 2021
               </li>
               <li
+                className={filterAge === 2018 ? "bold" : ""}
                 onClick={() => {
                   setFilterAge(2018);
                   setActiveFilter(!activeFilter);
@@ -318,6 +262,7 @@ export const MainHome = () => {
                 2018
               </li>
               <li
+                className={filterAge === 2015 ? "bold" : ""}
                 onClick={() => {
                   setFilterAge(2015);
                   setActiveFilter(!activeFilter);
@@ -326,6 +271,7 @@ export const MainHome = () => {
                 2015
               </li>
               <li
+                className={filterAge === 2013 ? "bold" : ""}
                 onClick={() => {
                   setFilterAge(2013);
                   setActiveFilter(!activeFilter);
@@ -334,6 +280,7 @@ export const MainHome = () => {
                 2013
               </li>
               <li
+                className={filterAge === 2012 ? "bold" : ""}
                 onClick={() => {
                   setFilterAge(2012);
                   setActiveFilter(!activeFilter);
@@ -342,6 +289,7 @@ export const MainHome = () => {
                 2012
               </li>
               <li
+                className={filterAge === 2010 ? "bold" : ""}
                 onClick={() => {
                   setFilterAge(2010);
                   setActiveFilter(!activeFilter);
@@ -353,6 +301,7 @@ export const MainHome = () => {
             <h2>Combustível</h2>
             <ul>
               <li
+                className={filterFuel === "Diesel" ? "bold" : ""}
                 onClick={() => {
                   setFilterFuel("Diesel");
                   setActiveFilter(!activeFilter);
@@ -361,6 +310,7 @@ export const MainHome = () => {
                 Diesel
               </li>
               <li
+                className={filterFuel === "Etanol" ? "bold" : ""}
                 onClick={() => {
                   setFilterFuel("Etanol");
                   setActiveFilter(!activeFilter);
@@ -369,6 +319,7 @@ export const MainHome = () => {
                 Etanol
               </li>
               <li
+                className={filterFuel === "Gasolina" ? "bold" : ""}
                 onClick={() => {
                   setFilterFuel("Gasolina");
                   setActiveFilter(!activeFilter);
@@ -377,6 +328,7 @@ export const MainHome = () => {
                 Gasolina
               </li>
               <li
+                className={filterFuel === "Flex" ? "bold" : ""}
                 onClick={() => {
                   setFilterFuel("Flex");
                   setActiveFilter(!activeFilter);
@@ -387,22 +339,19 @@ export const MainHome = () => {
             </ul>
             <h2>KM</h2>
             <div className="divButton">
-              {/* <Button
+              <Button
+                className={filterKM ? "btnActive" : ""}
                 onClick={() => {
-                  setFilterKM(false);
-                  setActiveFilter(!activeFilter);
+                  setFilterKM(true);
                 }}
                 font="grey-0-1"
               >
                 Mínima
-              </Button> */}
-              <Button onClick={() => setFilterAdversiments(adversimentData)} font="grey-0-1">
-                Mínima
               </Button>
               <Button
+                className={!filterKM ? "btnActive" : ""}
                 onClick={() => {
                   setFilterKM(false);
-                  setActiveFilter(!activeFilter);
                 }}
                 font="grey-0-1"
               >
@@ -412,18 +361,18 @@ export const MainHome = () => {
             <h2>Preço</h2>
             <div className="divButton">
               <Button
+                className={filterPrice ? "btnActive" : ""}
                 onClick={() => {
-                  setFilterPrice(false);
-                  setActiveFilter(!activeFilter);
+                  setFilterPrice(true);
                 }}
                 font="grey-0-1"
               >
                 Mínimo
               </Button>
               <Button
+                className={!filterPrice ? "btnActive" : ""}
                 onClick={() => {
-                  setFilterPrice(true);
-                  setActiveFilter(!activeFilter);
+                  setFilterPrice(false);
                 }}
                 font="grey-0-1"
               >
@@ -435,33 +384,27 @@ export const MainHome = () => {
       ) : (
         <section className="filters sideBarOff">
           <h2>Marca</h2>
-          {/* <ul>
-              {listBrands.map((data) => {
-                return <li>{data}</li>;
-              })}
-            </ul> */}
           <ul>
             <li
-              className={activeGenerals ? "bold" : ""}
+              className={filterBrand === "General Motors" ? "bold" : ""}
               onClick={() => {
-                // setFilterBrand("General Motors");
-                fontrab()
-                // setActiveFilter(!activeFilter);
+                setFilterBrand("General Motors");
+                setActiveFilter(!activeFilter);
               }}
             >
               General Motors
             </li>
             <li
-              className={activeFiat ? "bold" : ""}
+              className={filterBrand === "Fiat" ? "bold" : ""}
               onClick={() => {
                 setFilterBrand("Fiat");
-                // setActiveFiat(!activeFiat);
                 setActiveFilter(!activeFilter);
               }}
             >
               Fiat
             </li>
             <li
+              className={filterBrand === "Ford" ? "bold" : ""}
               onClick={() => {
                 setFilterBrand("Ford");
                 setActiveFilter(!activeFilter);
@@ -470,6 +413,7 @@ export const MainHome = () => {
               Ford
             </li>
             <li
+              className={filterBrand === "Honda" ? "bold" : ""}
               onClick={() => {
                 setFilterBrand("Honda");
                 setActiveFilter(!activeFilter);
@@ -478,6 +422,7 @@ export const MainHome = () => {
               Honda
             </li>
             <li
+              className={filterBrand === "Porsche" ? "bold" : ""}
               onClick={() => {
                 setFilterBrand("Porsche");
                 setActiveFilter(!activeFilter);
@@ -486,6 +431,7 @@ export const MainHome = () => {
               Porsche
             </li>
             <li
+              className={filterBrand === "Volswagen" ? "bold" : ""}
               onClick={() => {
                 setFilterBrand("Volswagen");
                 setActiveFilter(!activeFilter);
@@ -497,6 +443,7 @@ export const MainHome = () => {
           <h2>Modelo</h2>
           <ul>
             <li
+              className={filterModel === "Civic" ? "bold" : ""}
               onClick={() => {
                 setFilterModel("Civic");
                 setActiveFilter(!activeFilter);
@@ -505,6 +452,7 @@ export const MainHome = () => {
               Civic
             </li>
             <li
+              className={filterModel === "Corolla" ? "bold" : ""}
               onClick={() => {
                 setFilterModel("Corolla");
                 setActiveFilter(!activeFilter);
@@ -513,6 +461,7 @@ export const MainHome = () => {
               Corolla
             </li>
             <li
+              className={filterModel === "Cruze" ? "bold" : ""}
               onClick={() => {
                 setFilterModel("Cruze");
                 setActiveFilter(!activeFilter);
@@ -521,6 +470,7 @@ export const MainHome = () => {
               Cruze
             </li>
             <li
+              className={filterModel === "Fit" ? "bold" : ""}
               onClick={() => {
                 setFilterModel("Fit");
                 setActiveFilter(!activeFilter);
@@ -529,6 +479,7 @@ export const MainHome = () => {
               Fit
             </li>
             <li
+              className={filterModel === "Gol" ? "bold" : ""}
               onClick={() => {
                 setFilterModel("Gol");
                 setActiveFilter(!activeFilter);
@@ -537,6 +488,7 @@ export const MainHome = () => {
               Gol
             </li>
             <li
+              className={filterModel === "Ka" ? "bold" : ""}
               onClick={() => {
                 setFilterModel("Ka");
                 setActiveFilter(!activeFilter);
@@ -545,6 +497,7 @@ export const MainHome = () => {
               Ka
             </li>
             <li
+              className={filterModel === "Onix" ? "bold" : ""}
               onClick={() => {
                 setFilterModel("Onix");
                 setActiveFilter(!activeFilter);
@@ -553,6 +506,7 @@ export const MainHome = () => {
               Onix
             </li>
             <li
+              className={filterModel === "Porsche 718" ? "bold" : ""}
               onClick={() => {
                 setFilterModel("Porsche 718");
                 setActiveFilter(!activeFilter);
@@ -564,6 +518,7 @@ export const MainHome = () => {
           <h2>Cor</h2>
           <ul>
             <li
+              className={filterColor === "Azul" ? "bold" : ""}
               onClick={() => {
                 setFilterColor("Azul");
                 setActiveFilter(!activeFilter);
@@ -572,6 +527,7 @@ export const MainHome = () => {
               Azul
             </li>
             <li
+              className={filterColor === "Branca" ? "bold" : ""}
               onClick={() => {
                 setFilterColor("Branca");
                 setActiveFilter(!activeFilter);
@@ -580,6 +536,7 @@ export const MainHome = () => {
               Branca
             </li>
             <li
+              className={filterColor === "Cinza" ? "bold" : ""}
               onClick={() => {
                 setFilterColor("Cinza");
                 setActiveFilter(!activeFilter);
@@ -588,6 +545,7 @@ export const MainHome = () => {
               Cinza
             </li>
             <li
+              className={filterColor === "Prata" ? "bold" : ""}
               onClick={() => {
                 setFilterColor("Prata");
                 setActiveFilter(!activeFilter);
@@ -596,6 +554,7 @@ export const MainHome = () => {
               Prata
             </li>
             <li
+              className={filterColor === "Preta" ? "bold" : ""}
               onClick={() => {
                 setFilterColor("Preta");
                 setActiveFilter(!activeFilter);
@@ -604,6 +563,7 @@ export const MainHome = () => {
               Preta
             </li>
             <li
+              className={filterColor === "Verde" ? "bold" : ""}
               onClick={() => {
                 setFilterColor("Verde");
                 setActiveFilter(!activeFilter);
@@ -615,6 +575,7 @@ export const MainHome = () => {
           <h2>Ano</h2>
           <ul>
             <li
+              className={filterAge === 2022 ? "bold" : ""}
               onClick={() => {
                 setFilterAge(2022);
                 setActiveFilter(!activeFilter);
@@ -623,6 +584,7 @@ export const MainHome = () => {
               2022
             </li>
             <li
+              className={filterAge === 2021 ? "bold" : ""}
               onClick={() => {
                 setFilterAge(2021);
                 setActiveFilter(!activeFilter);
@@ -631,6 +593,7 @@ export const MainHome = () => {
               2021
             </li>
             <li
+              className={filterAge === 2018 ? "bold" : ""}
               onClick={() => {
                 setFilterAge(2018);
                 setActiveFilter(!activeFilter);
@@ -639,6 +602,7 @@ export const MainHome = () => {
               2018
             </li>
             <li
+              className={filterAge === 2015 ? "bold" : ""}
               onClick={() => {
                 setFilterAge(2015);
                 setActiveFilter(!activeFilter);
@@ -647,6 +611,7 @@ export const MainHome = () => {
               2015
             </li>
             <li
+              className={filterAge === 2013 ? "bold" : ""}
               onClick={() => {
                 setFilterAge(2013);
                 setActiveFilter(!activeFilter);
@@ -655,6 +620,7 @@ export const MainHome = () => {
               2013
             </li>
             <li
+              className={filterAge === 2012 ? "bold" : ""}
               onClick={() => {
                 setFilterAge(2012);
                 setActiveFilter(!activeFilter);
@@ -663,6 +629,7 @@ export const MainHome = () => {
               2012
             </li>
             <li
+              className={filterAge === 2010 ? "bold" : ""}
               onClick={() => {
                 setFilterAge(2010);
                 setActiveFilter(!activeFilter);
@@ -674,6 +641,7 @@ export const MainHome = () => {
           <h2>Combustível</h2>
           <ul>
             <li
+              className={filterFuel === "Diesel" ? "bold" : ""}
               onClick={() => {
                 setFilterFuel("Diesel");
                 setActiveFilter(!activeFilter);
@@ -682,6 +650,7 @@ export const MainHome = () => {
               Diesel
             </li>
             <li
+              className={filterFuel === "Etanol" ? "bold" : ""}
               onClick={() => {
                 setFilterFuel("Etanol");
                 setActiveFilter(!activeFilter);
@@ -690,6 +659,7 @@ export const MainHome = () => {
               Etanol
             </li>
             <li
+              className={filterFuel === "Gasolina" ? "bold" : ""}
               onClick={() => {
                 setFilterFuel("Gasolina");
                 setActiveFilter(!activeFilter);
@@ -698,6 +668,7 @@ export const MainHome = () => {
               Gasolina
             </li>
             <li
+              className={filterFuel === "Flex" ? "bold" : ""}
               onClick={() => {
                 setFilterFuel("Flex");
                 setActiveFilter(!activeFilter);
@@ -708,22 +679,19 @@ export const MainHome = () => {
           </ul>
           <h2>KM</h2>
           <div className="divButton">
-            {/* <Button
+            <Button
+              className={filterKM ? "btnActive" : ""}
               onClick={() => {
-                setFilterKM(false);
-                setActiveFilter(!activeFilter);
+                setFilterKM(true);
               }}
               font="grey-0-1"
             >
               Mínima
-            </Button> */}
-            <Button onClick={() => setFilterAdversiments(adversimentData)} font="grey-0-1">
-              Mínima
             </Button>
             <Button
+              className={!filterKM ? "btnActive" : ""}
               onClick={() => {
                 setFilterKM(false);
-                setActiveFilter(!activeFilter);
               }}
               font="grey-0-1"
             >
@@ -733,18 +701,18 @@ export const MainHome = () => {
           <h2>Preço</h2>
           <div className="divButton">
             <Button
+              className={filterPrice ? "btnActive" : ""}
               onClick={() => {
-                setFilterPrice(false);
-                setActiveFilter(!activeFilter);
+                setFilterPrice(true);
               }}
               font="grey-0-1"
             >
               Mínimo
             </Button>
             <Button
+              className={!filterPrice ? "btnActive" : ""}
               onClick={() => {
-                setFilterPrice(true);
-                setActiveFilter(!activeFilter);
+                setFilterPrice(false);
               }}
               font="grey-0-1"
             >

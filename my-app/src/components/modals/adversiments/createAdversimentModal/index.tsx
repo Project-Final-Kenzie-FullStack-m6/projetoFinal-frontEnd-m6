@@ -4,6 +4,7 @@ import { Input, Select, TextArea } from "../../../input/style.input";
 import * as S from "./style.createAdversimentModal";
 import { AdversimentContext } from "../../../../contexts/adversimentContext";
 import { useForm } from "react-hook-form";
+import { iAdversimentDataRegister } from "../../../../interface/adversiments";
 import { yupResolver } from "@hookform/resolvers/yup";
 import schemaCreateAdvertisement from "../../../../validators/adversiments/createAdversimentUser";
 import { ApiFipeContext } from "../../../../contexts/ApiFipeContext";
@@ -17,7 +18,6 @@ const CreateAdversimentModal = ({ handleShowModal }: any) => {
   const { ApiFipeData, DataCars, DataModelCar, searchBrand, searchModel } = useContext(ApiFipeContext);
   const [NumImages, setNumImages] = useState(0);
   const [inputCount, setInputCount] = useState(2);
-
 
   const dataBrand = Object.keys(ApiFipeData);
 
@@ -47,11 +47,11 @@ function getBase64(file: File): Promise<string> {
     const file = event.target.files?.[0];
     if (file) {
       const base64 = await getBase64(file);
-      const newImage ={ imageUrl:base64.slice(23)}
+      const  imageUrl:any= base64.slice(23)
+      
 
-
-      setImageBase64(...imageBase64,newImage)
-      console.log(newImage)
+      setImageBase64([...imageBase64,imageUrl])
+      // console.log(newImage)
       // qqcoisa(newImage)
     }
   };
