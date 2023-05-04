@@ -98,12 +98,15 @@ export const CardAdversiment = ({ owner }: any) => {
                     </>
                   ) : (
                     <>
+                    {data.isActive? (
+                      <>
                       <div className="divNameUser">
                         <Button font="ball-0-2">{initials}</Button>
                         <span>{data.user.name}</span>
                       </div>
 
                       <div className="divMileAgePrice">
+                        <span className="spanActive">Ativo</span>
                         <div>
                           <div>
                             <span>{`${data.mileAge}KM`}</span>
@@ -115,6 +118,27 @@ export const CardAdversiment = ({ owner }: any) => {
                         <div className="divAdm">
                         <Link to="/details" onClick={eventDetails} className="btn">Ver detalhes do anúncio</Link>
                         </div>
+                      </>
+                    ):(<>
+                      <div className="divNameUser">
+                        <Button font="ball-0-2">{initials}</Button>
+                        <span>{data.user.name}</span>
+                      </div>
+
+                      <div className="divMileAgePrice">
+                        <span className="spanInactive">Inativo</span>
+                        <div>
+                          <div>
+                            <span>{`${data.mileAge}KM`}</span>
+                            <span>{data.age}</span>
+                          </div>
+                          <span className="price">R${data.price}</span>
+                        </div>
+                      </div>
+                        <div className="divAdm">
+                        <Link to="/details" onClick={eventDetails} className="btn">Ver detalhes do anúncio</Link>
+                        </div>
+                    </>)}
                     </>
                   )}
                 </div>
