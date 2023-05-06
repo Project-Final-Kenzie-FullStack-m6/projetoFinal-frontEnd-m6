@@ -30,9 +30,11 @@ const StyledContainer = styled.main`
                 background-color: ${({ theme }) => theme.colors.grey.g10};
                 border-radius: 4px;
                 img {
+                    padding: 10px;
                     width: 50%;
                     max-width: 100%;
                     height: auto;
+                    border-radius: 15px;
                 }
             }
 
@@ -59,6 +61,8 @@ const StyledContainer = styled.main`
                         display: flex;
                         gap: 10px;
                         span {
+                            width: auto;
+                            padding: 5px;
                             width: 51px;
                             height: 32px;
                             border-radius: 4px;
@@ -66,7 +70,6 @@ const StyledContainer = styled.main`
                             color: ${({ theme }) => theme.colors.brand.b1};
                             font-weight: ${({ theme }) => theme.typography.fontWeight.weight600};
                             font-size: ${({ theme }) => theme.typography.fontSize.size14px};
-                            line-height: 22px;
                             display: flex;
                             align-items: center;
                             justify-content: center;

@@ -35,7 +35,7 @@ const [showModal, setShowModal] = useState(false);
       {showModal ? <CreateAdversimentModal handleShowModal={handleShowModal} /> : <></>}
       <Header />
       <HeaderAdvertiser owner={owner} showModal={showModal} handleShowModal={handleShowModal} />
-      <div className="divCard">
+      <div className="divAdversiment">
         <section className="cardList">
           <S.Container className="mobileVersion">
             <ul className="ulAdversiment">
