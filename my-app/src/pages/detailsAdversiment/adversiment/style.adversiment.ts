@@ -6,12 +6,11 @@ const StyledContainer = styled.main`
     
     .divMain {
         width: 100%;
-        height: 100vh;
         gap: 46px;
         display: flex;
         background: linear-gradient(to bottom, 
-            ${({ theme }) => theme.colors.brand.b1} 55%, 
-            ${({ theme }) => theme.colors.grey.g8} 50%);
+            ${({ theme }) => theme.colors.brand.b1} 10%, 
+            ${({ theme }) => theme.colors.grey.g8} 70%);
     
 
         .divSideOne{
@@ -113,6 +112,8 @@ const StyledContainer = styled.main`
                 border-radius: 4px;
                 background-color: ${({ theme }) => theme.colors.grey.g10};
                 padding: 36px 44px;
+                min-height: 500px;
+                max-height: 700px;
 
                 h1 {
                     margin-bottom: 28px;
@@ -150,6 +151,40 @@ const StyledContainer = styled.main`
                         font-size: ${({ theme }) => theme.typography.fontSize.size12px};
                         font-weight: ${({ theme }) => theme.typography.fontWeight.weight400};
                     }
+                    
+                    
+                    .divBoxInfoUserComments {
+                        display: flex;
+                        justify-content: space-between;
+                    }
+
+                    .divBtnEvent{
+                        display: flex;
+                        gap: 10px;
+                        z-index: 0;
+                    }
+                }
+
+                @media screen and (min-height: 700px) {
+                    overflow: auto;
+                    ::-webkit-scrollbar{
+                        width: 10px;
+                    }
+
+                    ::-webkit-scrollbar-track {
+
+                        box-shadow: inset 0 0 5px ${({ theme }) => theme.colors.grey.g3};
+                        border-radius: 0px;
+                    }
+
+                    ::-webkit-scrollbar-thumb {
+                        background: ${({ theme }) => theme.colors.brand.b2}; 
+                        border-radius: 4px;
+                    }
+
+                    ::-webkit-scrollbar-thumb:hover {
+                        background: ${({ theme }) => theme.colors.brand.b1};
+                    }
                 }
             }
 
@@ -157,6 +192,7 @@ const StyledContainer = styled.main`
                 height: 289px;
                 padding: 36px 44px;
                 border-radius: 4px;
+                margin-bottom: 30px;
                 background-color: ${({ theme }) => theme.colors.grey.g10};
 
                 div{
@@ -359,11 +395,5 @@ const StyledContainer = styled.main`
 
         }
     }
-    
-    .divFooter{
-        margin-top: 650px;
-        width: 100%;
-    }
-
 `
 export default StyledContainer;
