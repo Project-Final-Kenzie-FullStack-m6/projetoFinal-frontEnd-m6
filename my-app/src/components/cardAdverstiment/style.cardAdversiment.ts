@@ -4,6 +4,7 @@ export const Container = styled.div`
   /* width: 312px; */
   /* height: 420px; */
   max-width: 90%;
+  height: 1265px;
   max-height: 1425px;
   overflow-y: hidden;
   display: flex;
@@ -75,7 +76,7 @@ export const Container = styled.div`
     flex-direction: column;
     margin-bottom: 10px;
 
-    div{
+    div {
       display: flex;
       align-items: center;
       div {
@@ -96,7 +97,7 @@ export const Container = styled.div`
           justify-content: center;
         }
       }
-  
+
       span {
         font-size: ${({ theme }) => theme.typography.fontSize.size16px};
         color: ${({ theme }) => theme.colors.grey.g1};
@@ -104,7 +105,7 @@ export const Container = styled.div`
       }
     }
 
-    .spanActive{
+    .spanActive {
       width: 51px;
       height: 24px;
       background-color: ${({ theme }) => theme.colors.brand.b1};
@@ -116,7 +117,7 @@ export const Container = styled.div`
       margin-bottom: 10px;
     }
 
-    .spanInactive{
+    .spanInactive {
       width: 61px;
       height: 24px;
       background-color: ${({ theme }) => theme.colors.grey.g4};
@@ -177,7 +178,7 @@ export const Container = styled.div`
           padding: 10px;
         }
 
-        .btn{
+        .btn {
           width: 100%;
           height: 40px;
           display: flex;
@@ -211,11 +212,9 @@ export const Container = styled.div`
       overflow-y: scroll;
     }
   }
-
 `;
 
 export const Details = styled.div`
-
   position: relative;
   display: flex;
   justify-content: center;
