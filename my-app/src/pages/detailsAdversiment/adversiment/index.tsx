@@ -6,18 +6,28 @@ import { AdversimentContext } from "../../../contexts/adversimentContext";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import schemaCreateComment from "../../../validators/comments/createComment";
 import { iCommentDataRequest } from "../../../interface/comments";
 import { UserContext } from "../../../contexts/AuthUserContext/userContext";
 import moment from 'moment';
 import 'moment/locale/pt-br'
+import { Fab } from "@mui/material";
+import EditIcon from '@mui/icons-material/Edit';
+import {ThemeProvider} from "@mui/material/styles"
+import themeMui from "../../../styles/themeMui";
+import CloseIcon from '@mui/icons-material/Close'
+import UpdateCommentModal from "../../../components/modals/comments/updateComment";
+import schemaUpdateComment from "../../../validators/comments/updateComment";
+import DeleteCommentModal from "../../../components/modals/comments/deleteComment";
 
 const Adversiment = () => {
-    const {detailsAds, createCommentUser} = useContext(AdversimentContext)
+    const {detailsAds, createCommentUser, handleIdComment} = useContext(AdversimentContext)
     const {userData} = useContext(UserContext)
     const [textValue, setTextValue] = useState('')
+    const [openModalUpdateComment, setOpenModalUpdateComment] = useState(false);
+    const [openDeleteModal, setOpenDeleteModal] = useState(false);
 
     const token = localStorage.getItem("token")
+    const userId = localStorage.getItem("userId")
 
     const img = detailsAds.images?.[0].imageUrl
     const navigate = useNavigate()
@@ -30,8 +40,17 @@ const Adversiment = () => {
         setValue,
         getValues,
     } = useForm<iCommentDataRequest>({
-        resolver: yupResolver(schemaCreateComment)
+        resolver: yupResolver(schemaUpdateComment)
     })
+
+    const handleOpenModal = () => {
+        setOpenModalUpdateComment(true)
+    }
+
+    const handleDeleteModal = () => {
+        setOpenDeleteModal(true)
+    }
+
 
     const eventButtonSubmit = () =>{
         token?(
@@ -76,8 +95,12 @@ const Adversiment = () => {
     }
 
 
+    const redirectWhatsAppUrl = `https://api.whatsapp.com/send?phone=55${detailsAds.user?.phone}&text=Ol%C3%A1,%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20ve%C3%ADculo%20anunciado%20na%20MotorsShop.`;
 
     return(
+    <>
+    {openModalUpdateComment && <UpdateCommentModal setOpenModalUpdateComment={setOpenModalUpdateComment}/>}
+    {openDeleteModal && <DeleteCommentModal setOpenDeleteModal={setOpenDeleteModal}/>}
     <StyledContainer>
         <div className="divMain">
             <div className="divSideOne">
@@ -96,7 +119,9 @@ const Adversiment = () => {
 
                         <span><b>R${detailsAds.price}</b></span>
                     </div>
-                    <Button font="brand-6-7">Comprar</Button>
+                    <Link to={redirectWhatsAppUrl} target="_blank">
+                        <Button font="brand-6-7">Entre em contato</Button>
+                    </Link>
                 </div>
 
                 <div className="divDescription">
@@ -112,13 +137,52 @@ const Adversiment = () => {
                         const tag:any = comment.user?.name.split("")
                         tagName =tag[0]+tag[1]
                     }
+
+                    const CustomEditIcon = () => {
+                        return (
+                           <CloseIcon onClick={allDeleteEvents}/>
+                        )
+                    }
+  
+                    const allEditEvents = () => {
+                        handleOpenModal()
+                        handleIdComment(comment)
+                    }
+
+                    const allDeleteEvents = () => {
+                        handleDeleteModal()
+                        handleIdComment(comment)
+                    }
+
+
+
                     return(
                         <div className="divComments">
-                        <div>
-                            <Button font="ball-0-1">{tagName.toLocaleUpperCase()}</Button>
-                            <span className="span1">{comment.user.name}</span>
-                            <span className="span2">{eventMoment(comment.createdAt)}</span>
-                        </div>
+                            <div className="divBoxInfoUserComments">
+                                <div>
+                                    <Button font="ball-0-1">{tagName.toLocaleUpperCase()}</Button>
+                                    <span className="span1">{comment.user.name}</span>
+                                    <span className="span2">{eventMoment(comment.createdAt)}</span>
+                                </div>
+                                {token && userId === comment.user.id?(
+                                <>
+                                    <div className="divBtnEvent"> 
+                                    <ThemeProvider theme={themeMui}>
+                                    <Fab color="primary" size="small" aria-label="edit">
+                                        <EditIcon onClick={allEditEvents}/>
+                                    </Fab>
+                                    </ThemeProvider>
+
+                                    <Fab color="inherit" aria-label="add"  size="small">
+                                        <CustomEditIcon />
+                                    </Fab>
+                                    </div>
+                                </>
+                                ):(
+                                <></>)}
+                                
+                            </div>
+
                         <p>{comment.content}</p>
                         </div>
                         )
@@ -184,7 +248,7 @@ const Adversiment = () => {
             <Footer/>
         </div>
     </StyledContainer>
-        
+    </>
     )
 }
 

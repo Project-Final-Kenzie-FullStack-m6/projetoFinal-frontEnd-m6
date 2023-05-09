@@ -1,7 +1,7 @@
 import { iUser } from "../users";
 
 
-interface iCommentDataResponse {
+interface iCommentDataResponse{
     id: string;
     user: iUser;
     content: string;

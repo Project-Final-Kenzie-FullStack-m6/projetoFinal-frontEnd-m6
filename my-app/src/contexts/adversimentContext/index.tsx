@@ -28,6 +28,9 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
   const [listBrands, setListBrands] = useState([]);
   const [detailsAds, setDetailsAds] = useState({} as iAdversimentDataUpdate);
   const [isActive, setIsActive] = useState(true);
+  const [retrieveIds, setRetrieveIds] = useState([] as any);
+
+
 
   const navigate = useNavigate();
 
@@ -190,6 +193,12 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
     return maxOrderPrice;
   };
 
+  const handleIdComment = (data: any) => {
+    const response = data.id
+    setRetrieveIds(response)
+}
+
+
   useEffect(() => {
     loadAdversiment();
   }, [
@@ -211,6 +220,8 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
       console.error(error);
     }
   };
+
+
 
   const postNewAdversiment = async (data: iAdversimentDataRegister) => {
     try {
@@ -256,6 +267,34 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
     }
   };
 
+  const updateCommentUser = async (data: iCommentDataRequest) => {
+    const token = localStorage.getItem("token");
+    try {
+      const response = await Api.patch(`/comments/${retrieveIds}`, data,{
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      console.log(response.data)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  const deleteCommentUser = async () => {
+    const token = localStorage.getItem("token");
+    try {
+      await Api.delete(`/comments/${retrieveIds}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      window.location.reload();
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
   const deleteAdversiment = async () => {
     try {
       await Api.delete(`/adversiments/${detailsAds?.id}`);
@@ -274,6 +313,9 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
         updateAdversiment,
         deleteAdversiment,
         setAdversimentData,
+        updateCommentUser,
+        deleteCommentUser,
+        handleIdComment,
         setLoading,
         setModalAddOpen,
         setFilterBrand,
