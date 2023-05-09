@@ -80,6 +80,9 @@ interface iAdversimentContextProps {
   //update adversiment
   updateAdversiment: (data: iAdversimentDataUpdate) => Promise<void>
 
+  //update comments
+  updateCommentUser: (data: iCommentDataRequest) => Promise<void>
+
   //get unique adversiment
   getDetailsAdversiment: (id: string | undefined) => Promise<void>
 
@@ -88,6 +91,13 @@ interface iAdversimentContextProps {
 
   imageBase64:iImageResponse[]
   setImageBase64:React.Dispatch<React.SetStateAction<iImageResponse[]>>
+
+  //delete comment
+  deleteCommentUser: () => Promise<void>
+
+  // retrieved comments Ids
+  handleIdComment: (data: any) => void
+  
   //globals
 
   loading?: boolean;

@@ -6,10 +6,10 @@ import UpdateAdversimentModal from "../modals/adversiments/updateAdversimentModa
 import { Link } from "react-router-dom";
 import * as S from './style.cardAdversiment'
 
+
 export const CardAdversiment = ({ owner }: any) => {
   const { filterAdversiments, getDetailsAdversiment } = useContext(AdversimentContext);
   const [openModalUpdate, setOpenModalUpdate] = useState(false);
-
 
   const handleOpenModal = () => {
     setOpenModalUpdate(true)
