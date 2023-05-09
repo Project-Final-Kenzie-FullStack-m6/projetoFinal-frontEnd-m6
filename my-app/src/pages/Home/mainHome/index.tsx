@@ -340,18 +340,18 @@ export const MainHome = () => {
             <h2>KM</h2>
             <div className="divButton">
               <Button
-                className={filterKM ? "btnActive" : ""}
+                className={!filterKM ? "btnActive" : ""}
                 onClick={() => {
-                  setFilterKM(true);
+                  setFilterKM(false);
                 }}
                 font="grey-0-1"
               >
                 Mínima
               </Button>
               <Button
-                className={!filterKM ? "btnActive" : ""}
+                className={filterKM ? "btnActive" : ""}
                 onClick={() => {
-                  setFilterKM(false);
+                  setFilterKM(true);
                 }}
                 font="grey-0-1"
               >
@@ -361,18 +361,18 @@ export const MainHome = () => {
             <h2>Preço</h2>
             <div className="divButton">
               <Button
-                className={filterPrice ? "btnActive" : ""}
+                className={!filterPrice ? "btnActive" : ""}
                 onClick={() => {
-                  setFilterPrice(true);
+                  setFilterPrice(false);
                 }}
                 font="grey-0-1"
               >
                 Mínimo
               </Button>
               <Button
-                className={!filterPrice ? "btnActive" : ""}
+                className={filterPrice ? "btnActive" : ""}
                 onClick={() => {
-                  setFilterPrice(false);
+                  setFilterPrice(true);
                 }}
                 font="grey-0-1"
               >
@@ -680,18 +680,18 @@ export const MainHome = () => {
           <h2>KM</h2>
           <div className="divButton">
             <Button
-              className={filterKM ? "btnActive" : ""}
+              className={!filterKM ? "btnActive" : ""}
               onClick={() => {
-                setFilterKM(true);
+                setFilterKM(false);
               }}
               font="grey-0-1"
             >
               Mínima
             </Button>
             <Button
-              className={!filterKM ? "btnActive" : ""}
+              className={filterKM ? "btnActive" : ""}
               onClick={() => {
-                setFilterKM(false);
+                setFilterKM(true);
               }}
               font="grey-0-1"
             >
@@ -701,18 +701,18 @@ export const MainHome = () => {
           <h2>Preço</h2>
           <div className="divButton">
             <Button
-              className={filterPrice ? "btnActive" : ""}
+              className={!filterPrice ? "btnActive" : ""}
               onClick={() => {
-                setFilterPrice(true);
+                setFilterPrice(false);
               }}
               font="grey-0-1"
             >
               Mínimo
             </Button>
             <Button
-              className={!filterPrice ? "btnActive" : ""}
+              className={filterPrice ? "btnActive" : ""}
               onClick={() => {
-                setFilterPrice(false);
+                setFilterPrice(true);
               }}
               font="grey-0-1"
             >
