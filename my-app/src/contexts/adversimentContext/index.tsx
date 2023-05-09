@@ -223,10 +223,10 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
   };
 
 
-  const newData = {...data,images:imageBase64}
   console.log(imageBase64)
-
+  
   const postNewAdversiment = async (data: iAdversimentDataRegister) => {
+  const newData = {...data,images:imageBase64}
 
     try {
       const response =await Api.post("/adversiments", newData);
