@@ -4,7 +4,6 @@ import { Input, Select, TextArea } from "../../../input/style.input";
 import * as S from "./style.createAdversimentModal";
 import { AdversimentContext } from "../../../../contexts/adversimentContext";
 import { useForm } from "react-hook-form";
-import { iAdversimentDataRegister } from "../../../../interface/adversiments";
 import { yupResolver } from "@hookform/resolvers/yup";
 import schemaCreateAdvertisement from "../../../../validators/adversiments/createAdversimentUser";
 import { ApiFipeContext } from "../../../../contexts/ApiFipeContext";
@@ -26,7 +25,6 @@ const CreateAdversimentModal = ({ handleShowModal }: any) => {
     handleSubmit,
     setValue,
     getValues,
-    formState: { errors },
   } = useForm<any>({
     resolver: yupResolver(schemaCreateAdvertisement),
   });
@@ -67,9 +65,9 @@ const CreateAdversimentModal = ({ handleShowModal }: any) => {
     }
   }
 
-  const teste = getValues()
+  //para vizualizar resposta dos inputs
+  const value = getValues()
 
-  console.log(teste, "valores aqui")
 
   useEffect(() => {
     setValue('age', DataModelCar[0]?.year)

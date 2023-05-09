@@ -4,7 +4,6 @@ import { StyledHeader } from "./style.header";
 import { HiOutlineMenu } from "react-icons/hi";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-// import { Link } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import jwt_decode from "jwt-decode";
 import UpdateAddressModal from "../modals/user/updateAddressUserModal";

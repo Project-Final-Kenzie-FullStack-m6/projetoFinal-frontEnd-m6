@@ -1,5 +1,4 @@
 import { useMediaQuery } from "react-responsive";
-// import { StyledHomePage } from "../style";
 import { Header } from "../../../components/header";
 import { HeaderImage } from "../../../components/headerImage";
 import { MainHome } from "../mainHome";

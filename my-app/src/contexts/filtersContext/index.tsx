@@ -1,4 +1,4 @@
-import React, { Dispatch, createContext, useState } from "react";
+import React, { createContext, useState } from "react";
 import { iFiltersProviderProps } from "../../interface/adversiments";
 
 interface iFilter {
@@ -68,47 +68,6 @@ const FiltersProvider = ({ children }: iFiltersProviderProps) => {
     // mesma coisa com os de cima caso o value retornado pela api seja diferente
     // tu tb pode fazer uma logica pra deixar responsivo e nessas constantes usar oq ta vindo
   ];
-
-  // <label>Brand:</label>
-  // {brands.map((brand) => (
-  //   <label key={brand.value}>
-  //     <input
-  //       type="checkbox"
-  //       value={brand.value}
-  //       checked={selectedBrands.includes(brand.value)}
-  //       onChange={(event) => {
-  //         if (event.target.checked) {
-  //           setSelectedBrands([...selectedBrands, brand.value]);
-  //         } else {
-  //           setSelectedBrands(selectedBrands.filter((value) => value !== brand.value));
-  //         }
-  //       }}
-  //     />
-  //     {brand.label}
-  //   </label>
-  // ))}
-
-  // TU PODE USAR ESSE CODIGO PRA RENDERIZAR A LISTA COMO CHECKBOX, ASSIM FICA BEM MELHOR
-  // PRA VER OQ TA ATIVO OU N
-
-  // ESSE STATE ABAIXO VC VAI USAR PRA TRAZER TODOS OS CARROS QUE SERAO LISTADOS
-  // const cars= {*logica pra chamar os carros*}
-  // const [filteredCars, setFilteredCars] = useState(cars);
-
-  // ESSE USEEFFECT VC VAI USAR PRA FILTRAR OS CARROS QUE SERAO LISTADOS
-  // useEffect(() => {
-  //   const filtered = cars.filter((car) => {
-  //     return (
-  //       selectedBrands.includes(car.brand) &&
-  //       selectedColors.includes(car.color) &&
-  //       selectedModels.includes(car.model) &&
-  //       selectedFuels.includes(car.fuel)
-  //     );
-  //   });
-  //   setFilteredCars(filtered);
-  // }, [selectedBrands, selectedColors, selectedModels, selectedFuels]);
-
-  //AI NO FINAL SO VC PASSAR ESSE FILTERED CARS COMO PROPS PRO CARD FAZER O MAP E RENDERIZAR
 
   return (
     <FiltersContext.Provider

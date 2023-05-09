@@ -1,10 +1,9 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  /* width: 312px; */
-  /* height: 420px; */
+
   max-width: 90%;
-  height: 1265px;
+  height: auto;
   max-height: 1425px;
   overflow-y: hidden;
   display: flex;
@@ -134,7 +133,7 @@ export const Container = styled.div`
     width: 100%;
     max-height: 1140px;
     display: flex;
-    gap: 40px 50px;
+    gap: 40px;
     -webkit-box-pack: center;
     justify-content: start;
     flex-wrap: wrap;
@@ -207,7 +206,6 @@ export const Container = styled.div`
       display: flex;
       justify-content: unset;
       padding-left: 10px;
-      /* flex-direction: column; */
       flex-wrap: nowrap;
       overflow-y: scroll;
     }

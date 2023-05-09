@@ -11,7 +11,18 @@ export const StyledPageAdvertiser = styled.main`
   .divAdversiment{
     width: 100%;
     margin: 20px;
+  }
 
+  .ulAds {
+    width: 100%;
+    max-height: 1140px;
+
+    display: flex;
+    gap: 40px;
+    -webkit-box-pack: center;
+    justify-content: start;
+    flex-wrap: wrap;
+    max-width: 1500px;
   }
 
   .pagination {

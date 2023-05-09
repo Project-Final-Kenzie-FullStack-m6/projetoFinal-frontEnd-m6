@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import lambo from "../../assets/lambo.jpg";
 export const StyledImageHeader = styled.div`
-  /* width: 100vw; */
   height: 500px;
 
   background: no-repeat center/cover url(${lambo});

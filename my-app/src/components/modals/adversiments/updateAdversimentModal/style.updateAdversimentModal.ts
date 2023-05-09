@@ -142,9 +142,7 @@ export const StyledForm = styled.form`
     margin-top: 24px;
     margin-bottom: 24px;
   }
-  //ADICIONAR COMPONENT TEXTAREA
 
-  
   .onOff{
     display: flex;
     flex-direction: row;

@@ -49,7 +49,6 @@ interface iUserContext {
 	editProfile:boolean;
 	deleteUser: () => void;
 	updateUser: (data: iUserUpdate) => void;
-	// updateAddressUser: (data: iUserAddressUpdate) => void;
 	userData: iUser;
 	setUserData: React.Dispatch<React.SetStateAction<{}>>;
 	sendResetPassword: (data: iUserSendResetPassword) => void;

@@ -1,6 +1,6 @@
-import { createContext, useContext, useEffect, useState } from "react";
-import { Api, Api2 } from "../../services/api";
-import { useNavigate, useParams } from "react-router-dom";
+import { createContext, useEffect, useState } from "react";
+import { Api } from "../../services/api";
+import { useNavigate} from "react-router-dom";
 import {
   iAdversimentContextProps,
   iAdversimentDataRegister,
@@ -114,7 +114,6 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
     });
 
     arrOfKM.sort(compareNum);
-    console.log(arrOfKM);
 
     for (let i = 0; i < arrOfKM.length; i++) {
       listAdd.map((item: any) => {
@@ -221,8 +220,6 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
     }
   };
 
-
-  console.log(imageBase64)
   
   const postNewAdversiment = async (data: iAdversimentDataRegister) => {
   const newData = {...data,images:imageBase64}
