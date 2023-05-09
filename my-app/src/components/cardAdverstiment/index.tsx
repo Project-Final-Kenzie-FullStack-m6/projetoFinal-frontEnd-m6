@@ -22,6 +22,14 @@ export const CardAdversiment = ({ owner }: any) => {
   return (
     <>
       {openModalUpdate && <UpdateAdversimentModal setOpenModalUpdate={setOpenModalUpdate}/>}
+      
+      {filterAdversiments.length === 0? (
+      <>
+        <S.Details>
+          <p className="textAdversiment">Não há nenhum anúncio para exibir.</p>
+        </S.Details>
+      </>
+      ):(<>      
       {filterAdversiments?.map((data: iAdversimentDataResponse, index: number) => {
         // if (data.isActive) {
         const arrayName = data.user.name?.split(" ");
@@ -38,10 +46,9 @@ export const CardAdversiment = ({ owner }: any) => {
         const eventDetails = () => {
           handleAdsId(data.id)
         }
-
         return (
           <>
-          <S.Details>
+            <S.Details>
             <div>
               <li className="liAdversiment" id={`${data.id}`} key={`${data.id}`}>
                 <div className="divImg">
@@ -150,6 +157,7 @@ export const CardAdversiment = ({ owner }: any) => {
         );
         // }
       })}
+      </>)}
     </>
   );
 };

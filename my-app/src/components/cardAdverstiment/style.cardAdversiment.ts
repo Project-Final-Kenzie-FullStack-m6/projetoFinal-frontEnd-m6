@@ -218,4 +218,10 @@ export const Details = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
+
+  .textAdversiment {
+    font-size: ${({ theme }) => theme.typography.fontSize.size20px};
+    color: ${({ theme }) => theme.colors.brand.b3};
+    font-weight: ${({ theme }) => theme.typography.fontWeight.weight600};
+  }
 `;

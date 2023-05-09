@@ -31,14 +31,13 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
   const [detailsAds, setDetailsAds] = useState({} as iAdversimentDataUpdate);
   const [isActive, setIsActive] = useState(true);
   const [retrieveIds, setRetrieveIds] = useState([] as any);
-
   
   const navigate = useNavigate();
 
   const loadAdversiment = async () => {
     try {
       const { data } = await Api.get("/adversiments");
-      const dataOrderMin = orderMinPrice(orderMinKM(data));
+      const dataOrderMin = orderMinPrice(orderMinKM(data.advertisements));
       setAdversimentData(dataOrderMin);
       setFilterAdversiments(dataOrderMin);
       if (filterBrand) {

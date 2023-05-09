@@ -113,7 +113,7 @@ const StyledContainer = styled.main`
                 border-radius: 4px;
                 background-color: ${({ theme }) => theme.colors.grey.g10};
                 padding: 36px 44px;
-                min-height: 500px;
+                height: auto;
                 max-height: 700px;
 
                 h1 {
