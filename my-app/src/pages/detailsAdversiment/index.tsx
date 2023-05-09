@@ -1,4 +1,3 @@
-import Footer from "../../components/Footer";
 import { Header } from "../../components/header";
 import Adversiment from "./adversiment";
 import AdversimentMobile from "./adversimentMobile";

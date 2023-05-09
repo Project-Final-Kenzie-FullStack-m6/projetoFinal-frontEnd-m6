@@ -37,8 +37,6 @@ const Adversiment = () => {
     const {
         register,
         handleSubmit,
-        setValue,
-        getValues,
     } = useForm<iCommentDataRequest>({
         resolver: yupResolver(schemaUpdateComment)
     })
@@ -153,8 +151,6 @@ const Adversiment = () => {
                         handleDeleteModal()
                         handleIdComment(comment)
                     }
-
-
 
                     return(
                         <div className="divComments">

@@ -5,7 +5,6 @@ import { StyledMain } from "../style";
 import { useContext, useState } from "react";
 import { GrFormClose } from "react-icons/gr";
 import * as S from "../../../components/cardAdverstiment/style.cardAdversiment";
-import { FiltersContext } from "../../../contexts/filtersContext";
 
 export const MainHome = () => {
   const [sideBar, setSideBar] = useState(false);

@@ -2,12 +2,10 @@ import Footer from "../../components/Footer";
 import { Button } from "../../components/button/style.button";
 import { Input } from "../../components/input/style.input";
 import { Header } from "../../components/header";
-// import Form from "../Register/form";
 import LoginStyle from "./loginStyle";
-import { Link } from "react-router-dom";
 import schemaSendResetPassword from "./sendResetSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import {
 	UserContext,

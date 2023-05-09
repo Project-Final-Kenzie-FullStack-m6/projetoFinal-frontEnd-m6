@@ -38,8 +38,6 @@ const UpdateUserModal = () => {
         setOpenModal(true)
     }
 
-    // console.log(watchedFields, "user aqui")
-
     useEffect(() => {
         setValue('name', userData.name)
         setValue('email', userData.email)

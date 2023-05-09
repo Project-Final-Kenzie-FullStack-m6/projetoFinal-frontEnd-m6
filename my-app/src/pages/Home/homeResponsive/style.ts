@@ -48,29 +48,7 @@ export const StyledHomePageMobile = styled.main`
   .mobileVersion {
     max-height: 1265px;
   }
-  /* .headerMobile {
-    height: 70px;
-  } */
-
-  /* .headerImageMobile {
-    max-height: 350px;
-
-    div {
-      max-height: 350px;
-      h1 {
-        font-size: 26px;
-        line-height: 56px;
-      }
-      p {
-        font-size: 24px;
-        line-height: 56px;
-      }
-    }
-  } */
-  /* .divIcon {
-    border: none;
-    font-size: 25px;
-  } */
+  
   .cardList {
     width: 100%;
     .ulAdversiment {

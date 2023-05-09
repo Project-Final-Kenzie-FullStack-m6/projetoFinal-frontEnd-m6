@@ -115,6 +115,4 @@ form{
 }
 `
 
-
-
 export default RegisterStyle
