@@ -1,7 +1,7 @@
 import { iCommentDataRequest, iCommentDataResponse } from "../comments";
 import { iUser } from "../users";
 
-interface iImageResponse {
+export interface iImageResponse {
   imageUrl: string;
 }
 interface iImageResponse1 {
@@ -89,12 +89,15 @@ interface iAdversimentContextProps {
   //delete adversiment
   deleteAdversiment: () => Promise<void>
 
+  imageBase64:iImageResponse[]
+  setImageBase64:React.Dispatch<React.SetStateAction<iImageResponse[]>>
+
   //delete comment
   deleteCommentUser: () => Promise<void>
 
   // retrieved comments Ids
   handleIdComment: (data: any) => void
-
+  
   //globals
 
   loading?: boolean;

@@ -8,10 +8,12 @@ import { iAdversimentDataRegister } from "../../../../interface/adversiments";
 import { yupResolver } from "@hookform/resolvers/yup";
 import schemaCreateAdvertisement from "../../../../validators/adversiments/createAdversimentUser";
 import { ApiFipeContext } from "../../../../contexts/ApiFipeContext";
+import { Api3 } from "../../../../services/api";
+
 
 const CreateAdversimentModal = ({ handleShowModal }: any) => {
 
-  const { postNewAdversiment} = useContext(AdversimentContext);
+  const { postNewAdversiment, imageBase64, setImageBase64 } = useContext(AdversimentContext);
 
   const { ApiFipeData, DataCars, DataModelCar, searchBrand, searchModel } = useContext(ApiFipeContext);
   const [NumImages, setNumImages] = useState(0);
@@ -29,14 +31,50 @@ const CreateAdversimentModal = ({ handleShowModal }: any) => {
     resolver: yupResolver(schemaCreateAdvertisement),
   });
 
+  function getBase64(file: File): Promise<string> {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result as string);
+      reader.onerror = error => reject(error);
+    });
+  }
+
+  const handleFileInputChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      const base64 = await getBase64(file);
+      const image = { imageUrl: base64.slice(23) }
+      getImageLink(image)
+    }
+  };
+
+  async function getImageLink(imageInBase64: any) {
+
+    let FormData = require('form-data');
+    let data = new FormData();
+    data.append('image', imageInBase64);
+    data.append('type', "base64");
+
+    try {
+      const response = await Api3.post("", data);
+      const newimage = { imageUrl: response.data.link }
+      setImageBase64([...imageBase64, newimage])
+      console.log(response.data)
+    } catch (error) {
+      //falta toast
+      console.error(error);
+    }
+  }
+
   const teste = getValues()
 
   console.log(teste, "valores aqui")
 
   useEffect(() => {
-      setValue('age', DataModelCar[0]?.year)
-      setValue('fuelType', DataModelCar[0]?.fuel)
-      setValue('fipe', DataModelCar[0]?.value)
+    setValue('age', DataModelCar[0]?.year)
+    setValue('fuelType', DataModelCar[0]?.fuel)
+    setValue('fipe', DataModelCar[0]?.value)
   }, [DataModelCar, setValue])
 
 
@@ -55,7 +93,7 @@ const CreateAdversimentModal = ({ handleShowModal }: any) => {
 
   return (
     <>
-    <S.StyledContainerBackground/>
+      <S.StyledContainerBackground />
       <S.StyledContainer>
         <S.StyledBtnClose>
           <h1>Criar anúncio</h1>
@@ -239,9 +277,10 @@ const CreateAdversimentModal = ({ handleShowModal }: any) => {
               <Input
                 font="regular-input-3"
                 id="imageUrl"
-                type="text"
+                type="file"
                 {...register("images.[0].imageUrl")}
-                
+                onChange={handleFileInputChange}
+
               />
             </label>
 
@@ -250,8 +289,9 @@ const CreateAdversimentModal = ({ handleShowModal }: any) => {
               <Input
                 font="regular-input-3"
                 id="imageUrl"
-                type="text"
+                type="file"
                 {...register("images.[1].imageUrl")}
+                onChange={handleFileInputChange}
               />
 
             </label>
@@ -261,8 +301,9 @@ const CreateAdversimentModal = ({ handleShowModal }: any) => {
               <Input
                 font="regular-input-3"
                 id="imageUrl"
-                type="text"
+                type="file"
                 {...register("images.[2].imageUrl")}
+                onChange={handleFileInputChange}
               />
             </label>
 
@@ -271,9 +312,10 @@ const CreateAdversimentModal = ({ handleShowModal }: any) => {
                 {inputCount}° Imagem da Galeria
                 <Input
                   font="regular-input-3"
-                  type="text"
+                  type="file"
                   key={index}
                   {...register(`images.[${inputCount}].imageUrl`)}
+                  onChange={handleFileInputChange}
                 />
               </label>
             ))}
@@ -286,8 +328,8 @@ const CreateAdversimentModal = ({ handleShowModal }: any) => {
               <Button
                 font="grey-4-5"
                 onClick={() => {
-                    handleShowModal();
-                  }}
+                  handleShowModal();
+                }}
                 type="button"
               >
                 Cancelar

@@ -7,6 +7,7 @@ import {
   iAdversimentDataResponse,
   iAdversimentDataUpdate,
   iAdversimentProviderProps,
+  iImageResponse
 } from "../../interface/adversiments";
 import { iCommentDataRequest } from "../../interface/comments";
 
@@ -18,6 +19,7 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
   const [filterBrand, setFilterBrand] = useState("");
   const [filterModel, setFilterModel] = useState("");
   const [filterColor, setFilterColor] = useState("");
+  const [imageBase64, setImageBase64] = useState([] as iImageResponse[]);
   const [filterAge, setFilterAge] = useState(0);
   const [filterFuel, setFilterFuel] = useState("");
   const [filterKM, setFilterKM] = useState(false);
@@ -30,8 +32,7 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
   const [isActive, setIsActive] = useState(true);
   const [retrieveIds, setRetrieveIds] = useState([] as any);
 
-
-
+  
   const navigate = useNavigate();
 
   const loadAdversiment = async () => {
@@ -222,13 +223,17 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
   };
 
 
+  const newData = {...data,images:imageBase64}
+  console.log(imageBase64)
 
   const postNewAdversiment = async (data: iAdversimentDataRegister) => {
+
     try {
-      await Api.post("/adversiments", data);
+      const response =await Api.post("/adversiments", newData);
       loadAdversiment();
       //falta toast
       setModalAddOpen(false);
+      console.log(response.data)
     } catch (error) {
       //falta toast
       console.error(error);
@@ -343,6 +348,8 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
         listBrands,
         isActive,
         setIsActive,
+        imageBase64,
+        setImageBase64
       }}
     >
       {children}
