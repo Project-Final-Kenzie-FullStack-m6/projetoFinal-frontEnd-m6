@@ -42,7 +42,7 @@ const CreateAdversimentModal = ({ handleShowModal }: any) => {
     const file = event.target.files?.[0];
     if (file) {
       const base64 = await getBase64(file);
-      const image = { imageUrl: base64.slice(23) }
+      const image = base64.slice(23)
       getImageLink(image)
     }
   };
@@ -56,9 +56,10 @@ const CreateAdversimentModal = ({ handleShowModal }: any) => {
 
     try {
       const response = await Api3.post("", data);
-      const newimage = { imageUrl: response.data.link }
+      const newimage = { imageUrl: response.data.data.link }
       setImageBase64([...imageBase64, newimage])
       console.log(response.data)
+      console.log(response.data.data.link);
     } catch (error) {
       //falta toast
       console.error(error);
