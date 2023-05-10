@@ -67,7 +67,7 @@ function UserProvider({ children }: iUserProviderChildren) {
 
 	const Toast = Swal.mixin({
 		toast: true,
-		position: 'top-end',
+		position: 'top',
 		showConfirmButton: false,
 		timer: 3000,
 		timerProgressBar: true,
@@ -81,16 +81,12 @@ function UserProvider({ children }: iUserProviderChildren) {
 		async function loadUser() {
 			const token = localStorage.getItem("token");
 			const userId = localStorage.getItem("userId");
+
 			if (token) {
 				try {
 					Api.defaults.headers.authorization = `Bearer ${token}`;
 					const { data } = await Api.get("/users");
 					setUserData(data);
-					Toast.fire({
-						icon: 'success',
-						title: 'Login feito com sucesso'
-					})
-
 				} catch (error) {
 					localStorage.clear();
 					Toast.fire({
@@ -98,7 +94,6 @@ function UserProvider({ children }: iUserProviderChildren) {
 						title: 'Sua seção expirou, por favor logue novamente'
 					})
 					navigate("/login");
-
 				}
 			}
 		}
@@ -147,17 +142,17 @@ function UserProvider({ children }: iUserProviderChildren) {
 		};
 		try {
 			const response = await Api.post("/users", newInfo);
-			navigate("/login")
 			console.log(response.data);
 			Toast.fire({
 				icon: 'success',
-				title: 'Usuario criado com sucesso'
+				title: 'Sua conta foi criada com sucesso!'
 			})
+			navigate("/login")
 		} catch (error) {
 			console.log(error);
 			Toast.fire({
 				icon: 'error',
-				title: 'Falha ao criar usuario, confirme os dados e tente novamente'
+				title: 'Falha ao criar sua conta, confirme os dados e tente novamente'
 			})
 		}
 	}

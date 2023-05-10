@@ -31,7 +31,7 @@ const UpdateCommentModal = ({handleOpenModal, setOpenModalUpdateComment}: any) =
                     </button>
                 </S.StyledBtnClose>
 
-                <S.StyledParagraphContainer onChange={handleSubmit(updateCommentUser)}>
+                <S.StyledParagraphContainer onSubmit={handleSubmit(updateCommentUser)}>
                     <TextArea 
                     font="text-area-2"
                     id="content"

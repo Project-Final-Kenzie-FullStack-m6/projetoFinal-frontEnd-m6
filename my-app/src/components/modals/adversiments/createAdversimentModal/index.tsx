@@ -68,11 +68,28 @@ const CreateAdversimentModal = ({ handleShowModal }: any) => {
 
   //para vizualizar resposta dos inputs
   const value = getValues()
+  console.log(value)
+  
+  const formatValueFipe = (value: any) =>{
+    return value?.toLocaleString("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+      minimumFractionDigits: 2,
+    });
+  }
+
+ 
+
+  // const valueRegister = (event: any) => {
+  //   const valueFormated = event.target.value
+  //   const valueNoFormated = parseFloat(valueFormated.replace(/[^\d.,-]/g, '').replace(',', '.'));
+  //   setValue('fipe', valueNoFormated)
+  // }
 
 
   useEffect(() => {
     setValue('age', DataModelCar[0]?.year)
-    setValue('fuelType', DataModelCar[0]?.fuel)
+    // setValue('fuelType', DataModelCar[0]?.fuel)
     setValue('fipe', DataModelCar[0]?.value)
   }, [DataModelCar, setValue])
 
@@ -178,15 +195,15 @@ const CreateAdversimentModal = ({ handleShowModal }: any) => {
                     type="text"
                     id="fuelType"
                     value={DataModelCar?.map((data: any) => {
-                      if (data.fuel === 1) {
+                      if (data?.fuel === 1) {
                         return "flex";
                       }
 
-                      if (data.fuel === 2) {
+                      else if (data?.fuel === 2) {
                         return "Híbrido";
                       }
 
-                      if (data.fuel === 3) {
+                      else if (data?.fuel === 3) {
                         return "Elétrico";
                       }
                     })}
@@ -234,17 +251,7 @@ const CreateAdversimentModal = ({ handleShowModal }: any) => {
                     type="text"
                     id="fipe"
                     key="fipe-input"
-                    value={DataModelCar?.map((data: any) => {
-                      const dataPrice = data.value.toLocaleString("pt-BR", {
-                        style: "currency",
-                        currency: "BRL",
-                        minimumFractionDigits: 2,
-                      });
-
-                      if (data.value) {
-                        return dataPrice;
-                      }
-                    })}
+                    value={formatValueFipe(DataModelCar[0]?.value)}
                     {...register("fipe")}
                   />
                 </label>

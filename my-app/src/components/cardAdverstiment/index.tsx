@@ -19,6 +19,19 @@ export const CardAdversiment = (owner:any) => {
     getDetailsAdversiment(data)
   }
 
+  const formatPrice = (value: any) =>{
+    return value?.toLocaleString("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+      minimumFractionDigits: 2,
+    });
+  }
+
+
+  const formatKms = (value: any) =>{
+    return value?.toLocaleString('pt-BR') + ' km';
+  }
+
   const userAdversiments = adversimentData.filter((data) => data.user.id == owner.id)
   
   
@@ -69,10 +82,10 @@ export const CardAdversiment = (owner:any) => {
                                 <span className="spanActive">Ativo</span>
                                 <div>
                                   <div>
-                                    <span>{data.mileAge}</span>
+                                    <span>{formatKms(data.mileAge)}</span>
                                     <span>{data.age}</span>
                                   </div>
-                                  <span>R${data.price}</span>
+                                  <span>{formatPrice(data.price)}</span>
                                 </div>
                               </div>
                               <div className="divAdm">
@@ -89,10 +102,10 @@ export const CardAdversiment = (owner:any) => {
                                 <span className="spanInactive">Inativo</span>
                                 <div>
                                   <div>
-                                    <span>{data.mileAge}</span>
+                                    <span>{formatKms(data.mileAge)}</span>
                                     <span>{data.age}</span>
                                   </div>
-                                  <span>R${data.price}</span>
+                                  <span>{formatPrice(data.price)}</span>
                                 </div>
                               </div>
                               <div className="divAdm">
@@ -118,10 +131,10 @@ export const CardAdversiment = (owner:any) => {
                                 <span className="spanActive">Ativo</span>
                                 <div>
                                   <div>
-                                    <span>{`${data.mileAge}KM`}</span>
+                                    <span>{formatKms(data.mileAge)}</span>
                                     <span>{data.age}</span>
                                   </div>
-                                  <span className="price">R${data.price}</span>
+                                  <span className="price">{formatPrice(data.price)}</span>
                                 </div>
                               </div>
                               <div className="divAdm">
@@ -138,10 +151,10 @@ export const CardAdversiment = (owner:any) => {
                               <span className="spanInactive">Inativo</span>
                               <div>
                                 <div>
-                                  <span>{`${data.mileAge}KM`}</span>
+                                  <span>{formatKms(data.mileAge)}</span>
                                   <span>{data.age}</span>
                                 </div>
-                                <span className="price">R${data.price}</span>
+                                <span className="price">{formatPrice(data.price)}</span>
                               </div>
                             </div>
                             <div className="divAdm">
@@ -193,10 +206,10 @@ export const CardAdversiment = (owner:any) => {
                                 <span className="spanActive">Ativo</span>
                                 <div>
                                   <div>
-                                    <span>{data.mileAge}</span>
+                                    <span>{formatKms(data.mileAge)}</span>
                                     <span>{data.age}</span>
                                   </div>
-                                  <span>R${data.price}</span>
+                                  <span>{formatPrice(data.price)}</span>
                                 </div>
                               </div>
                               <div className="divAdm">
@@ -210,13 +223,13 @@ export const CardAdversiment = (owner:any) => {
                           ) :
                             <>
                               <div className="divMileAgePrice">
-                                <span className="spanInactive">Inativo</span>
+                                <span className="spanInactive">Este anúncio esta Inativo</span>
                                 <div>
                                   <div>
-                                    <span>{data.mileAge}</span>
+                                    <span>{formatKms(data.mileAge)}</span>
                                     <span>{data.age}</span>
                                   </div>
-                                  <span>R${data.price}</span>
+                                  <span>{formatPrice(data.price)}</span>
                                 </div>
                               </div>
                               <div className="divAdm">
@@ -242,10 +255,10 @@ export const CardAdversiment = (owner:any) => {
                                 <span className="spanActive">Ativo</span>
                                 <div>
                                   <div>
-                                    <span>{`${data.mileAge}KM`}</span>
+                                    <span>{formatKms(data.mileAge)}</span>
                                     <span>{data.age}</span>
                                   </div>
-                                  <span className="price">R${data.price}</span>
+                                  <span className="price">{formatPrice(data.price)}</span>
                                 </div>
                               </div>
                               <div className="divAdm">
@@ -259,13 +272,13 @@ export const CardAdversiment = (owner:any) => {
                             </div>
 
                             <div className="divMileAgePrice">
-                              <span className="spanInactive">Inativo</span>
+                              <span className="spanInactive">Este anúncio esta Inativo</span>
                               <div>
                                 <div>
-                                  <span>{`${data.mileAge}KM`}</span>
+                                  <span>{formatKms(data.mileAge)}</span>
                                   <span>{data.age}</span>
                                 </div>
-                                <span className="price">R${data.price}</span>
+                                <span className="price">{formatPrice(data.price)}</span>
                               </div>
                             </div>
                             <div className="divAdm">
