@@ -56,10 +56,10 @@ const CreateAdversimentModal = ({ handleShowModal }: any) => {
 
     try {
       const response = await Api3.post("", data);
-      const newimage = { imageUrl: response.data.link }
+      const newimage = { imageUrl: response.data.data.link }
       setImageBase64([...imageBase64, newimage])
       console.log(response.data)
-      console.log(response.data.link);
+      console.log(response.data.data.link);
     } catch (error) {
       //falta toast
       console.error(error);
