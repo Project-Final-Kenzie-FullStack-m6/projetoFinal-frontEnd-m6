@@ -1,7 +1,7 @@
 import StyledContainer from "./style.adversiment"
 import { Button } from "../../../components/button/style.button"
 import Footer from "../../../components/Footer"
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AdversimentContext } from "../../../contexts/adversimentContext";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
@@ -18,16 +18,34 @@ import CloseIcon from '@mui/icons-material/Close'
 import UpdateCommentModal from "../../../components/modals/comments/updateComment";
 import schemaUpdateComment from "../../../validators/comments/updateComment";
 import DeleteCommentModal from "../../../components/modals/comments/deleteComment";
+import { Api } from "../../../services/api";
+import { iAdversimentDataUpdate } from "../../../interface/adversiments";
 
-const Adversiment = () => {
-    const {detailsAds, createCommentUser, handleIdComment} = useContext(AdversimentContext)
+const Adversiment = ({id}:any) => {
+    const { createCommentUser, handleIdComment} = useContext(AdversimentContext)
     const {userData} = useContext(UserContext)
     const [textValue, setTextValue] = useState('')
+
+    const [detailsAds, setDetailsAds] = useState({} as iAdversimentDataUpdate);
+
     const [openModalUpdateComment, setOpenModalUpdateComment] = useState(false);
     const [openDeleteModal, setOpenDeleteModal] = useState(false);
 
     const token = localStorage.getItem("token")
     const userId = localStorage.getItem("userId")
+    const getDetailsAdversiment = async (id: string | undefined) => {
+      try {
+        const { data } = await Api.get(`/adversiments/${id}`);
+        setDetailsAds(data)
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    useEffect(() => {
+        getDetailsAdversiment(id)
+      }, []);
+
 
     const img = detailsAds.images?.[0].imageUrl
     const navigate = useNavigate()

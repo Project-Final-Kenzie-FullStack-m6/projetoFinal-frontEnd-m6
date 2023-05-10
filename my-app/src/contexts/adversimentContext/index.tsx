@@ -210,6 +210,7 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
     filterKM,
     filterPrice,
     activeFilter,
+    detailsAds,
   ]);
 
   const getDetailsAdversiment = async (id: string | undefined) => {

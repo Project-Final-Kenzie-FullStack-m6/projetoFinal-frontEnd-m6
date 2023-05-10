@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import * as S from './style.cardAdversiment'
 
 
-export const CardAdversiment = ({owner}:any,{id}:any) => {
+export const CardAdversiment = (owner:any) => {
   const { filterAdversiments, getDetailsAdversiment, adversimentData } = useContext(AdversimentContext);
   const [openModalUpdate, setOpenModalUpdate] = useState(false);
 
@@ -19,7 +19,8 @@ export const CardAdversiment = ({owner}:any,{id}:any) => {
     getDetailsAdversiment(data)
   }
 
-  const userAdversiments = adversimentData.filter((data) => data.id === id)
+  const userAdversiments = adversimentData.filter((data) => data.user.id == owner.id)
+  
   
     return (
       <>
@@ -60,7 +61,7 @@ export const CardAdversiment = ({owner}:any,{id}:any) => {
                         <p>{data.description}</p>
                       </div>
 
-                      {owner ? (
+                      {owner.owner ? (
                         <>
                           {data.isActive ? (
                             <>
@@ -79,7 +80,7 @@ export const CardAdversiment = ({owner}:any,{id}:any) => {
                                   font="grey-3-4"
                                   onClick={allEvent}
                                 >Editar</Button>
-                                <Link to="/details" onClick={eventDetails} className="btnProfile">Ver detalhes do anúncio</Link>
+                                <Link to={`/details?id=${data.id}`} onClick={eventDetails} className="btnProfile">Ver detalhes do anúncio</Link>
                               </div>
                             </>
                           ) :
@@ -99,7 +100,7 @@ export const CardAdversiment = ({owner}:any,{id}:any) => {
                                   font="grey-3-4"
                                   onClick={allEvent}
                                 >Editar</Button>
-                                <Link to="/details" onClick={eventDetails} className="btnProfile">Ver detalhes do anúncio</Link>
+                                <Link to={`/details?id=${data.id}`} onClick={eventDetails} className="btnProfile">Ver detalhes do anúncio</Link>
                               </div>
                             </>
                           }
@@ -124,7 +125,7 @@ export const CardAdversiment = ({owner}:any,{id}:any) => {
                                 </div>
                               </div>
                               <div className="divAdm">
-                                <Link to="/details" onClick={eventDetails} className="btn">Ver detalhes do anúncio</Link>
+                                <Link to={`/details?id=${data.id}`} onClick={eventDetails} className="btn">Ver detalhes do anúncio</Link>
                               </div>
                             </>
                           ) : (<>
@@ -144,7 +145,7 @@ export const CardAdversiment = ({owner}:any,{id}:any) => {
                               </div>
                             </div>
                             <div className="divAdm">
-                              <Link to="/details" onClick={eventDetails} className="btn">Ver detalhes do anúncio</Link>
+                              <Link to={`/details?id=${data.id}`} onClick={eventDetails} className="btn">Ver detalhes do anúncio</Link>
                             </div>
                           </>)}
                         </>
@@ -184,7 +185,7 @@ export const CardAdversiment = ({owner}:any,{id}:any) => {
                         <p>{data.description}</p>
                       </div>
 
-                      {owner ? (
+                      {owner.owner ? (
                         <>
                           {data.isActive ? (
                             <>
@@ -203,7 +204,7 @@ export const CardAdversiment = ({owner}:any,{id}:any) => {
                                   font="grey-3-4"
                                   onClick={allEvent}
                                 >Editar</Button>
-                                <Link to="/details" onClick={eventDetails} className="btnProfile">Ver detalhes do anúncio</Link>
+                                <Link to={`/details?id=${data.id}`} onClick={eventDetails} className="btnProfile">Ver detalhes do anúncio</Link>
                               </div>
                             </>
                           ) :
@@ -223,7 +224,7 @@ export const CardAdversiment = ({owner}:any,{id}:any) => {
                                   font="grey-3-4"
                                   onClick={allEvent}
                                 >Editar</Button>
-                                <Link to="/details" onClick={eventDetails} className="btnProfile">Ver detalhes do anúncio</Link>
+                                <Link to={`/details?id=${data.id}`} onClick={eventDetails} className="btnProfile">Ver detalhes do anúncio</Link>
                               </div>
                             </>
                           }
@@ -248,7 +249,7 @@ export const CardAdversiment = ({owner}:any,{id}:any) => {
                                 </div>
                               </div>
                               <div className="divAdm">
-                                <Link to="/details" onClick={eventDetails} className="btn">Ver detalhes do anúncio</Link>
+                                <Link to={`/details?id=${data.id}`} onClick={eventDetails} className="btn">Ver detalhes do anúncio</Link>
                               </div>
                             </>
                           ) : (<>
@@ -268,7 +269,7 @@ export const CardAdversiment = ({owner}:any,{id}:any) => {
                               </div>
                             </div>
                             <div className="divAdm">
-                              <Link to="/details" onClick={eventDetails} className="btn">Ver detalhes do anúncio</Link>
+                              <Link to={`/details?id=${data.id}`} onClick={eventDetails} className="btn">Ver detalhes do anúncio</Link>
                             </div>
                           </>)}
                         </>
