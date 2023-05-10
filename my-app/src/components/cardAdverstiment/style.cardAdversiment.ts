@@ -105,8 +105,9 @@ export const Container = styled.div`
     }
 
     .spanActive {
-      width: 51px;
+      width: auto;
       height: 24px;
+      padding: 10px;
       background-color: ${({ theme }) => theme.colors.brand.b1};
       color: ${({ theme }) => theme.colors.grey.whiteFixed};
       font-size: ${({ theme }) => theme.typography.fontSize.size14px};
@@ -117,7 +118,8 @@ export const Container = styled.div`
     }
 
     .spanInactive {
-      width: 61px;
+      width: auto;
+      padding: 10px;
       height: 24px;
       background-color: ${({ theme }) => theme.colors.grey.g4};
       color: ${({ theme }) => theme.colors.grey.whiteFixed};
