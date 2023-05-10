@@ -57,6 +57,7 @@ const CreateAdversimentModal = ({ handleShowModal }: any) => {
     try {
       const response = await Api3.post("", data);
       const newimage = { imageUrl: response.data.link }
+      console.log(newimage);
       setImageBase64([...imageBase64, newimage])
       console.log(response.data)
     } catch (error) {
