@@ -42,7 +42,7 @@ const CreateAdversimentModal = ({ handleShowModal }: any) => {
     const file = event.target.files?.[0];
     if (file) {
       const base64 = await getBase64(file);
-      const image = { imageUrl: base64.slice(23) }
+      const image = base64.slice(23)
       getImageLink(image)
     }
   };
