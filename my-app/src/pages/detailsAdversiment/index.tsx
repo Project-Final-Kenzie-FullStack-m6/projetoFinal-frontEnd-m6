@@ -7,17 +7,20 @@ import { useMediaQuery } from "react-responsive";
 const DetailsAdversiment = () => {
   const isSmallScreen = useMediaQuery({ maxWidth: "1200px" });
 
+  const searchParams = new URLSearchParams(window.location.search);
+  const userId = searchParams.get("id");
+
   return (
     <>
       {isSmallScreen ? (
         <StyledDetailsPage>
           <Header />
-          <AdversimentMobile />
+          <AdversimentMobile id={userId} />
         </StyledDetailsPage>
       ) : (
         <StyledDetailsPage>
           <Header />
-          <Adversiment />
+          <Adversiment id={userId} />
         </StyledDetailsPage>
       )}
     </>

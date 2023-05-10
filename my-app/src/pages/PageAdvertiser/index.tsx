@@ -26,6 +26,7 @@ useEffect(() => {
 }, [navigate,userId, userData]);
 const [showModal, setShowModal] = useState(false);
 
+console.log(userId)
   const handleShowModal = () => {
     setShowModal(!showModal);
   };
@@ -38,7 +39,7 @@ const [showModal, setShowModal] = useState(false);
         <section className="cardList">
           <S.Container className="mobileVersion">
             <ul className="ulAdversiment" style={{marginLeft: 50}}>
-              <CardAdversiment owner={owner} id={userId}/>
+              <CardAdversiment owner={owner} id={searchParams.get("id")}/>
             </ul>
           </S.Container>
         </section>
