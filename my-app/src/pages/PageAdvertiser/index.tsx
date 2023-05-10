@@ -15,7 +15,7 @@ const navigate= useNavigate()
 const logeedId:any = localStorage.getItem("userId");
 const searchParams = new URLSearchParams(window.location.search);
 const userId = searchParams.get("id");
-const owner =logeedId === userId
+const owner = logeedId === userId
 
 useEffect(() => {
   if (!userId) {
@@ -38,7 +38,7 @@ const [showModal, setShowModal] = useState(false);
         <section className="cardList">
           <S.Container className="mobileVersion">
             <ul className="ulAdversiment" style={{marginLeft: 50}}>
-              <CardAdversiment owner={owner}/>
+              <CardAdversiment owner={owner} id={userId}/>
             </ul>
           </S.Container>
         </section>

@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { iCommentDataRequest } from "../../../interface/comments";
 import { UserContext } from "../../../contexts/AuthUserContext/userContext";
-import moment from 'moment';
+import moment from "moment"
 import 'moment/locale/pt-br'
 import { Fab } from "@mui/material";
 import EditIcon from '@mui/icons-material/Edit';
@@ -37,8 +37,6 @@ const AdversimentMobile = () => {
     const {
         register,
         handleSubmit,
-        setValue,
-        getValues,
     } = useForm<iCommentDataRequest>({
         resolver: yupResolver(schemaUpdateComment)
     })
