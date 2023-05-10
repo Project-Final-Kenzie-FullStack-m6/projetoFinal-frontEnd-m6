@@ -18,7 +18,6 @@ const userId = searchParams.get("id");
 const owner =logeedId === userId
 
 useEffect(() => {
-  console.log(userData.isSeller)
   if (!userId) {
     navigate("/");
   }else if(userData.id === userId&&userData.isSeller !==true){
@@ -38,7 +37,7 @@ const [showModal, setShowModal] = useState(false);
       <div className="divAdversiment">
         <section className="cardList">
           <S.Container className="mobileVersion">
-            <ul className="ulAdversiment">
+            <ul className="ulAdversiment" style={{marginLeft: 50}}>
               <CardAdversiment owner={owner}/>
             </ul>
           </S.Container>

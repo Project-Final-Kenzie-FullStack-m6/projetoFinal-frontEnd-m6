@@ -2,9 +2,6 @@ import FooterStyle from "./footerStyle";
 import logo from "../../assets/Motors shop.png"
 import angleUp from "../../assets/angle-up.png"
 
-
-
-
 function Footer() {
     return (
       <FooterStyle>

@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { AdversimentContext } from "../../../../contexts/adversimentContext";
 import { useForm } from "react-hook-form";
-import { iAdversimentDataUpdate } from "../../../../interface/adversiments";
 import { yupResolver } from "@hookform/resolvers/yup";
 import schemaUpdateAds from "../../../../validators/adversiments/updateAdversimentUser";
 import * as S from './style.updateAdversimentModal'
@@ -29,8 +28,9 @@ const UpdateAdversimentModal = ({setOpenModalUpdate}: any) => {
         resolver: yupResolver(schemaUpdateAds)
     })
 
+    //para vizualizar valores dos inputs
     const values = getValues()
-    console.log(values)
+    
 
     useEffect(() => {
         setValue('brand', detailsAds?.brand)
@@ -328,8 +328,6 @@ const UpdateAdversimentModal = ({setOpenModalUpdate}: any) => {
               </S.StyledForm>
             </S.StyledFormContainer>
           </S.StyledContainer>
-
-        
         </>
     )
 }

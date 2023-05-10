@@ -2,7 +2,6 @@ import Footer from "../../components/Footer";
 import { Button } from "../../components/button/style.button";
 import { Input } from "../../components/input/style.input";
 import { Header } from "../../components/header";
-// import Form from "../Register/form";
 import LoginStyle from "./loginStyle";
 import { Link, useNavigate } from "react-router-dom";
 import schemaLogin from "./loginSchema";
