@@ -224,9 +224,10 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
 
   const Toast = Swal.mixin({
     toast: true,
-    position: 'top-end',
+    position: 'top',
+    width: "400px",
     showConfirmButton: false,
-    timer: 3000,
+    timer: 2000,
     timerProgressBar: true,
     didOpen: (toast) => {
       toast.addEventListener('mouseenter', Swal.stopTimer)
@@ -281,20 +282,22 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
   const createCommentUser = async (data: iCommentDataRequest) => {
     const token = localStorage.getItem("token");
     try {
-      const response = await Api.post(`/comments/${detailsAds.id}`, data, {
+      await Api.post(`/comments/${detailsAds.id}`, data, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
-      navigate("/details");
       Toast.fire({
         icon: 'success',
-        title: 'Comentario criado com Sucesso'
+        title: 'Comentário criado com Sucesso'
       })
+      setTimeout(() =>{
+        window.location.reload();
+      },1900);
     } catch (error) {
       Toast.fire({
         icon: 'error',
-        title: 'Erro ao criar o comentario'
+        title: 'Erro ao criar o comentário'
       })
     }
   };
@@ -302,15 +305,20 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
   const updateCommentUser = async (data: iCommentDataRequest) => {
     const token = localStorage.getItem("token");
     try {
-      const response = await Api.patch(`/comments/${retrieveIds}`, data,{
+      await Api.patch(`/comments/${retrieveIds}`, data,{
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
       Toast.fire({
         icon: 'success',
-        title: 'Comentario editado com Sucesso'
+        title: 'Comentário editado com Sucesso'
       })
+
+      setTimeout(() =>{
+        window.location.reload();
+      },1900);
+
     } catch (error:any) {
       Toast.fire({
         icon: 'error',
@@ -329,9 +337,11 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
       })
       Toast.fire({
         icon: 'success',
-        title: 'Comentario deletado com Sucesso'
+        title: 'Comentário deletado com Sucesso'
       })
-      window.location.reload();
+      setTimeout(() =>{
+        window.location.reload();
+      },1900);
       
     } catch (error:any) {
       Toast.fire({

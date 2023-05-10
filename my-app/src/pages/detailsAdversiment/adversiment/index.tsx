@@ -110,6 +110,18 @@ const Adversiment = ({id}:any) => {
         setTextValue(textValue + '\n' + newText)
     }
 
+    const formatPrice = (value: any) =>{
+        return value?.toLocaleString("pt-BR", {
+          style: "currency",
+          currency: "BRL",
+          minimumFractionDigits: 2,
+        });
+    }
+
+    const formatKms = (value: any) =>{
+        return value?.toLocaleString('pt-BR') + ' km';
+    }
+
 
     const redirectWhatsAppUrl = `https://api.whatsapp.com/send?phone=55${detailsAds.user?.phone}&text=Ol%C3%A1,%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20ve%C3%ADculo%20anunciado%20na%20MotorsShop.`;
 
@@ -130,10 +142,10 @@ const Adversiment = ({id}:any) => {
                     <div className="divAgePrice">
                         <div>
                             <span>{detailsAds?.age}</span>
-                            <span>{detailsAds?.mileAge}km</span>
+                            <span>{formatKms(detailsAds?.mileAge)}</span>
                         </div>
 
-                        <span><b>R${detailsAds.price}</b></span>
+                        <span><b>{formatPrice(detailsAds.price)}</b></span>
                     </div>
                     <Link to={redirectWhatsAppUrl} target="_blank">
                         <Button font="brand-6-7">Entre em contato</Button>
