@@ -10,7 +10,7 @@ import {
   iImageResponse,
 } from "../../interface/adversiments";
 import { iCommentDataRequest } from "../../interface/comments";
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2";
 
 export const AdversimentContext = createContext({} as iAdversimentContextProps);
 
@@ -224,38 +224,38 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
       console.error(error);
     }
   };
-  
+
   const Toast = Swal.mixin({
     toast: true,
-    position: 'top',
+    position: "top",
     width: "400px",
     showConfirmButton: false,
     timer: 2000,
     timerProgressBar: true,
     didOpen: (toast) => {
-      toast.addEventListener('mouseenter', Swal.stopTimer)
-      toast.addEventListener('mouseleave', Swal.resumeTimer)
-    }
-  })
-  
+      toast.addEventListener("mouseenter", Swal.stopTimer);
+      toast.addEventListener("mouseleave", Swal.resumeTimer);
+    },
+  });
+
   const postNewAdversiment = async (data: iAdversimentDataRegister) => {
-    const newData = {...data,images:imageBase64}
-    console.log(imageBase64)
-      try {
-        const response = await Api.post("/adversiments", newData);
-        loadAdversiment();
-        //falta toast
-        setModalAddOpen(false);
-        Toast.fire({
-          icon: 'success',
-          title: 'Anuncio Criado com Sucesso'
-        })
-      } catch (error:any) {
-        Toast.fire({
-          icon: 'error',
-          title:  error
-        })
-      }
+    const newData = { ...data, images: imageBase64 };
+    console.log(imageBase64);
+    try {
+      const response = await Api.post("/adversiments", newData);
+      loadAdversiment();
+      //falta toast
+      setModalAddOpen(false);
+      Toast.fire({
+        icon: "success",
+        title: "Anuncio Criado com Sucesso",
+      });
+    } catch (error: any) {
+      Toast.fire({
+        icon: "error",
+        title: error,
+      });
+    }
   };
 
   const updateAdversiment = async (data: iAdversimentDataUpdate) => {
@@ -269,15 +269,15 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
         },
       });
       Toast.fire({
-        icon: 'success',
-        title: 'Anuncio Atualizado com Sucesso'
-      })
+        icon: "success",
+        title: "Anuncio Atualizado com Sucesso",
+      });
       window.location.reload();
-    } catch (error:any) {
+    } catch (error: any) {
       Toast.fire({
-        icon: 'error',
-        title:  error
-      })
+        icon: "error",
+        title: error,
+      });
     }
   };
 
@@ -290,42 +290,41 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
         },
       });
       Toast.fire({
-        icon: 'success',
-        title: 'Comentário criado com Sucesso'
-      })
-      setTimeout(() =>{
+        icon: "success",
+        title: "Comentário criado com Sucesso",
+      });
+      setTimeout(() => {
         window.location.reload();
-      },1900);
+      }, 1900);
     } catch (error) {
       Toast.fire({
-        icon: 'error',
-        title: 'Erro ao criar o comentário'
-      })
+        icon: "error",
+        title: "Erro ao criar o comentário",
+      });
     }
   };
 
   const updateCommentUser = async (data: iCommentDataRequest) => {
     const token = localStorage.getItem("token");
     try {
-      await Api.patch(`/comments/${retrieveIds}`, data,{
+      await Api.patch(`/comments/${retrieveIds}`, data, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
       Toast.fire({
-        icon: 'success',
-        title: 'Comentário editado com Sucesso'
-      })
+        icon: "success",
+        title: "Comentário editado com Sucesso",
+      });
 
-      setTimeout(() =>{
+      setTimeout(() => {
         window.location.reload();
-      },1900);
-
-    } catch (error:any) {
+      }, 1900);
+    } catch (error: any) {
       Toast.fire({
-        icon: 'error',
-        title: error
-      })
+        icon: "error",
+        title: error,
+      });
     }
   };
 
@@ -336,20 +335,19 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
         headers: {
           Authorization: `Bearer ${token}`,
         },
-      })
+      });
       Toast.fire({
-        icon: 'success',
-        title: 'Comentário deletado com Sucesso'
-      })
-      setTimeout(() =>{
+        icon: "success",
+        title: "Comentário deletado com Sucesso",
+      });
+      setTimeout(() => {
         window.location.reload();
-      },1900);
-      
-    } catch (error:any) {
+      }, 1900);
+    } catch (error: any) {
       Toast.fire({
-        icon: 'error',
-        title: error
-      })
+        icon: "error",
+        title: error,
+      });
     }
   };
 
@@ -358,14 +356,14 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
       await Api.delete(`/adversiments/${detailsAds?.id}`);
       window.location.reload();
       Toast.fire({
-        icon: 'success',
-        title: 'Anuncio deletado com sucesso'
-      })
-    } catch (error:any) {
+        icon: "success",
+        title: "Anuncio deletado com sucesso",
+      });
+    } catch (error: any) {
       Toast.fire({
-        icon: 'error',
-        title: error
-      })
+        icon: "error",
+        title: error,
+      });
     }
   };
 
