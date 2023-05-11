@@ -8,7 +8,7 @@ export const StyledPageAdvertiser = styled.main`
     justify-content: center;
   }
 
-  .divAdversiment{
+  .divAdversiment {
     width: 100%;
     margin: 20px;
   }
@@ -43,8 +43,18 @@ export const StyledPageAdvertiser = styled.main`
         color: ${({ theme }) => theme.colors.grey.g3};
       }
     }
-    h3 {
+
+    button {
       color: ${({ theme }) => theme.colors.brand.b1};
+      font-weight: 600;
+      font-size: 17px;
+      background: none;
+      padding: 5px;
+      width: unset;
+      height: unset;
     }
+  }
+  .ocultTag {
+    display: none;
   }
 `;

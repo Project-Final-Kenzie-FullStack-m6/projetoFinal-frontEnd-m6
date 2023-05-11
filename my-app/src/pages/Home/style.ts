@@ -51,16 +51,27 @@ export const StyledMain = styled.main`
 
       h4 {
         font-weight: 600;
-        font-size: 24px;
+        font-size: 19px;
         line-height: 30px;
         color: ${({ theme }) => theme.colors.grey.g4};
         strong {
           color: ${({ theme }) => theme.colors.grey.g3};
         }
       }
-      h3 {
+
+      button {
         color: ${({ theme }) => theme.colors.brand.b1};
+        font-weight: 600;
+        font-size: 17px;
+        background: none;
+        padding: 5px;
+        width: unset;
+        height: unset;
       }
+    }
+
+    .ocultTag {
+      display: none;
     }
   }
 

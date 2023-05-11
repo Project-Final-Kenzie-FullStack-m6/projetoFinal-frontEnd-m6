@@ -48,7 +48,7 @@ export const StyledHomePageMobile = styled.main`
   .mobileVersion {
     max-height: 1265px;
   }
-  
+
   .cardList {
     width: 100%;
     .ulAdversiment {
@@ -69,6 +69,23 @@ export const StyledHomePageMobile = styled.main`
     }
     .pagination {
       padding: 0;
+
+      h4 {
+        font-size: 18px;
+      }
+
+      button {
+        color: ${({ theme }) => theme.colors.brand.b1};
+        font-weight: 600;
+        font-size: 17px;
+        background: none;
+        padding: 5px;
+        width: unset;
+        height: unset;
+      }
+    }
+    .ocultTag {
+      display: none;
     }
   }
 

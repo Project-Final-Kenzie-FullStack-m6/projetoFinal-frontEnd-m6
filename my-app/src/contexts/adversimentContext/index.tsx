@@ -1,13 +1,13 @@
 import { createContext, useEffect, useState } from "react";
 import { Api } from "../../services/api";
-import { useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   iAdversimentContextProps,
   iAdversimentDataRegister,
   iAdversimentDataResponse,
   iAdversimentDataUpdate,
   iAdversimentProviderProps,
-  iImageResponse
+  iImageResponse,
 } from "../../interface/adversiments";
 import { iCommentDataRequest } from "../../interface/comments";
 
@@ -31,12 +31,14 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
   const [detailsAds, setDetailsAds] = useState({} as iAdversimentDataUpdate);
   const [isActive, setIsActive] = useState(true);
   const [retrieveIds, setRetrieveIds] = useState([] as any);
-  
+  const [dataInfoPagination, setDataInfoPagination] = useState({} as any);
+
   const navigate = useNavigate();
 
   const loadAdversiment = async () => {
     try {
       const { data } = await Api.get("/adversiments");
+      setDataInfoPagination(data);
       const dataOrderMin = orderMinPrice(orderMinKM(data.advertisements));
       setAdversimentData(dataOrderMin);
       setFilterAdversiments(dataOrderMin);
@@ -193,10 +195,9 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
   };
 
   const handleIdComment = (data: any) => {
-    const response = data.id
-    setRetrieveIds(response)
-}
-
+    const response = data.id;
+    setRetrieveIds(response);
+  };
 
   useEffect(() => {
     loadAdversiment();
@@ -220,16 +221,15 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
     }
   };
 
-  
   const postNewAdversiment = async (data: iAdversimentDataRegister) => {
-  const newData = {...data,images:imageBase64}
+    const newData = { ...data, images: imageBase64 };
 
     try {
-      const response =await Api.post("/adversiments", newData);
+      const response = await Api.post("/adversiments", newData);
       loadAdversiment();
       //falta toast
       setModalAddOpen(false);
-      console.log(response.data)
+      console.log(response.data);
     } catch (error) {
       //falta toast
       console.error(error);
@@ -271,16 +271,16 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
   const updateCommentUser = async (data: iCommentDataRequest) => {
     const token = localStorage.getItem("token");
     try {
-      const response = await Api.patch(`/comments/${retrieveIds}`, data,{
+      const response = await Api.patch(`/comments/${retrieveIds}`, data, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
-      console.log(response.data)
+      console.log(response.data);
     } catch (error) {
-      console.error(error)
+      console.error(error);
     }
-  }
+  };
 
   const deleteCommentUser = async () => {
     const token = localStorage.getItem("token");
@@ -289,12 +289,12 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
         headers: {
           Authorization: `Bearer ${token}`,
         },
-      })
+      });
       window.location.reload();
     } catch (error) {
-      console.error(error)
+      console.error(error);
     }
-  }
+  };
 
   const deleteAdversiment = async () => {
     try {
@@ -345,7 +345,8 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
         isActive,
         setIsActive,
         imageBase64,
-        setImageBase64
+        setImageBase64,
+        dataInfoPagination,
       }}
     >
       {children}

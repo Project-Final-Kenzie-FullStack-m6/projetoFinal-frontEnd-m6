@@ -11,8 +11,6 @@ interface iImageResponse2 {
   imageUrl: string;
 }
 
-
-
 interface iAdversimentDataRegister {
   id: string;
   brand: string;
@@ -28,7 +26,6 @@ interface iAdversimentDataRegister {
   user: iUser;
 }
 
-
 interface iAdversimentDataUpdate {
   id?: string;
   brand?: string;
@@ -43,10 +40,8 @@ interface iAdversimentDataUpdate {
   images?: [iImageResponse, iImageResponse1, iImageResponse2];
   isActive?: boolean;
   user?: iUser;
-  comments?: [iCommentDataResponse]
+  comments?: [iCommentDataResponse];
 }
-
-
 
 interface iAdversimentDataResponse {
   id: string;
@@ -75,29 +70,29 @@ interface iAdversimentContextProps {
   postNewAdversiment: (data: iAdversimentDataRegister) => Promise<void>;
 
   //post comment
-  createCommentUser: (data: iCommentDataRequest) => Promise<void>
+  createCommentUser: (data: iCommentDataRequest) => Promise<void>;
 
   //update adversiment
-  updateAdversiment: (data: iAdversimentDataUpdate) => Promise<void>
+  updateAdversiment: (data: iAdversimentDataUpdate) => Promise<void>;
 
   //update comments
-  updateCommentUser: (data: iCommentDataRequest) => Promise<void>
+  updateCommentUser: (data: iCommentDataRequest) => Promise<void>;
 
   //get unique adversiment
-  getDetailsAdversiment: (id: string | undefined) => Promise<void>
+  getDetailsAdversiment: (id: string | undefined) => Promise<void>;
 
   //delete adversiment
-  deleteAdversiment: () => Promise<void>
+  deleteAdversiment: () => Promise<void>;
 
-  imageBase64:iImageResponse[]
-  setImageBase64:React.Dispatch<React.SetStateAction<iImageResponse[]>>
+  imageBase64: iImageResponse[];
+  setImageBase64: React.Dispatch<React.SetStateAction<iImageResponse[]>>;
 
   //delete comment
-  deleteCommentUser: () => Promise<void>
+  deleteCommentUser: () => Promise<void>;
 
   // retrieved comments Ids
-  handleIdComment: (data: any) => void
-  
+  handleIdComment: (data: any) => void;
+
   //globals
 
   loading?: boolean;
@@ -129,9 +124,10 @@ interface iAdversimentContextProps {
   setActiveFilter: React.Dispatch<React.SetStateAction<boolean>>;
   listBrands: string[];
 
-  detailsAds: iAdversimentDataUpdate
-  isActive: boolean
-  setIsActive: React.Dispatch<React.SetStateAction<boolean>>
+  detailsAds: iAdversimentDataUpdate;
+  isActive: boolean;
+  setIsActive: React.Dispatch<React.SetStateAction<boolean>>;
+  dataInfoPagination: any;
 }
 
 export type {
@@ -140,5 +136,5 @@ export type {
   iFiltersProviderProps,
   iAdversimentDataResponse,
   iAdversimentDataRegister,
-  iAdversimentDataUpdate
+  iAdversimentDataUpdate,
 };
