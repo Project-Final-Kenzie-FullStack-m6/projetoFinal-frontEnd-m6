@@ -15,8 +15,6 @@ const Pagination = ({ data, setFilterAdversiments, adversimentData }: any) => {
   const previousPage = () => {
     if (current > 1) {
       setCurrent(current - 1);
-    } else {
-      setFilterAdversiments(adversimentData);
     }
   };
 
