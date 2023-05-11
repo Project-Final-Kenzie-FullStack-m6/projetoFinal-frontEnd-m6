@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
 
-  max-width: 90%;
+  /* max-width: 90%; */
   height: auto;
   max-height: 1425px;
   overflow-y: hidden;
@@ -133,7 +133,7 @@ export const Container = styled.div`
 
   .ulAdversiment {
     width: 100%;
-    max-height: 1140px;
+    max-height: 1340px;
     display: flex;
     gap: 40px;
     -webkit-box-pack: center;

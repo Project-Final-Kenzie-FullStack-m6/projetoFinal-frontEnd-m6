@@ -57,4 +57,9 @@ export const StyledPageAdvertiser = styled.main`
   .ocultTag {
     display: none;
   }
+
+  .cardList {
+    display: flex;
+    justify-content: center;
+  }
 `;
