@@ -30,9 +30,8 @@ const StyledContainer = styled.main`
                 border-radius: 4px;
                 img {
                     padding: 10px;
-                    width: 50%;
-                    max-width: 100%;
-                    height: auto;
+                    width: 70vmin;
+                    height: 35vmin;
                     border-radius: 15px;
                 }
             }
