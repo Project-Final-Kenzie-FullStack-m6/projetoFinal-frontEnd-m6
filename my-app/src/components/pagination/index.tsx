@@ -9,16 +9,12 @@ const Pagination = ({ data, setFilterAdversiments, adversimentData }: any) => {
   const nextPage = async () => {
     if (current < pages) {
       setCurrent(current + 1);
-      const { data } = await Api.get(`/adversiments?page=${current}?limit=12`);
-      setFilterAdversiments(data.advertisements);
     }
   };
 
   const previousPage = async () => {
     if (current > 1) {
       setCurrent(current - 1);
-      const { data } = await Api.get(`/adversiments?page=${current}?limit=12`);
-      setFilterAdversiments(data.advertisements);
     } else {
       setFilterAdversiments(adversimentData);
     }

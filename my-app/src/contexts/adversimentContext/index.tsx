@@ -39,11 +39,13 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
 
   const loadAdversiment = async () => {
     try {
-      const { data } = await Api.get("/adversiments");
+      const { data } = await Api.get(`/adversiments?page=${current}?limit=12`);
+      console.log(current);
       setDataInfoPagination(data);
       const dataOrderMin = orderMinPrice(orderMinKM(data.advertisements));
       setAdversimentData(dataOrderMin);
       setFilterAdversiments(dataOrderMin);
+
       if (filterBrand) {
         if (activeFilter) {
           const listFilter = adversimentData.filter((data) => data.brand === filterBrand);
