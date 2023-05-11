@@ -5,6 +5,7 @@ import { Button } from "../button/style.button";
 import UpdateAdversimentModal from "../modals/adversiments/updateAdversimentModal";
 import { Link } from "react-router-dom";
 import * as S from './style.cardAdversiment'
+import carDefault from "../../assets/default.jpg"
 
 
 export const CardAdversiment = (owner:any) => {
@@ -32,7 +33,7 @@ export const CardAdversiment = (owner:any) => {
     return value?.toLocaleString('pt-BR') + ' km';
   }
 
-  const userAdversiments = adversimentData.filter((data) => data.user.id == owner.id)
+  const userAdversiments = adversimentData.filter((data) => data.user.id === owner.id)
   
   
     return (
@@ -66,7 +67,7 @@ export const CardAdversiment = (owner:any) => {
                 <div>
                   <li className="liAdversiment" id={`${data.id}`} key={`${data.id}`}>
                     <div className="divImg">
-                      <img src={`${data.images[0].imageUrl}`} alt="car" />
+                    <img src={`${data.images[0] !== undefined? data.images[0].imageUrl: carDefault}`} alt="car" />
                     </div>
                     <div className="divInfos">
                       <div className="divModelDescription">
@@ -190,7 +191,7 @@ export const CardAdversiment = (owner:any) => {
                 <div>
                   <li className="liAdversiment" id={`${data.id}`} key={`${data.id}`}>
                     <div className="divImg">
-                      <img src={`${data.images[0].imageUrl}`} alt="car" />
+                    <img src={`${data.images[0] !== undefined? data.images[0].imageUrl: carDefault}`} alt="car" />
                     </div>
                     <div className="divInfos">
                       <div className="divModelDescription">
