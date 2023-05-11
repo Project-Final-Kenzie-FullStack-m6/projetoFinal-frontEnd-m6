@@ -32,6 +32,7 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
   const [isActive, setIsActive] = useState(true);
   const [retrieveIds, setRetrieveIds] = useState([] as any);
   const [dataInfoPagination, setDataInfoPagination] = useState({} as any);
+  const [current, setCurrent] = useState(1);
 
   const navigate = useNavigate();
 
@@ -210,6 +211,7 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
     filterKM,
     filterPrice,
     activeFilter,
+    current,
   ]);
 
   const getDetailsAdversiment = async (id: string | undefined) => {
@@ -347,6 +349,8 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
         imageBase64,
         setImageBase64,
         dataInfoPagination,
+        current,
+        setCurrent,
       }}
     >
       {children}

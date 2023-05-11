@@ -128,6 +128,8 @@ interface iAdversimentContextProps {
   isActive: boolean;
   setIsActive: React.Dispatch<React.SetStateAction<boolean>>;
   dataInfoPagination: any;
+  current: number;
+  setCurrent: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export type {
