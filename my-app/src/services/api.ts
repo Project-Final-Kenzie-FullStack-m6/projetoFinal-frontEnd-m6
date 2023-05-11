@@ -1,8 +1,8 @@
 import axios from "axios";
-import { BaseUrl, BaseUrlDeploy, BaseUrl2 } from "../constants/endpoints";
+import { BaseUrl, BaseUrl2 } from "../constants/endpoints";
 
 export const Api = axios.create({
-  baseURL: BaseUrlDeploy,
+  baseURL: BaseUrl,
   timeout: 5000,
 });
 
