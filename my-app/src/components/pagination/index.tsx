@@ -6,13 +6,13 @@ const Pagination = ({ data, setFilterAdversiments, adversimentData }: any) => {
   const { current, setCurrent } = useContext(AdversimentContext);
 
   const pages = data.totalPages;
-  const nextPage = async () => {
+  const nextPage = () => {
     if (current < pages) {
       setCurrent(current + 1);
     }
   };
 
-  const previousPage = async () => {
+  const previousPage = () => {
     if (current > 1) {
       setCurrent(current - 1);
     } else {
