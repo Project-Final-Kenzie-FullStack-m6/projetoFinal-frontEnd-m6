@@ -62,7 +62,6 @@ const StyledContainer = styled.main`
                         span {
                             width: auto;
                             padding: 5px;
-                            width: 51px;
                             height: 32px;
                             border-radius: 4px;
                             background-color: ${({ theme }) => theme.colors.brand.b4};
@@ -74,15 +73,15 @@ const StyledContainer = styled.main`
                             justify-content: center;
                         }
                     }
-                    span {
-                        color: ${({ theme }) => theme.colors.grey.g1};
-                        font-weight: ${({ theme }) => theme.typography.fontWeight.weight500};
-                        font-weight: 500;
-                        font-size: ${({ theme }) => theme.typography.fontSize.size20px};
-                        line-height: 20px;
-                        width: 140px;
-                    }
-                    }
+                        span {
+                            color: ${({ theme }) => theme.colors.grey.g1};
+                            font-weight: ${({ theme }) => theme.typography.fontWeight.weight500};
+                            font-weight: 500;
+                            font-size: ${({ theme }) => theme.typography.fontSize.size20px};
+                            line-height: 20px;
+                            width: 140px;
+                        }
+                }
             }
 
             .divDescription {

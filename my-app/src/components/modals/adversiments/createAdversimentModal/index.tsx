@@ -42,7 +42,7 @@ const CreateAdversimentModal = ({ handleShowModal }: any) => {
     const file = event.target.files?.[0];
     if (file) {
       const base64 = await getBase64(file);
-      const image = { imageUrl: base64.slice(23) }
+      const image = base64.slice(23)
       getImageLink(image)
     }
   };
@@ -56,9 +56,10 @@ const CreateAdversimentModal = ({ handleShowModal }: any) => {
 
     try {
       const response = await Api3.post("", data);
-      const newimage = { imageUrl: response.data.link }
+      const newimage = { imageUrl: response.data.data.link }
       setImageBase64([...imageBase64, newimage])
       console.log(response.data)
+      console.log(response.data.data.link);
     } catch (error) {
       //falta toast
       console.error(error);
@@ -67,11 +68,28 @@ const CreateAdversimentModal = ({ handleShowModal }: any) => {
 
   //para vizualizar resposta dos inputs
   const value = getValues()
+  console.log(value)
+  
+  const formatValueFipe = (value: any) =>{
+    return value?.toLocaleString("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+      minimumFractionDigits: 2,
+    });
+  }
+
+ 
+
+  // const valueRegister = (event: any) => {
+  //   const valueFormated = event.target.value
+  //   const valueNoFormated = parseFloat(valueFormated.replace(/[^\d.,-]/g, '').replace(',', '.'));
+  //   setValue('fipe', valueNoFormated)
+  // }
 
 
   useEffect(() => {
     setValue('age', DataModelCar[0]?.year)
-    setValue('fuelType', DataModelCar[0]?.fuel)
+    // setValue('fuelType', DataModelCar[0]?.fuel)
     setValue('fipe', DataModelCar[0]?.value)
   }, [DataModelCar, setValue])
 
@@ -177,15 +195,15 @@ const CreateAdversimentModal = ({ handleShowModal }: any) => {
                     type="text"
                     id="fuelType"
                     value={DataModelCar?.map((data: any) => {
-                      if (data.fuel === 1) {
+                      if (data?.fuel === 1) {
                         return "flex";
                       }
 
-                      if (data.fuel === 2) {
+                      else if (data?.fuel === 2) {
                         return "Híbrido";
                       }
 
-                      if (data.fuel === 3) {
+                      else if (data?.fuel === 3) {
                         return "Elétrico";
                       }
                     })}
@@ -233,17 +251,7 @@ const CreateAdversimentModal = ({ handleShowModal }: any) => {
                     type="text"
                     id="fipe"
                     key="fipe-input"
-                    value={DataModelCar?.map((data: any) => {
-                      const dataPrice = data.value.toLocaleString("pt-BR", {
-                        style: "currency",
-                        currency: "BRL",
-                        minimumFractionDigits: 2,
-                      });
-
-                      if (data.value) {
-                        return dataPrice;
-                      }
-                    })}
+                    value={formatValueFipe(DataModelCar[0]?.value)}
                     {...register("fipe")}
                   />
                 </label>

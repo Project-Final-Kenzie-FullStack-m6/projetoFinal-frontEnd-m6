@@ -2,6 +2,7 @@ import { createContext, useState, useEffect, ReactNode } from "react";
 import { Api } from "../../services/api";
 import { useNavigate } from "react-router-dom";
 import { iUser, iUserUpdate } from "../../interface/users";
+import Swal from "sweetalert2";
 
 export interface iUserLogin {
 	email: string;
@@ -45,8 +46,8 @@ interface iUserContext {
 	setActiveButton: React.Dispatch<React.SetStateAction<boolean>>;
 	setEditProfile: React.Dispatch<React.SetStateAction<boolean>>;
 	setEditAdress: React.Dispatch<React.SetStateAction<boolean>>;
-	editAdress:boolean;
-	editProfile:boolean;
+	editAdress: boolean;
+	editProfile: boolean;
 	deleteUser: () => void;
 	updateUser: (data: iUserUpdate) => void;
 	userData: iUser;
@@ -61,13 +62,26 @@ function UserProvider({ children }: iUserProviderChildren) {
 	const navigate = useNavigate();
 	const [activeButton, setActiveButton] = useState(true);
 	const [editProfile, setEditProfile] = useState(false);
-  const [editAdress, setEditAdress] = useState(false);
+	const [editAdress, setEditAdress] = useState(false);
 	const [userData, setUserData] = useState({} as iUser);
+
+	const Toast = Swal.mixin({
+		toast: true,
+		position: 'top',
+		showConfirmButton: false,
+		timer: 3000,
+		timerProgressBar: true,
+		didOpen: (toast) => {
+			toast.addEventListener('mouseenter', Swal.stopTimer)
+			toast.addEventListener('mouseleave', Swal.resumeTimer)
+		}
+	})
 
 	useEffect(() => {
 		async function loadUser() {
 			const token = localStorage.getItem("token");
 			const userId = localStorage.getItem("userId");
+
 			if (token) {
 				try {
 					Api.defaults.headers.authorization = `Bearer ${token}`;
@@ -75,7 +89,11 @@ function UserProvider({ children }: iUserProviderChildren) {
 					setUserData(data);
 				} catch (error) {
 					localStorage.clear();
-					navigate("/");
+					Toast.fire({
+						icon: 'error',
+						title: 'Sua seção expirou, por favor logue novamente'
+					})
+					navigate("/login");
 				}
 			}
 		}
@@ -89,8 +107,17 @@ function UserProvider({ children }: iUserProviderChildren) {
 			localStorage.setItem("userId", response.data.userId);
 			navigate("/")
 			console.log(response.data);
+			Toast.fire({
+				icon: 'success',
+				title: 'Login feito com sucesso'
+			})
 		} catch (error) {
 			console.log(error);
+			Toast.fire({
+				icon: 'error',
+				title: 'Email ou senha invalida, tente novamente'
+			})
+
 		}
 	}
 
@@ -115,10 +142,18 @@ function UserProvider({ children }: iUserProviderChildren) {
 		};
 		try {
 			const response = await Api.post("/users", newInfo);
-			navigate("/login")
 			console.log(response.data);
+			Toast.fire({
+				icon: 'success',
+				title: 'Sua conta foi criada com sucesso!'
+			})
+			navigate("/login")
 		} catch (error) {
 			console.log(error);
+			Toast.fire({
+				icon: 'error',
+				title: 'Falha ao criar sua conta, confirme os dados e tente novamente'
+			})
 		}
 	}
 
@@ -131,20 +166,36 @@ function UserProvider({ children }: iUserProviderChildren) {
 					Authorization: `Bearer ${token}`,
 				},
 			});
-			console.log(response.data);
+
 			navigate("/advertiser");
+			Toast.fire({
+				icon: 'success',
+				title: 'Usuario editado com sucesso'
+			})
 		} catch (error) {
-			console.error(error);
+
+			Toast.fire({
+				icon: 'error',
+				title: 'Falha ao editar usuario, confirme os dados e tente novamente'
+			})
 		}
 	}
 
 	async function deleteUser() {
 		try {
 			await Api.delete(`/users`);
+			Toast.fire({
+				icon: 'success',
+				title: 'Usuario deletado com sucesso'
+			})
 			localStorage.clear();
 			navigate("/");
 		} catch (error) {
 			console.error(error);
+			Toast.fire({
+				icon: 'error',
+				title: 'Falha ao deletar usuario, tente novamente apos alguns segundos'
+			  })
 		}
 	}
 
@@ -153,8 +204,15 @@ function UserProvider({ children }: iUserProviderChildren) {
 			const response = await Api.post("/users/resetPassword", data);
 			navigate("/");
 			console.log(response.data);
+			Toast.fire({
+				icon: 'success',
+				title: 'Um email contendo um link para o reset de senha foi enviado para o email cadastrado'
+			})
 		} catch (error) {
-			console.log(error);
+			Toast.fire({
+				icon: 'error',
+				title: 'Falha ao enviar reset de senha ao usuario, tente novamente apos alguns segundos'
+			  })
 		}
 	}
 
@@ -167,10 +225,16 @@ function UserProvider({ children }: iUserProviderChildren) {
 				data
 			);
 			navigate("/");
-
+			Toast.fire({
+				icon: 'success',
+				title: 'Senha alterada com sucesso'
+			  })
 			console.log(response.data);
 		} catch (error) {
-			console.log(error);
+			Toast.fire({
+				icon: 'error',
+				title: 'Ouve algum problema ao alterar sua senha, tente novamente'
+			  })
 		}
 	}
 

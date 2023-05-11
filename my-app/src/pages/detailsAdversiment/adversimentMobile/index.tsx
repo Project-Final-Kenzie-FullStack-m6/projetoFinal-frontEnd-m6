@@ -1,5 +1,5 @@
 import StyledContainer from "./style.adversimentoMobile"
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Button } from "../../../components/button/style.button"
 import Footer from "../../../components/Footer"
 import { AdversimentContext } from "../../../contexts/adversimentContext";
@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { iCommentDataRequest } from "../../../interface/comments";
 import { UserContext } from "../../../contexts/AuthUserContext/userContext";
-import moment from 'moment';
+import moment from "moment"
 import 'moment/locale/pt-br'
 import { Fab } from "@mui/material";
 import EditIcon from '@mui/icons-material/Edit';
@@ -18,14 +18,16 @@ import CloseIcon from '@mui/icons-material/Close'
 import UpdateCommentModal from "../../../components/modals/comments/updateComment";
 import schemaUpdateComment from "../../../validators/comments/updateComment";
 import DeleteCommentModal from "../../../components/modals/comments/deleteComment";
+import { iAdversimentDataUpdate } from "../../../interface/adversiments";
+import { Api } from "../../../services/api";
 
-const AdversimentMobile = () => {
-    const {detailsAds, createCommentUser, handleIdComment} = useContext(AdversimentContext)
+const AdversimentMobile = ({id}:any) => {
+    const { createCommentUser, handleIdComment} = useContext(AdversimentContext)
     const {userData} = useContext(UserContext)
     const [textValue, setTextValue] = useState('')
     const [openModalUpdateComment, setOpenModalUpdateComment] = useState(false);
     const [openDeleteModal, setOpenDeleteModal] = useState(false);
-    
+    const [detailsAds, setDetailsAds] = useState({} as iAdversimentDataUpdate);
     const token = localStorage.getItem("token")
     const userId = localStorage.getItem("userId")
 
@@ -33,12 +35,22 @@ const AdversimentMobile = () => {
     const navigate = useNavigate()
 
     moment.locale('pt-br')
+    const getDetailsAdversiment = async (id: string | undefined) => {
+        try {
+          const { data } = await Api.get(`/adversiments/${id}`);
+          setDetailsAds(data)
+        } catch (error) {
+          console.error(error);
+        }
+      };
+      useEffect(() => {
+        getDetailsAdversiment(id)
+      }, []);
+
 
     const {
         register,
         handleSubmit,
-        setValue,
-        getValues,
     } = useForm<iCommentDataRequest>({
         resolver: yupResolver(schemaUpdateComment)
     })
@@ -93,6 +105,18 @@ const AdversimentMobile = () => {
         const newText = "Recomendarei para meus amigos!"
         setTextValue(textValue + '\n' + newText)
     }
+
+    const formatPrice = (value: any) =>{
+        return value?.toLocaleString("pt-BR", {
+          style: "currency",
+          currency: "BRL",
+          minimumFractionDigits: 2,
+        });
+    }
+
+    const formatKms = (value: any) =>{
+        return value?.toLocaleString('pt-BR') + ' km';
+    }
     
     const redirectWhatsAppUrl = `https://api.whatsapp.com/send?phone=55${detailsAds.user?.phone}&text=Ol%C3%A1,%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20ve%C3%ADculo%20anunciado%20na%20MotorsShop.`;
 
@@ -115,10 +139,10 @@ const AdversimentMobile = () => {
                     <div className="divAgePrice">
                         <div>
                             <span>{detailsAds?.age}</span>
-                            <span>{detailsAds?.mileAge}km</span>
+                            <span>{formatKms(detailsAds?.mileAge)}</span>
                         </div>
 
-                        <span><b>R${detailsAds?.price}</b></span>
+                        <span><b>{formatPrice(detailsAds?.price)}</b></span>
                     </div>
                     <Link to={redirectWhatsAppUrl} target="_blank">
                         <Button font="brand-6-7">Entrar em contato</Button>

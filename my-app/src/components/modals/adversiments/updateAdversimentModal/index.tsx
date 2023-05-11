@@ -30,6 +30,7 @@ const UpdateAdversimentModal = ({setOpenModalUpdate}: any) => {
 
     //para vizualizar valores dos inputs
     const values = getValues()
+    console.log(values)
     
 
     useEffect(() => {
