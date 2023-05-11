@@ -29,11 +29,11 @@ const StyledContainer = styled.main`
                 background-color: ${({ theme }) => theme.colors.grey.g10};
                 border-radius: 4px;
                 img {
-                    padding: 10px;
-                    width: 50%;
-                    max-width: 100%;
-                    height: auto;
-                    border-radius: 15px;
+                    padding: 20px;
+                    width: 70vmin;
+                    /* max-width: 50%; */
+                    height: 35vmin;
+                    border-radius: 50px;
                 }
             }
 
