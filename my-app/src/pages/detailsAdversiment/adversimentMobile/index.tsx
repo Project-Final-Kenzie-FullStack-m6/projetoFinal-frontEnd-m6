@@ -20,6 +20,7 @@ import schemaUpdateComment from "../../../validators/comments/updateComment";
 import DeleteCommentModal from "../../../components/modals/comments/deleteComment";
 import { iAdversimentDataUpdate } from "../../../interface/adversiments";
 import { Api } from "../../../services/api";
+import carDefault from "../../../assets/default.jpg"
 
 const AdversimentMobile = ({id}:any) => {
     const { createCommentUser, handleIdComment} = useContext(AdversimentContext)
@@ -31,7 +32,6 @@ const AdversimentMobile = ({id}:any) => {
     const token = localStorage.getItem("token")
     const userId = localStorage.getItem("userId")
 
-    const img = detailsAds.images?.[0].imageUrl
     const navigate = useNavigate()
 
     moment.locale('pt-br')
@@ -130,7 +130,8 @@ const AdversimentMobile = ({id}:any) => {
         <div className="divMain">
             <div className="divSideOne">
                 <div className="divImagePrimary">
-                    <img src={img} alt="car" />
+                <img src={`${detailsAds.images?.[0] !== undefined? detailsAds.images?.[0].imageUrl: carDefault}`} alt="car" />
+
                 </div>
 
                 <div className="divDetails">
