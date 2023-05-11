@@ -5,6 +5,7 @@ import { StyledMain } from "../style";
 import { useContext, useState } from "react";
 import { GrFormClose } from "react-icons/gr";
 import * as S from "../../../components/cardAdverstiment/style.cardAdversiment";
+import Pagination from "../../../components/pagination";
 
 export const MainHome = () => {
   const [sideBar, setSideBar] = useState(false);
@@ -27,8 +28,9 @@ export const MainHome = () => {
     filterPrice,
     activeFilter,
     setActiveFilter,
-    // adversimentData,
-    // setFilterAdversiments,
+    dataInfoPagination,
+    setFilterAdversiments,
+    adversimentData,
     // listBrands,
   } = useContext(AdversimentContext);
   return (
@@ -727,23 +729,35 @@ export const MainHome = () => {
           </ul>
         </S.Container>
         {window.innerWidth > 900 ? (
-          <div className="pagination">
+          <>
+            <Pagination
+              data={dataInfoPagination}
+              setFilterAdversiments={setFilterAdversiments}
+              adversimentData={adversimentData}
+            />
+            {/* <div className="pagination">
             <h4>
               <strong>1</strong> de 2
             </h4>
             <h3>{"Seguinte >"}</h3>
-          </div>
+          </div> */}
+          </>
         ) : (
           <div className="divMobileFilter">
             <Button onClick={showSideBar} font="brand-1-2">
               Filtros
             </Button>
-            <div className="pagination">
-              <h4>
-                <strong>1</strong> de 2
-              </h4>
-              <h3>{"Seguinte >"}</h3>
-            </div>
+            <Pagination
+              data={dataInfoPagination}
+              setFilterAdversiments={setFilterAdversiments}
+              adversimentData={adversimentData}
+            />
+            {/* <div className="pagination">
+            <h4>
+              <strong>1</strong> de 2
+            </h4>
+            <h3>{"Seguinte >"}</h3>
+          </div> */}
           </div>
         )}
       </section>

@@ -1,13 +1,13 @@
 import { createContext, useEffect, useState } from "react";
 import { Api } from "../../services/api";
-import { useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   iAdversimentContextProps,
   iAdversimentDataRegister,
   iAdversimentDataResponse,
   iAdversimentDataUpdate,
   iAdversimentProviderProps,
-  iImageResponse
+  iImageResponse,
 } from "../../interface/adversiments";
 import { iCommentDataRequest } from "../../interface/comments";
 import Swal from 'sweetalert2'
@@ -32,12 +32,14 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
   const [detailsAds, setDetailsAds] = useState({} as iAdversimentDataUpdate);
   const [isActive, setIsActive] = useState(true);
   const [retrieveIds, setRetrieveIds] = useState([] as any);
-  
+  const [dataInfoPagination, setDataInfoPagination] = useState({} as any);
+
   const navigate = useNavigate();
 
   const loadAdversiment = async () => {
     try {
       const { data } = await Api.get("/adversiments");
+      setDataInfoPagination(data);
       const dataOrderMin = orderMinPrice(orderMinKM(data.advertisements));
       setAdversimentData(dataOrderMin);
       setFilterAdversiments(dataOrderMin);
@@ -194,10 +196,9 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
   };
 
   const handleIdComment = (data: any) => {
-    const response = data.id
-    setRetrieveIds(response)
-}
-
+    const response = data.id;
+    setRetrieveIds(response);
+  };
 
   useEffect(() => {
     loadAdversiment();
@@ -221,7 +222,7 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
       console.error(error);
     }
   };
-
+  
   const Toast = Swal.mixin({
     toast: true,
     position: 'top',
@@ -236,24 +237,23 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
   })
   
   const postNewAdversiment = async (data: iAdversimentDataRegister) => {
-  const newData = {...data,images:imageBase64}
-  console.log(imageBase64)
-
-    try {
-      const response =await Api.post("/adversiments", newData);
-      loadAdversiment();
-      //falta toast
-      setModalAddOpen(false);
-      Toast.fire({
-        icon: 'success',
-        title: 'Anuncio Criado com Sucesso'
-      })
-    } catch (error:any) {
-      Toast.fire({
-        icon: 'error',
-        title:  error
-      })
-    }
+    const newData = {...data,images:imageBase64}
+    console.log(imageBase64)
+      try {
+        const response = await Api.post("/adversiments", newData);
+        loadAdversiment();
+        //falta toast
+        setModalAddOpen(false);
+        Toast.fire({
+          icon: 'success',
+          title: 'Anuncio Criado com Sucesso'
+        })
+      } catch (error:any) {
+        Toast.fire({
+          icon: 'error',
+          title:  error
+        })
+      }
   };
 
   const updateAdversiment = async (data: iAdversimentDataUpdate) => {
@@ -325,7 +325,7 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
         title: error
       })
     }
-  }
+  };
 
   const deleteCommentUser = async () => {
     const token = localStorage.getItem("token");
@@ -349,7 +349,7 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
         title: error
       })
     }
-  }
+  };
 
   const deleteAdversiment = async () => {
     try {
@@ -407,7 +407,8 @@ const AdversimentProvider = ({ children }: iAdversimentProviderProps) => {
         isActive,
         setIsActive,
         imageBase64,
-        setImageBase64
+        setImageBase64,
+        dataInfoPagination,
       }}
     >
       {children}
